@@ -3,480 +3,389 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Club EasyPet — Todo lo que necesita tu mascota, en una sola app</title>
-<meta name="description" content="Encuentra lugares pet-friendly, veterinarios 24h, parques, playas y servicios cerca de ti. Descarga Club EasyPet gratis.">
+<title>Club EasyPet — La app de referencia para vivir con tu perro en España</title>
+<meta name="description" content="Encuentra lugares pet-friendly, veterinarios 24h, playas y parques para perros. Gestiona la salud de tu mascota y recibe alertas. Descarga gratis.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://clubeasypet.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://clubeasypet.com/">
 <meta property="og:title" content="Club EasyPet — Todo lo que necesita tu mascota, en una sola app">
-<meta property="og:description" content="6.000+ lugares pet-friendly en España. Veterinarios 24h, parques, playas, hoteles y más.">
+<meta property="og:description" content="6.000+ lugares pet-friendly en España. Veterinarios 24h, playas para perros, hoteles y parques caninos.">
 <meta property="og:image" content="https://clubeasypet.com/assets/logo-full.png">
 <meta name="twitter:card" content="summary_large_image">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Overpass:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<meta name="twitter:title" content="Club EasyPet 🐾">
+<meta name="twitter:description" content="La app de referencia para vivir con tu perro en España.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rammetto+One&family=Overpass:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
   --orange: #FF982B;
   --red: #D0384C;
   --cream: #F9F3DF;
-  --cream-dark: #EFE8CA;
+  --cream-mid: #F0E8C8;
+  --cream-dark: #E5D9AE;
   --obsidian: #0B1215;
-  --gold: #FFD700;
-  --green: #4CAF50;
+  --obsidian-soft: #1E2E34;
+  --green: #3A9E4F;
+  --gold: #A07000;
   --white: #FFFFFF;
-  --shadow: 0 4px 24px rgba(11,18,21,0.10);
-  --shadow-lg: 0 8px 40px rgba(11,18,21,0.14);
+  --sh1: 0 2px 10px rgba(11,18,21,0.07);
+  --sh2: 0 4px 24px rgba(11,18,21,0.10);
+  --sh3: 0 10px 44px rgba(11,18,21,0.15);
 }
 
-html { scroll-behavior:smooth; }
+html { scroll-behavior: smooth; }
 
 body {
-  font-family:'Overpass',sans-serif;
+  font-family: 'Overpass', sans-serif;
   background: var(--cream);
   color: var(--obsidian);
-  overflow-x:hidden;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 
 /* ── NAV ── */
 nav {
-  position:fixed; top:0; left:0; right:0; z-index:100;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 40px;
-  background:rgba(249,243,223,0.92);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(11,18,21,0.08);
-  box-shadow:0 2px 12px rgba(11,18,21,0.06);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 40px;
+  background: rgba(249,243,223,0.95);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(11,18,21,0.07);
+  box-shadow: var(--sh1);
 }
-.nav-logo {
-  font-family:'Bebas Neue'; font-size:26px;
-  color:var(--orange); letter-spacing:2px; text-decoration:none;
-}
-.nav-links { display:flex; gap:28px; align-items:center; }
-.nav-links a {
-  color:var(--obsidian); text-decoration:none;
-  font-size:13px; font-weight:700; opacity:0.6; transition:opacity .2s;
-}
-.nav-links a:hover { opacity:1; color:var(--orange); }
+.nav-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+.nav-brand img { height: 34px; width: auto; }
+.nav-brand-name { font-family: 'Rammetto One', cursive; font-size: 18px; color: var(--orange); letter-spacing: .5px; }
+.nav-links { display: flex; gap: 22px; align-items: center; }
+.nav-links a { color: var(--obsidian); text-decoration: none; font-size: 13px; font-weight: 700; opacity: .5; transition: opacity .2s, color .2s; }
+.nav-links a:hover { opacity: 1; color: var(--orange); }
 .nav-cta {
-  background:var(--orange); color:var(--white) !important;
-  padding:10px 22px; border-radius:99px;
-  font-weight:900 !important; font-size:13px;
-  opacity:1 !important; transition:transform .2s, box-shadow .2s !important;
-  box-shadow:0 4px 16px rgba(255,152,43,0.35);
+  background: var(--orange); color: var(--white) !important;
+  padding: 8px 18px; border-radius: 99px; font-weight: 900 !important;
+  font-size: 13px; opacity: 1 !important;
+  box-shadow: 0 3px 12px rgba(255,152,43,0.35);
+  transition: transform .2s, box-shadow .2s !important;
 }
-.nav-cta:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(255,152,43,0.45) !important; }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,152,43,0.45) !important; }
 
 /* ── HERO ── */
 .hero {
-  min-height:100vh;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  text-align:center; padding:120px 24px 80px;
-  position:relative; overflow:hidden;
-  background: linear-gradient(160deg, #fff8ee 0%, var(--cream) 60%, #fdefd8 100%);
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 110px 24px 80px;
+  position: relative; overflow: hidden;
+  background: linear-gradient(155deg, #fffcf4 0%, var(--cream) 50%, #fdefd8 100%);
 }
-.hero::before {
-  content:'';
-  position:absolute; top:-200px; right:-200px;
-  width:600px; height:600px; border-radius:50%;
-  background:radial-gradient(circle, rgba(255,152,43,0.12) 0%, transparent 70%);
-  pointer-events:none;
+.hero-blob1 {
+  position: absolute; top: -180px; right: -180px;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,152,43,0.11) 0%, transparent 70%);
+  pointer-events: none;
 }
-.hero::after {
-  content:'';
-  position:absolute; bottom:-150px; left:-150px;
-  width:500px; height:500px; border-radius:50%;
-  background:radial-gradient(circle, rgba(208,56,76,0.07) 0%, transparent 70%);
-  pointer-events:none;
+.hero-blob2 {
+  position: absolute; bottom: -140px; left: -140px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(208,56,76,0.07) 0%, transparent 70%);
+  pointer-events: none;
 }
+.hero-logo { width: min(260px, 55vw); margin-bottom: 24px; animation: fadeUp .55s ease both; filter: drop-shadow(0 6px 24px rgba(255,152,43,0.18)); }
 .hero-badge {
-  display:inline-flex; align-items:center; gap:8px;
-  background:rgba(255,152,43,0.12); border:1.5px solid rgba(255,152,43,0.3);
-  color:var(--orange); padding:8px 20px; border-radius:99px;
-  font-size:12px; font-weight:900; letter-spacing:2px; text-transform:uppercase;
-  margin-bottom:28px; position:relative;
-  animation:fadeUp .6s ease both;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,152,43,0.1); border: 1.5px solid rgba(255,152,43,0.26);
+  color: var(--orange); padding: 6px 16px; border-radius: 99px;
+  font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 22px; animation: fadeUp .55s .06s ease both;
 }
 .hero h1 {
-  font-family:'Bebas Neue';
-  font-size:clamp(52px,10vw,110px);
-  line-height:1.0; letter-spacing:-1px;
-  color:var(--obsidian);
-  margin-bottom:20px; position:relative;
-  animation:fadeUp .6s .1s ease both;
+  font-family: 'Rammetto One', cursive;
+  font-size: clamp(28px, 5.5vw, 58px);
+  line-height: 1.15; color: var(--obsidian);
+  max-width: 760px; margin-bottom: 18px;
+  animation: fadeUp .55s .12s ease both;
 }
-.hero h1 em { color:var(--orange); font-style:normal; }
+.hero h1 em { color: var(--orange); font-style: normal; }
 .hero-sub {
-  font-size:clamp(15px,2vw,19px);
-  color:var(--obsidian); opacity:0.6;
-  max-width:580px; line-height:1.7;
-  margin-bottom:44px; position:relative;
-  animation:fadeUp .6s .2s ease both;
+  font-size: clamp(15px, 2vw, 18px); color: var(--obsidian); opacity: .56;
+  max-width: 560px; line-height: 1.75; margin-bottom: 36px;
+  animation: fadeUp .55s .18s ease both;
 }
-.hero-ctas {
-  display:flex; gap:14px; flex-wrap:wrap; justify-content:center;
-  position:relative; animation:fadeUp .6s .3s ease both;
-}
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; animation: fadeUp .55s .24s ease both; }
 .btn-primary {
-  background:var(--orange); color:var(--white);
-  padding:16px 36px; border-radius:14px;
-  font-weight:900; font-size:15px; text-decoration:none;
-  box-shadow:0 6px 24px rgba(255,152,43,0.35);
-  transition:transform .2s, box-shadow .2s;
-  display:inline-flex; align-items:center; gap:8px;
+  background: var(--orange); color: var(--white);
+  padding: 15px 30px; border-radius: 14px; font-weight: 900; font-size: 15px;
+  text-decoration: none; box-shadow: 0 5px 20px rgba(255,152,43,0.38);
+  transition: transform .2s, box-shadow .2s;
+  display: inline-flex; align-items: center; gap: 7px;
 }
-.btn-primary:hover { transform:translateY(-3px); box-shadow:0 12px 36px rgba(255,152,43,0.45); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,152,43,0.48); }
 .btn-secondary {
-  background:var(--white); color:var(--obsidian);
-  padding:16px 36px; border-radius:14px;
-  font-weight:700; font-size:15px; text-decoration:none;
-  border:2px solid var(--cream-dark);
-  box-shadow:var(--shadow);
-  transition:all .2s;
+  background: var(--white); color: var(--obsidian);
+  padding: 15px 30px; border-radius: 14px; font-weight: 700; font-size: 15px;
+  text-decoration: none; border: 2px solid var(--cream-dark);
+  box-shadow: var(--sh1); transition: all .2s;
 }
-.btn-secondary:hover { border-color:var(--orange); color:var(--orange); transform:translateY(-2px); }
+.btn-secondary:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+.hero-microcopy { font-size: 12px; opacity: .38; margin-top: 14px; animation: fadeUp .55s .30s ease both; }
 .hero-stats {
-  display:flex; gap:40px; margin-top:64px;
-  flex-wrap:wrap; justify-content:center;
-  position:relative; animation:fadeUp .6s .4s ease both;
+  display: flex; gap: 32px; margin-top: 52px; flex-wrap: wrap; justify-content: center;
+  animation: fadeUp .55s .36s ease both;
 }
-.stat { text-align:center; }
-.stat-num { font-family:'Bebas Neue'; font-size:46px; color:var(--orange); line-height:1; }
-.stat-label { font-size:11px; opacity:0.5; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:4px; }
+.stat { text-align: center; }
+.stat-num { font-family: 'Rammetto One', cursive; font-size: 36px; color: var(--orange); line-height: 1; }
+.stat-label { font-size: 11px; opacity: .42; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-top: 3px; }
 .scroll-line {
-  position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
-  width:1px; height:56px;
-  background:linear-gradient(to bottom, transparent, var(--orange));
-  animation:pulse 2s infinite;
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--orange));
+  animation: pulse 2s infinite;
 }
 
-/* ── SCROLL REVEAL ── */
-.reveal { opacity:0; transform:translateY(32px); transition:opacity .75s ease, transform .75s ease; }
-.reveal.visible { opacity:1; transform:translateY(0); }
-.rd1 { transition-delay:.1s; }
-.rd2 { transition-delay:.2s; }
-.rd3 { transition-delay:.3s; }
-.rd4 { transition-delay:.4s; }
-.rd5 { transition-delay:.5s; }
-.rd6 { transition-delay:.6s; }
+/* ── TRUST BAR ── */
+.trust-bar {
+  padding: 32px 24px;
+  background: var(--obsidian);
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 28px;
+  border-right: 1px solid rgba(249,243,223,0.08);
+}
+.trust-item:last-child { border-right: none; }
+.trust-icon { font-size: 22px; }
+.trust-text { font-size: 13px; font-weight: 700; color: var(--cream); opacity: .75; }
+.trust-text strong { color: var(--orange); opacity: 1; }
 
-/* ── SECTION BASE ── */
-.section-label {
-  font-size:11px; font-weight:900; letter-spacing:3px; text-transform:uppercase;
-  color:var(--orange); margin-bottom:12px; display:block;
-}
-.section-title {
-  font-family:'Bebas Neue'; font-size:clamp(42px,6vw,72px);
-  line-height:1.0; margin-bottom:16px; color:var(--obsidian);
-}
-.section-sub {
-  font-size:16px; opacity:0.55; max-width:560px; line-height:1.7; margin-bottom:56px;
-}
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.rd1 { transition-delay: .08s; } .rd2 { transition-delay: .16s; }
+.rd3 { transition-delay: .24s; } .rd4 { transition-delay: .32s; }
+.rd5 { transition-delay: .40s; } .rd6 { transition-delay: .48s; }
 
-/* ── FEATURES ── */
-.features-section { padding:100px 24px; background:var(--cream); }
-.features-inner { max-width:1200px; margin:0 auto; }
-.features-grid {
-  display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr));
-  gap:16px; margin-top:56px;
-}
-.feature-card {
-  background:var(--white); border-radius:20px;
-  padding:36px 32px;
-  box-shadow:var(--shadow);
-  border:1.5px solid transparent;
-  transition:transform .25s, box-shadow .25s, border-color .25s;
-  position:relative; overflow:hidden;
-}
-.feature-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:rgba(255,152,43,0.2); }
-.feature-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:3px;
-  background:linear-gradient(90deg, var(--orange), var(--red));
-  opacity:0; transition:opacity .3s;
-}
-.feature-card:hover::before { opacity:1; }
-.feature-emoji { font-size:36px; margin-bottom:16px; display:block; }
-.feature-title { font-weight:900; font-size:18px; margin-bottom:8px; color:var(--obsidian); }
-.feature-desc { font-size:14px; color:var(--obsidian); opacity:0.55; line-height:1.7; }
-.feature-badge {
-  display:inline-block; background:rgba(255,215,0,0.15);
-  color:#B8860B; font-size:10px; font-weight:900;
-  padding:3px 10px; border-radius:99px; margin-top:14px;
-  letter-spacing:1px; text-transform:uppercase;
-}
+/* ── LABELS / TITLES ── */
+.section-label { font-size: 11px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; display: block; }
+.section-title { font-family: 'Rammetto One', cursive; font-size: clamp(26px, 4.5vw, 48px); line-height: 1.15; color: var(--obsidian); margin-bottom: 12px; }
+.section-sub { font-size: 15.5px; color: var(--obsidian); opacity: .52; max-width: 500px; line-height: 1.75; }
 
 /* ── SCREENS ── */
-.screens-section {
-  padding:100px 24px;
-  background:linear-gradient(180deg, var(--cream) 0%, #fff6e8 50%, var(--cream) 100%);
-  overflow:hidden;
-}
-.screens-inner { max-width:1200px; margin:0 auto; text-align:center; }
-.screens-track {
-  display:flex; gap:24px; align-items:center; justify-content:center;
-  flex-wrap:wrap; margin-top:56px;
-}
-.screen-item { display:flex; flex-direction:column; align-items:center; gap:14px; flex:0 0 auto; }
+.screens-section { padding: 96px 24px; background: linear-gradient(180deg, var(--cream) 0%, #fff8ee 60%, var(--cream) 100%); overflow: hidden; }
+.screens-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+.screens-row { display: grid; gap: 18px; margin-top: 16px; }
+.screens-row-1 { grid-template-columns: repeat(4, 1fr); }
+.screens-row-2 { grid-template-columns: repeat(3, 1fr); max-width: 76%; margin-left: auto; margin-right: auto; }
+.screen-item { display: flex; flex-direction: column; align-items: center; gap: 11px; }
 .screen-frame {
-  width:180px; position:relative;
-  transition:transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .4s;
+  width: 100%; max-width: 190px; position: relative;
+  transition: transform .4s cubic-bezier(.34,1.56,.64,1);
 }
-.screen-frame img {
-  width:100%; border-radius:24px;
-  box-shadow:0 16px 48px rgba(11,18,21,0.18);
-  border:2px solid rgba(255,152,43,0.12);
-  display:block;
-}
-.screen-frame:hover { transform:translateY(-18px) rotate(0deg) scale(1.06) !important; animation-play-state:paused; }
-.screen-label { font-size:11px; font-weight:700; color:var(--obsidian); opacity:0.4; letter-spacing:1px; text-transform:uppercase; }
+.screen-frame img { width: 100%; border-radius: 22px; box-shadow: 0 12px 40px rgba(11,18,21,0.15); border: 2px solid rgba(255,152,43,0.1); display: block; }
+.screen-frame:hover { transform: translateY(-16px) scale(1.05) !important; animation-play-state: paused !important; }
+.screen-label { font-size: 11px; font-weight: 700; color: var(--obsidian); opacity: .35; letter-spacing: 1px; text-transform: uppercase; }
+.screens-row-1 .screen-item:nth-child(1) .screen-frame { animation: float1 6s ease-in-out infinite; }
+.screens-row-1 .screen-item:nth-child(2) .screen-frame { animation: float2 7.5s ease-in-out infinite; }
+.screens-row-1 .screen-item:nth-child(3) .screen-frame { animation: float3 5.5s ease-in-out infinite; }
+.screens-row-1 .screen-item:nth-child(4) .screen-frame { animation: float1 8s ease-in-out infinite; }
+.screens-row-2 .screen-item:nth-child(1) .screen-frame { animation: float2 6.5s ease-in-out infinite; }
+.screens-row-2 .screen-item:nth-child(2) .screen-frame { animation: float3 7s ease-in-out infinite; }
+.screens-row-2 .screen-item:nth-child(3) .screen-frame { animation: float1 5.5s ease-in-out infinite; }
 
-.screen-item:nth-child(1) .screen-frame { animation:float1 6s ease-in-out infinite; }
-.screen-item:nth-child(2) .screen-frame { animation:float2 7s ease-in-out infinite; transform:translateY(-8px); }
-.screen-item:nth-child(3) .screen-frame { animation:float3 5.5s ease-in-out infinite; }
-.screen-item:nth-child(4) .screen-frame { animation:float1 8s ease-in-out infinite; transform:translateY(-4px); }
-.screen-item:nth-child(5) .screen-frame { animation:float2 6.5s ease-in-out infinite; }
-.screen-item:nth-child(6) .screen-frame { animation:float3 7.5s ease-in-out infinite; transform:translateY(-10px); }
-.screen-item:nth-child(7) .screen-frame { animation:float1 5s ease-in-out infinite; }
+/* ── FEATURES ── */
+.features-section { padding: 96px 24px; background: var(--cream); }
+.features-inner { max-width: 1100px; margin: 0 auto; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 14px; margin-top: 48px; }
+.feature-card {
+  background: var(--white); border-radius: 18px; padding: 30px 26px;
+  box-shadow: var(--sh2); border: 1.5px solid transparent;
+  transition: transform .25s, box-shadow .25s, border-color .25s; position: relative; overflow: hidden;
+}
+.feature-card:hover { transform: translateY(-5px); box-shadow: var(--sh3); border-color: rgba(255,152,43,0.18); }
+.feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--orange), var(--red)); opacity: 0; transition: opacity .3s; }
+.feature-card:hover::before { opacity: 1; }
+.feature-emoji { font-size: 32px; margin-bottom: 13px; display: block; }
+.feature-title { font-weight: 900; font-size: 16px; margin-bottom: 7px; color: var(--obsidian); }
+.feature-desc { font-size: 13.5px; color: var(--obsidian); opacity: .5; line-height: 1.7; }
+.feature-badge { display: inline-block; background: rgba(160,112,0,0.1); color: var(--gold); font-size: 10px; font-weight: 900; padding: 2px 9px; border-radius: 99px; margin-top: 11px; letter-spacing: 1px; text-transform: uppercase; }
 
 /* ── PINS ── */
-.pins-section { padding:80px 24px; background:var(--cream); }
-.pins-inner { max-width:1100px; margin:0 auto; }
-.pins-grid {
-  display:grid; grid-template-columns:repeat(5,1fr);
-  gap:14px; margin-top:48px;
-}
+.pins-section { padding: 80px 24px; background: var(--cream); }
+.pins-inner { max-width: 1040px; margin: 0 auto; }
+.pins-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 11px; margin-top: 40px; }
 .pin-card {
-  display:flex; flex-direction:column; align-items:center; gap:10px;
-  background:var(--white); border:1.5px solid var(--cream-dark);
-  border-radius:18px; padding:24px 12px;
-  box-shadow:var(--shadow);
-  transition:transform .25s, box-shadow .25s, border-color .25s;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  background: var(--white); border: 1.5px solid var(--cream-mid);
+  border-radius: 15px; padding: 20px 10px;
+  box-shadow: var(--sh1);
+  transition: transform .25s, box-shadow .25s, border-color .25s;
 }
-.pin-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--orange); }
-.pin-card img { width:60px; height:60px; object-fit:contain; filter:drop-shadow(0 3px 8px rgba(0,0,0,0.15)); transition:transform .25s; }
-.pin-card:hover img { transform:scale(1.15) rotate(-5deg); }
-.pin-card-label { font-size:11px; font-weight:700; text-align:center; color:var(--obsidian); opacity:0.55; }
-.pin-card.pf-card { grid-column:span 2; flex-direction:row; gap:14px; justify-content:center; padding:18px 24px; }
-.pin-card.pf-card img { width:50px; height:50px; }
-.pin-card.pf-card .pin-card-label { font-size:13px; }
+.pin-card:hover { transform: translateY(-7px); box-shadow: var(--sh2); border-color: var(--orange); }
+.pin-card img { width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.10)); transition: transform .25s; }
+.pin-card:hover img { transform: scale(1.13) rotate(-5deg); }
+.pin-card-label { font-size: 10px; font-weight: 700; text-align: center; color: var(--obsidian); opacity: .5; }
+.pin-card.pf-card { grid-column: span 2; flex-direction: row; gap: 11px; justify-content: center; padding: 14px 18px; }
+.pin-card.pf-card img { width: 42px; height: 42px; }
+.pin-card.pf-card .pin-card-label { font-size: 12px; opacity: .65; }
 
-/* ── MAP ── */
-.map-section {
-  padding:100px 24px;
-  background:var(--obsidian);
+/* ── OWNERS ── */
+.owners-section { padding: 96px 24px; background: linear-gradient(135deg, #fff8ee 0%, var(--cream) 100%); }
+.owners-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.owners-text .section-sub { margin-bottom: 32px; }
+.owners-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+.owners-list li { display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: var(--obsidian); }
+.owners-list li .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+.owners-visual {
+  background: var(--white); border-radius: 22px; padding: 36px;
+  box-shadow: var(--sh3); border: 2px solid var(--cream-dark);
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 1; position: relative; overflow: hidden;
 }
-.map-content { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
-.map-text .section-label { color:var(--orange); }
-.map-text .section-title { color:var(--cream); }
-.map-text p { color:rgba(249,243,223,0.6); line-height:1.8; margin-bottom:28px; font-size:16px; }
-.map-checks { display:flex; flex-direction:column; gap:12px; }
-.map-check { display:flex; align-items:center; gap:12px; font-size:14px; color:rgba(249,243,223,0.7); }
-.map-check span { color:var(--green); font-size:16px; }
-.map-visual {
-  background:rgba(249,243,223,0.05);
-  border:1px solid rgba(249,243,223,0.1);
-  border-radius:24px; padding:40px;
-  aspect-ratio:1; display:flex; align-items:center; justify-content:center;
-  position:relative; overflow:hidden;
+.owners-visual-bg {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,152,43,0.12) 1px, transparent 1px);
+  background-size: 28px 28px; opacity: 0.6;
 }
-.map-dots {
-  position:absolute; inset:0;
-  background-image:radial-gradient(circle, rgba(255,152,43,0.35) 1px, transparent 1px);
-  background-size:32px 32px; opacity:0.4;
-}
-.map-pin-demo { position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:16px; }
-.pin-row { display:flex; gap:14px; }
-.pin-img-real { width:50px; height:50px; object-fit:contain; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4)); transition:transform .3s cubic-bezier(.34,1.56,.64,1); }
-.pin-img-real:hover { transform:scale(1.25) translateY(-4px); }
-.map-number { font-family:'Bebas Neue'; font-size:80px; color:var(--orange); line-height:1; }
-.map-number-label { font-size:13px; color:rgba(249,243,223,0.4); font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+.owners-visual-inner { position: relative; z-index: 1; text-align: center; }
+.owners-big { font-family: 'Rammetto One', cursive; font-size: 72px; color: var(--orange); line-height: 1; }
+.owners-small { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--obsidian); opacity: .4; margin-top: 4px; }
+.owners-pins { display: flex; gap: 10px; margin-top: 20px; justify-content: center; }
+.owners-pin { width: 46px; height: 46px; object-fit: contain; filter: drop-shadow(0 3px 8px rgba(0,0,0,0.12)); transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+.owners-pin:hover { transform: scale(1.2) translateY(-4px); }
 
-/* ── BUSINESS SECTION ── */
-.business-section {
-  padding:100px 24px;
-  background:linear-gradient(135deg, var(--orange) 0%, var(--red) 100%);
-  text-align:center;
-}
-.business-inner { max-width:800px; margin:0 auto; }
-.business-section .section-label { color:rgba(255,255,255,0.7); }
-.business-section .section-title { color:var(--white); font-size:clamp(40px,6vw,70px); margin-bottom:16px; }
-.business-sub { font-size:18px; color:rgba(255,255,255,0.8); line-height:1.7; margin-bottom:48px; max-width:520px; margin-left:auto; margin-right:auto; }
-.business-bullets {
-  display:flex; flex-wrap:wrap; justify-content:center;
-  gap:14px; margin-bottom:48px;
-}
+/* ── BUSINESS ── */
+.business-section { padding: 96px 24px; background: linear-gradient(135deg, var(--orange) 0%, var(--red) 100%); text-align: center; }
+.business-inner { max-width: 740px; margin: 0 auto; }
+.business-section .section-label { color: rgba(255,255,255,0.6); }
+.business-section .section-title { color: var(--white); font-size: clamp(26px, 4.5vw, 48px); }
+.business-sub { font-size: 16px; color: rgba(255,255,255,0.76); line-height: 1.75; margin: 12px auto 40px; max-width: 500px; }
+.business-bullets { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
 .business-bullet {
-  display:inline-flex; align-items:center; gap:8px;
-  background:rgba(255,255,255,0.15);
-  border:1.5px solid rgba(255,255,255,0.25);
-  color:var(--white); padding:10px 20px;
-  border-radius:99px; font-size:14px; font-weight:700;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.13); border: 1.5px solid rgba(255,255,255,0.22);
+  color: var(--white); padding: 9px 17px; border-radius: 99px;
+  font-size: 13px; font-weight: 700;
 }
-.btn-white {
-  display:inline-flex; align-items:center; gap:8px;
-  background:var(--white); color:var(--orange);
-  padding:18px 40px; border-radius:14px;
-  font-weight:900; font-size:16px; text-decoration:none;
-  box-shadow:0 8px 32px rgba(0,0,0,0.15);
-  transition:transform .2s, box-shadow .2s;
-}
-.btn-white:hover { transform:translateY(-3px); box-shadow:0 16px 40px rgba(0,0,0,0.2); }
+.btn-white { display: inline-flex; align-items: center; gap: 7px; background: var(--white); color: var(--orange); padding: 15px 36px; border-radius: 14px; font-weight: 900; font-size: 15px; text-decoration: none; box-shadow: 0 6px 26px rgba(0,0,0,0.14); transition: transform .2s, box-shadow .2s; }
+.btn-white:hover { transform: translateY(-3px); box-shadow: 0 12px 34px rgba(0,0,0,0.20); }
 
 /* ── PRICING ── */
-.pricing-section { padding:100px 24px; background:var(--cream); }
-.pricing-inner { max-width:1000px; margin:0 auto; text-align:center; }
-.pricing-cards { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:56px; }
+.pricing-section { padding: 96px 24px; background: var(--cream); }
+.pricing-inner { max-width: 920px; margin: 0 auto; text-align: center; }
+.pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 48px; }
 .pricing-card {
-  background:var(--white); border-radius:24px;
-  padding:44px 36px; text-align:left;
-  box-shadow:var(--shadow); border:2px solid var(--cream-dark);
-  transition:transform .3s, box-shadow .3s;
+  background: var(--white); border-radius: 20px; padding: 36px 30px;
+  text-align: left; box-shadow: var(--sh2); border: 2px solid var(--cream-dark);
+  transition: transform .3s, box-shadow .3s;
 }
-.pricing-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
-.pricing-card.premium {
-  background:var(--obsidian);
-  border-color:var(--orange);
-  box-shadow:0 8px 40px rgba(255,152,43,0.2);
-  position:relative;
-}
-.premium-crown {
-  position:absolute; top:-1px; left:50%; transform:translateX(-50%);
-  background:var(--orange); color:var(--white);
-  font-size:11px; font-weight:900; padding:5px 18px;
-  border-radius:0 0 12px 12px; letter-spacing:2px; text-transform:uppercase;
-}
-.plan-name { font-size:11px; font-weight:900; letter-spacing:3px; text-transform:uppercase; opacity:0.5; margin-bottom:14px; }
-.pricing-card.premium .plan-name { color:rgba(249,243,223,0.5); }
-.plan-price { font-family:'Bebas Neue'; font-size:68px; color:var(--obsidian); line-height:1; }
-.pricing-card.premium .plan-price { color:var(--orange); }
-.plan-price sub { font-family:'Overpass'; font-size:18px; opacity:0.5; }
-.plan-period { font-size:13px; opacity:0.45; margin-bottom:8px; }
-.plan-trial {
-  display:inline-block; background:rgba(255,152,43,0.12);
-  color:var(--orange); font-size:12px; font-weight:900;
-  padding:4px 12px; border-radius:99px; margin-bottom:28px;
-  letter-spacing:0.5px;
-}
-.plan-features { list-style:none; display:flex; flex-direction:column; gap:11px; margin-bottom:36px; }
-.plan-features li { display:flex; align-items:center; gap:10px; font-size:14px; color:var(--obsidian); }
-.pricing-card.premium .plan-features li { color:var(--cream); }
-.plan-features li .check { color:var(--green); font-size:15px; font-weight:900; }
-.plan-features li .cross { opacity:0.25; font-size:15px; }
-.plan-features li.muted { opacity:0.4; }
-.plan-cta {
-  display:block; width:100%; padding:15px;
-  border-radius:12px; font-weight:900; font-size:15px;
-  text-align:center; text-decoration:none; transition:all .2s;
-}
-.plan-cta.free {
-  background:var(--cream); color:var(--obsidian);
-  border:2px solid var(--cream-dark);
-}
-.plan-cta.free:hover { border-color:var(--orange); color:var(--orange); }
-.plan-cta.paid {
-  background:var(--orange); color:var(--white);
-  box-shadow:0 6px 20px rgba(255,152,43,0.4);
-}
-.plan-cta.paid:hover { transform:translateY(-2px); box-shadow:0 12px 28px rgba(255,152,43,0.5); }
-.plan-cta-sub { font-size:11px; opacity:0.4; margin-top:10px; text-align:center; }
-.pricing-card.premium .plan-cta-sub { color:rgba(249,243,223,0.4); }
-.pricing-note { font-size:12px; opacity:0.35; margin-top:20px; color:var(--obsidian); }
+.pricing-card:hover { transform: translateY(-4px); box-shadow: var(--sh3); }
+.pricing-card.premium { background: var(--obsidian); border-color: var(--orange); box-shadow: 0 8px 36px rgba(255,152,43,0.18); position: relative; }
+.premium-crown { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--orange); color: var(--white); font-size: 11px; font-weight: 900; padding: 5px 16px; border-radius: 0 0 11px 11px; letter-spacing: 2px; text-transform: uppercase; }
+.plan-name { font-size: 11px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; opacity: .4; margin-bottom: 10px; }
+.pricing-card.premium .plan-name { color: rgba(249,243,223,0.4); }
+.plan-price { font-family: 'Rammetto One', cursive; font-size: 52px; color: var(--obsidian); line-height: 1; }
+.pricing-card.premium .plan-price { color: var(--orange); }
+.plan-price sub { font-family: 'Overpass'; font-size: 16px; opacity: .4; font-weight: 400; }
+.plan-period { font-size: 13px; opacity: .38; margin-bottom: 6px; }
+.pricing-card.premium .plan-period { color: rgba(249,243,223,0.38); }
+.plan-trial { display: inline-block; background: rgba(255,152,43,0.12); color: var(--orange); font-size: 12px; font-weight: 900; padding: 4px 11px; border-radius: 99px; margin-bottom: 22px; }
+.plan-features { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
+.plan-features li { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--obsidian); }
+.pricing-card.premium .plan-features li { color: var(--cream); }
+.plan-features li .ck { color: var(--green); font-size: 14px; font-weight: 900; }
+.plan-features li .cx { opacity: .2; font-size: 14px; }
+.plan-features li.muted { opacity: .35; }
+.plan-cta { display: block; width: 100%; padding: 13px; border-radius: 11px; font-weight: 900; font-size: 14px; text-align: center; text-decoration: none; transition: all .2s; }
+.plan-cta.free { background: var(--cream); color: var(--obsidian); border: 2px solid var(--cream-dark); }
+.plan-cta.free:hover { border-color: var(--orange); color: var(--orange); }
+.plan-cta.paid { background: var(--orange); color: var(--white); box-shadow: 0 4px 16px rgba(255,152,43,0.38); }
+.plan-cta.paid:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,152,43,0.48); }
+.plan-cta-sub { font-size: 11px; opacity: .32; margin-top: 8px; text-align: center; }
+.pricing-card.premium .plan-cta-sub { color: rgba(249,243,223,0.32); }
+.pricing-note { font-size: 12px; opacity: .28; margin-top: 16px; }
 
-/* ── COMPARE TABLE ── */
-.compare-section { padding:0 24px 100px; max-width:900px; margin:0 auto; }
-.compare-section h2 { font-family:'Bebas Neue'; font-size:48px; text-align:center; margin-bottom:40px; color:var(--obsidian); }
-table { width:100%; border-collapse:collapse; background:var(--white); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); }
-th { padding:16px; text-align:center; font-size:13px; font-weight:900; background:var(--obsidian); color:var(--cream); }
-th:first-child { text-align:left; }
-th.premium-th { color:var(--orange); }
-td { padding:13px 16px; border-bottom:1px solid rgba(11,18,21,0.05); font-size:14px; color:var(--obsidian); }
-td:not(:first-child) { text-align:center; }
-tr:hover td { background:rgba(255,152,43,0.03); }
-.cat-row td { font-size:11px; font-weight:900; letter-spacing:2px; text-transform:uppercase; opacity:0.35; padding:20px 16px 6px; background:var(--cream); }
-.check-yes { color:var(--green); font-size:17px; }
-.check-no { opacity:0.2; font-size:17px; }
-.check-hi { color:var(--orange); font-weight:900; font-size:13px; }
+/* ── COMPARE ── */
+.compare-section { padding: 0 24px 96px; max-width: 840px; margin: 0 auto; }
+.compare-section h2 { font-family: 'Rammetto One', cursive; font-size: 36px; text-align: center; margin-bottom: 32px; color: var(--obsidian); }
+table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 14px; overflow: hidden; box-shadow: var(--sh2); }
+th { padding: 14px; text-align: center; font-size: 12.5px; font-weight: 900; background: var(--obsidian); color: var(--cream); }
+th:first-child { text-align: left; }
+th.pt { color: var(--orange); }
+td { padding: 11px 14px; border-bottom: 1px solid rgba(11,18,21,0.05); font-size: 13px; color: var(--obsidian); }
+td:not(:first-child) { text-align: center; }
+tr:hover td { background: rgba(255,152,43,0.03); }
+.cat-row td { font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; opacity: .28; padding: 16px 14px 4px; background: var(--cream); }
+.cy { color: var(--green); font-size: 15px; }
+.cn { opacity: .16; font-size: 15px; }
+.ch { color: var(--orange); font-weight: 900; font-size: 12.5px; }
 
 /* ── COMMUNITY ── */
-.community-section {
-  padding:100px 24px;
-  background:linear-gradient(180deg, var(--cream) 0%, #fff6e8 100%);
-  text-align:center;
-}
-.community-inner { max-width:1000px; margin:0 auto; }
-.community-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:16px; margin-top:48px; }
-.community-card {
-  background:var(--white); border:1.5px solid var(--cream-dark);
-  border-radius:20px; padding:28px; text-align:left;
-  box-shadow:var(--shadow);
-  transition:transform .3s, box-shadow .3s, border-color .3s;
-}
-.community-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); border-color:var(--orange); }
-.community-card .emoji { font-size:28px; margin-bottom:12px; }
-.community-card p { font-size:14px; color:var(--obsidian); opacity:0.6; line-height:1.7; }
-.community-card .author { font-size:11px; opacity:0.35; margin-top:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; }
+.community-section { padding: 96px 24px; background: linear-gradient(180deg, var(--cream) 0%, #fff8ee 100%); text-align: center; }
+.community-inner { max-width: 960px; margin: 0 auto; }
+.community-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 13px; margin-top: 40px; }
+.community-card { background: var(--white); border: 1.5px solid var(--cream-mid); border-radius: 17px; padding: 24px; text-align: left; box-shadow: var(--sh1); transition: transform .3s, box-shadow .3s, border-color .3s; }
+.community-card:hover { transform: translateY(-5px); box-shadow: var(--sh2); border-color: var(--orange); }
+.community-card .emoji { font-size: 26px; margin-bottom: 10px; }
+.community-card p { font-size: 13.5px; color: var(--obsidian); opacity: .54; line-height: 1.7; }
+.community-card .author { font-size: 10px; opacity: .28; margin-top: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
 
 /* ── DOWNLOAD ── */
-.download-section {
-  padding:100px 24px; text-align:center;
-  background:var(--obsidian); position:relative; overflow:hidden;
-}
-.download-section::before {
-  content:'';
-  position:absolute; inset:0;
-  background:radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255,152,43,0.1) 0%, transparent 70%);
-}
-.download-section h2 { font-family:'Bebas Neue'; font-size:clamp(48px,8vw,96px); line-height:1; margin-bottom:20px; position:relative; color:var(--cream); }
-.download-section h2 em { color:var(--orange); font-style:normal; }
-.download-section p { font-size:17px; color:rgba(249,243,223,0.5); margin-bottom:48px; position:relative; }
-.store-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; }
-.store-btn {
-  display:inline-flex; align-items:center; gap:12px;
-  background:rgba(249,243,223,0.08); border:1.5px solid rgba(249,243,223,0.15);
-  padding:16px 28px; border-radius:14px; text-decoration:none; color:var(--cream);
-  font-weight:700; font-size:15px; transition:all .2s;
-}
-.store-btn:hover { background:rgba(249,243,223,0.15); transform:translateY(-2px); }
-.store-btn .store-small { font-size:11px; opacity:0.5; display:block; font-weight:400; }
-.store-btn.disabled { opacity:0.35; cursor:not-allowed; pointer-events:none; }
+.download-section { padding: 96px 24px; text-align: center; background: var(--obsidian); position: relative; overflow: hidden; }
+.download-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(255,152,43,0.09) 0%, transparent 70%); }
+.download-section h2 { font-family: 'Rammetto One', cursive; font-size: clamp(32px, 6vw, 72px); line-height: 1.1; margin-bottom: 16px; position: relative; color: var(--cream); }
+.download-section h2 em { color: var(--orange); font-style: normal; }
+.download-section p { font-size: 16px; color: rgba(249,243,223,0.45); margin-bottom: 40px; position: relative; }
+.store-btns { display: flex; gap: 13px; justify-content: center; flex-wrap: wrap; position: relative; }
+.store-btn { display: inline-flex; align-items: center; gap: 10px; background: rgba(249,243,223,0.07); border: 1.5px solid rgba(249,243,223,0.13); padding: 14px 24px; border-radius: 12px; text-decoration: none; color: var(--cream); font-weight: 700; font-size: 14px; transition: all .2s; }
+.store-btn:hover { background: rgba(249,243,223,0.14); transform: translateY(-2px); }
+.store-btn .ss { font-size: 10.5px; opacity: .42; display: block; font-weight: 400; }
+.store-btn.disabled { opacity: .28; cursor: not-allowed; pointer-events: none; }
 
 /* ── FOOTER ── */
-footer {
-  padding:44px 40px;
-  background:var(--cream);
-  border-top:1.5px solid var(--cream-dark);
-  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;
-}
-.footer-logo { font-family:'Bebas Neue'; font-size:22px; color:var(--orange); }
-.footer-links { display:flex; gap:24px; }
-.footer-links a { color:var(--obsidian); opacity:0.35; text-decoration:none; font-size:13px; transition:opacity .2s; }
-.footer-links a:hover { opacity:0.8; color:var(--orange); }
-.footer-copy { font-size:12px; opacity:0.3; color:var(--obsidian); }
+footer { padding: 36px 40px; background: var(--cream); border-top: 1.5px solid var(--cream-dark); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-brand { display: flex; align-items: center; gap: 8px; }
+.footer-brand img { height: 26px; }
+.footer-brand span { font-family: 'Rammetto One', cursive; font-size: 17px; color: var(--orange); }
+.footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+.footer-links a { color: var(--obsidian); opacity: .3; text-decoration: none; font-size: 13px; transition: opacity .2s, color .2s; }
+.footer-links a:hover { opacity: .75; color: var(--orange); }
+.footer-copy { font-size: 11.5px; opacity: .25; color: var(--obsidian); }
 
 /* ── ANIMATIONS ── */
-@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
-@keyframes pulse { 0%,100%{opacity:.3;transform:translateX(-50%) scaleY(1)} 50%{opacity:1;transform:translateX(-50%) scaleY(1.1)} }
-@keyframes float1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
-@keyframes float2 { 0%,100%{transform:translateY(-8px)} 50%{transform:translateY(-22px)} }
-@keyframes float3 { 0%,100%{transform:translateY(-4px)} 50%{transform:translateY(-16px)} }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%,100%{opacity:.25;transform:translateX(-50%) scaleY(1)} 50%{opacity:.8;transform:translateX(-50%) scaleY(1.08)} }
+@keyframes float1 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-12px)} }
+@keyframes float2 { 0%,100%{transform:translateY(-5px)} 50%{transform:translateY(-17px)} }
+@keyframes float3 { 0%,100%{transform:translateY(-2px)} 50%{transform:translateY(-13px)} }
 
 /* ── RESPONSIVE ── */
-@media (max-width:960px) {
-  .map-content { grid-template-columns:1fr; gap:40px; }
-  .pins-grid { grid-template-columns:repeat(3,1fr); }
-  .pin-card.pf-card { grid-column:span 3; }
+@media (max-width: 1000px) {
+  .owners-inner { grid-template-columns: 1fr; gap: 36px; }
+  .owners-visual { aspect-ratio: auto; padding: 28px; min-height: 200px; }
+  .pins-grid { grid-template-columns: repeat(3,1fr); }
+  .pin-card.pf-card { grid-column: span 3; }
+  .screens-row-1 { grid-template-columns: repeat(2,1fr); }
+  .screens-row-2 { grid-template-columns: repeat(2,1fr); max-width: 65%; }
 }
-@media (max-width:768px) {
-  nav { padding:14px 20px; }
-  .nav-links { display:none; }
-  .pricing-cards { grid-template-columns:1fr; }
-  footer { flex-direction:column; text-align:center; }
-  .hero-stats { gap:28px; }
-  .screen-frame { width:130px; }
-  .pins-grid { grid-template-columns:repeat(2,1fr); }
-  .pin-card.pf-card { grid-column:span 2; }
-  .business-bullets { flex-direction:column; align-items:center; }
+@media (max-width: 768px) {
+  nav { padding: 11px 18px; }
+  .nav-links { display: none; }
+  .trust-item { padding: 8px 16px; }
+  .trust-bar { gap: 4px; }
+  .pricing-cards { grid-template-columns: 1fr; }
+  footer { flex-direction: column; text-align: center; align-items: center; }
+  .hero-stats { gap: 20px; }
+  .screen-frame { max-width: 155px; }
+  .pins-grid { grid-template-columns: repeat(2,1fr); }
+  .pin-card.pf-card { grid-column: span 2; }
+  .business-bullets { flex-direction: column; align-items: center; }
+  .screens-row-1, .screens-row-2 { grid-template-columns: repeat(2,1fr); max-width: 100%; }
 }
 </style>
 </head>
@@ -484,10 +393,12 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">Club EasyPet</a>
+  <a href="/" class="nav-brand" aria-label="Club EasyPet inicio">
+    <img src="assets/logo-mark.png" alt="Club EasyPet" width="34" height="34" />
+    <span class="nav-brand-name">Club EasyPet</span>
+  </a>
   <div class="nav-links">
-    <a href="#features">Funciones</a>
-    <a href="#screens">App</a>
+    <a href="#app">App</a>
     <a href="#categorias">Categorías</a>
     <a href="#pricing">Premium</a>
     <a href="#negocios">Negocios</a>
@@ -498,56 +409,71 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">🐾 Disponible en Android · iOS próximamente</div>
+  <div class="hero-blob1" aria-hidden="true"></div>
+  <div class="hero-blob2" aria-hidden="true"></div>
+  <img src="assets/logo-full.png" alt="Club EasyPet" class="hero-logo" width="260" height="auto" />
+  <div class="hero-badge" aria-label="Disponibilidad">🐾 Android · iOS próximamente</div>
   <h1>Todo lo que necesita<br><em>tu mascota,</em><br>en una sola app</h1>
-  <p class="hero-sub">Encuentra lugares pet-friendly, veterinarios 24h, parques, playas, hoteles y servicios cerca de ti.</p>
+  <p class="hero-sub">Encuentra lugares pet-friendly, veterinarios 24h, parques, playas y servicios para tu perro cerca de ti.</p>
   <div class="hero-ctas">
-    <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="btn-primary" target="_blank" rel="noopener">🤖 Descargar en Google Play</a>
+    <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="btn-primary" target="_blank" rel="noopener" aria-label="Descargar en Google Play">🤖 Descargar en Google Play</a>
     <a href="#negocios" class="btn-secondary">Soy un negocio pet-friendly</a>
   </div>
+  <p class="hero-microcopy">Empieza gratis · Premium 7 días gratis · iOS próximamente</p>
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">6.000+</div><div class="stat-label">Lugares</div></div>
     <div class="stat"><div class="stat-num">5</div><div class="stat-label">Idiomas</div></div>
     <div class="stat"><div class="stat-num">10</div><div class="stat-label">Categorías</div></div>
     <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Urgencias</div></div>
   </div>
-  <div class="scroll-line"></div>
+  <div class="scroll-line" aria-hidden="true"></div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar" role="list">
+  <div class="trust-item" role="listitem"><span class="trust-icon">📍</span><span class="trust-text"><strong>6.000+</strong> lugares en España</span></div>
+  <div class="trust-item" role="listitem"><span class="trust-icon">🏥</span><span class="trust-text"><strong>Veterinarios</strong> 24h</span></div>
+  <div class="trust-item" role="listitem"><span class="trust-icon">❤️</span><span class="trust-text"><strong>Mapas</strong> y favoritos</span></div>
+  <div class="trust-item" role="listitem"><span class="trust-icon">🔔</span><span class="trust-text"><strong>Salud</strong> y recordatorios</span></div>
+  <div class="trust-item" role="listitem"><span class="trust-icon">🐕</span><span class="trust-text"><strong>Comunidad</strong> pet-friendly</span></div>
+</div>
+
+<!-- SCREENS -->
+<section class="screens-section reveal" id="app">
+  <div class="screens-inner">
+    <span class="section-label">La app por dentro</span>
+    <h2 class="section-title">Así se ve Club EasyPet</h2>
+    <p class="section-sub" style="margin: 0 auto 48px;">Diseñada para ser rápida, clara y bonita.</p>
+    <div class="screens-row screens-row-1">
+      <div class="screen-item reveal rd1"><div class="screen-frame"><img src="assets/screen-map.png" alt="Mapa pet-friendly Club EasyPet" loading="lazy" decoding="async" /></div><span class="screen-label">Mapa</span></div>
+      <div class="screen-item reveal rd2"><div class="screen-frame"><img src="assets/screen-lobby.png" alt="Pantalla inicio Club EasyPet" loading="lazy" decoding="async" /></div><span class="screen-label">Inicio</span></div>
+      <div class="screen-item reveal rd3"><div class="screen-frame"><img src="assets/screen-pets.png" alt="Mascotas Club EasyPet" loading="lazy" decoding="async" /></div><span class="screen-label">Mascotas</span></div>
+      <div class="screen-item reveal rd4"><div class="screen-frame"><img src="assets/screen-alerts.png" alt="Alertas Club EasyPet" loading="lazy" decoding="async" /></div><span class="screen-label">Alertas</span></div>
+    </div>
+    <div class="screens-row screens-row-2">
+      <div class="screen-item reveal rd1"><div class="screen-frame"><img src="assets/screen-favorites.png" alt="Favoritos Club EasyPet" loading="lazy" decoding="async" /></div><span class="screen-label">Favoritos</span></div>
+      <div class="screen-item reveal rd2"><div class="screen-frame"><img src="assets/screen-board.png" alt="Tablón Club EasyPet" loading="lazy" decoding="async" /></div><span class="screen-label">Comunidad</span></div>
+      <div class="screen-item reveal rd3"><div class="screen-frame"><img src="assets/screen-settings.png" alt="Ajustes Club EasyPet" loading="lazy" decoding="async" /></div><span class="screen-label">Ajustes</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- FEATURES -->
 <section class="features-section reveal" id="features">
   <div class="features-inner">
-    <span class="section-label">Funcionalidades</span>
-    <h2 class="section-title">Todo lo que necesitas</h2>
-    <p class="section-sub">Una app completa para el día a día con tu mascota.</p>
+    <span class="section-label">¿Qué puedes hacer?</span>
+    <h2 class="section-title">Sal con tu perro sin improvisar</h2>
+    <p class="section-sub">Busca, guarda y descubre todo lo que necesitas para disfrutar con tu mascota.</p>
     <div class="features-grid">
-      <div class="feature-card reveal rd1"><span class="feature-emoji">🗺️</span><div class="feature-title">Mapa especializado</div><div class="feature-desc">6.000+ lugares verificados — veterinarios, parques caninos, hoteles, restaurantes, peluquerías, playas y más.</div></div>
-      <div class="feature-card reveal rd2"><span class="feature-emoji">🐾</span><div class="feature-title">Perfil de mascota</div><div class="feature-desc">Gestiona raza, chip, cumpleaños, foto y bio. Toda la información en un solo lugar.</div></div>
-      <div class="feature-card reveal rd3"><span class="feature-emoji">💉</span><div class="feature-title">Salud y vacunas</div><div class="feature-desc">Cartilla de vacunación, historial médico, peso y talla.</div><span class="feature-badge">👑 Premium</span></div>
-      <div class="feature-card reveal rd1"><span class="feature-emoji">📄</span><div class="feature-title">Documentos</div><div class="feature-desc">Cartilla sanitaria, chip, seguro y pasaporte en la nube.</div><span class="feature-badge">👑 Premium</span></div>
-      <div class="feature-card reveal rd2"><span class="feature-emoji">🚨</span><div class="feature-title">Alertas de comunidad</div><div class="feature-desc">Procesionaria, veneno, animales perdidos... Entérate al momento.</div></div>
-      <div class="feature-card reveal rd3"><span class="feature-emoji">🆘</span><div class="feature-title">Mascota perdida</div><div class="feature-desc">Un toque y toda la comunidad recibe una notificación de emergencia.</div><span class="feature-badge">👑 Premium</span></div>
-      <div class="feature-card reveal rd1"><span class="feature-emoji">❤️</span><div class="feature-title">Favoritos y carpetas</div><div class="feature-desc">Guarda y organiza tus lugares favoritos en carpetas.</div><span class="feature-badge">👑 Premium</span></div>
-      <div class="feature-card reveal rd2"><span class="feature-emoji">🌍</span><div class="feature-title">5 idiomas</div><div class="feature-desc">Español, English, Français, Deutsch e Italiano.</div></div>
-      <div class="feature-card reveal rd3"><span class="feature-emoji">📋</span><div class="feature-title">Tablón de anuncios</div><div class="feature-desc">Adopciones, servicios, pérdidas. Conecta con tu comunidad.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SCREENS -->
-<section class="screens-section reveal" id="screens">
-  <div class="screens-inner">
-    <span class="section-label">La app por dentro</span>
-    <h2 class="section-title">Así se ve Club EasyPet</h2>
-    <p class="section-sub" style="margin:0 auto 0;">Diseñada para ser rápida, clara y bonita.</p>
-    <div class="screens-track">
-      <div class="screen-item reveal rd1"><div class="screen-frame"><img src="assets/screen-map.png" alt="Mapa pet-friendly Club EasyPet" loading="lazy" /></div><span class="screen-label">Mapa</span></div>
-      <div class="screen-item reveal rd2"><div class="screen-frame"><img src="assets/screen-lobby.png" alt="Pantalla inicio Club EasyPet" loading="lazy" /></div><span class="screen-label">Inicio</span></div>
-      <div class="screen-item reveal rd3"><div class="screen-frame"><img src="assets/screen-pets.png" alt="Mascotas Club EasyPet" loading="lazy" /></div><span class="screen-label">Mascotas</span></div>
-      <div class="screen-item reveal rd4"><div class="screen-frame"><img src="assets/screen-alerts.png" alt="Alertas Club EasyPet" loading="lazy" /></div><span class="screen-label">Alertas</span></div>
-      <div class="screen-item reveal rd5"><div class="screen-frame"><img src="assets/screen-favorites.png" alt="Favoritos Club EasyPet" loading="lazy" /></div><span class="screen-label">Favoritos</span></div>
-      <div class="screen-item reveal rd6"><div class="screen-frame"><img src="assets/screen-board.png" alt="Tablón Club EasyPet" loading="lazy" /></div><span class="screen-label">Tablón</span></div>
-      <div class="screen-item reveal rd1"><div class="screen-frame"><img src="assets/screen-settings.png" alt="Ajustes Club EasyPet" loading="lazy" /></div><span class="screen-label">Ajustes</span></div>
+      <div class="feature-card reveal rd1"><span class="feature-emoji">🗺️</span><div class="feature-title">Encuentra el sitio perfecto sin perder tiempo</div><div class="feature-desc">6.000+ lugares verificados: veterinarios, parques caninos, hoteles, restaurantes, peluquerías, playas y más.</div></div>
+      <div class="feature-card reveal rd2"><span class="feature-emoji">🐾</span><div class="feature-title">Toda la info de tu mascota en un clic</div><div class="feature-desc">Raza, chip, cumpleaños, foto y bio. Todo organizado y siempre a mano.</div></div>
+      <div class="feature-card reveal rd3"><span class="feature-emoji">💉</span><div class="feature-title">No vuelvas a olvidar una vacuna</div><div class="feature-desc">Historial médico, cartilla de vacunación, peso y talla con gráficos de evolución.</div><span class="feature-badge">👑 Premium</span></div>
+      <div class="feature-card reveal rd1"><span class="feature-emoji">📄</span><div class="feature-title">Tus documentos siempre disponibles</div><div class="feature-desc">Cartilla sanitaria, certificado de chip, seguro y pasaporte guardados en la nube.</div><span class="feature-badge">👑 Premium</span></div>
+      <div class="feature-card reveal rd2"><span class="feature-emoji">🚨</span><div class="feature-title">Entérate antes de que sea tarde</div><div class="feature-desc">Alertas moderadas de procesionaria, veneno, venenos y mascotas perdidas en tu zona.</div></div>
+      <div class="feature-card reveal rd3"><span class="feature-emoji">🆘</span><div class="feature-title">Activa una alerta urgente si tu mascota se pierde</div><div class="feature-desc">Un toque y toda la comunidad recibe una notificación de emergencia al instante.</div><span class="feature-badge">👑 Premium</span></div>
+      <div class="feature-card reveal rd1"><span class="feature-emoji">❤️</span><div class="feature-title">Guarda tus lugares de confianza</div><div class="feature-desc">Crea carpetas de favoritos y accede a ellas sin buscar cada vez.</div><span class="feature-badge">👑 Premium</span></div>
+      <div class="feature-card reveal rd2"><span class="feature-emoji">🌍</span><div class="feature-title">Habla tu idioma</div><div class="feature-desc">Español, English, Français, Deutsch e Italiano.</div></div>
+      <div class="feature-card reveal rd3"><span class="feature-emoji">📋</span><div class="feature-title">Conecta con tu comunidad</div><div class="feature-desc">Adopciones, servicios, pérdidas, productos. El tablón de la comunidad pet-friendly cerca de ti.</div></div>
     </div>
   </div>
 </section>
@@ -556,70 +482,70 @@ footer {
 <section class="pins-section reveal" id="categorias">
   <div class="pins-inner">
     <span class="section-label">Categorías del mapa</span>
-    <h2 class="section-title">Tus pines, tu mundo</h2>
+    <h2 class="section-title">10 categorías. Un solo mapa.</h2>
     <div class="pins-grid">
       <div class="pin-card reveal rd1"><img src="assets/pins/pin_own_vet_800.png" alt="Veterinario" loading="lazy" /><span class="pin-card-label">Veterinario</span></div>
       <div class="pin-card reveal rd1"><img src="assets/pins/pin_hospital.png" alt="Hospital 24h" loading="lazy" /><span class="pin-card-label">Hospital 24h</span></div>
       <div class="pin-card reveal rd2"><img src="assets/pins/pin_park.png" alt="Parque canino" loading="lazy" /><span class="pin-card-label">Parque canino</span></div>
-      <div class="pin-card reveal rd2"><img src="assets/pins/pin_restaurant.png" alt="Restaurante" loading="lazy" /><span class="pin-card-label">Restaurante</span></div>
-      <div class="pin-card reveal rd3"><img src="assets/pins/peluqueria.png" alt="Peluquería" loading="lazy" /><span class="pin-card-label">Peluquería</span></div>
-      <div class="pin-card reveal rd1"><img src="assets/pins/pin_petshop.png" alt="Tienda" loading="lazy" /><span class="pin-card-label">Tienda</span></div>
-      <div class="pin-card reveal rd2"><img src="assets/pins/pin_own_hotel.png" alt="Hotel" loading="lazy" /><span class="pin-card-label">Hotel</span></div>
+      <div class="pin-card reveal rd2"><img src="assets/pins/pin_restaurant.png" alt="Restaurante pet-friendly" loading="lazy" /><span class="pin-card-label">Restaurante</span></div>
+      <div class="pin-card reveal rd3"><img src="assets/pins/peluqueria.png" alt="Peluquería canina" loading="lazy" /><span class="pin-card-label">Peluquería</span></div>
+      <div class="pin-card reveal rd1"><img src="assets/pins/pin_petshop.png" alt="Tienda de mascotas" loading="lazy" /><span class="pin-card-label">Tienda</span></div>
+      <div class="pin-card reveal rd2"><img src="assets/pins/pin_own_hotel.png" alt="Hotel pet-friendly" loading="lazy" /><span class="pin-card-label">Hotel</span></div>
       <div class="pin-card reveal rd2"><img src="assets/pins/pin_beach.png" alt="Playa canina" loading="lazy" /><span class="pin-card-label">Playa canina</span></div>
-      <div class="pin-card reveal rd3"><img src="assets/pins/pin_mall.png" alt="C. Comercial" loading="lazy" /><span class="pin-card-label">C. Comercial</span></div>
-      <div class="pin-card reveal rd3"><img src="assets/pins/pin_hotel.png" alt="Hotel mascotas" loading="lazy" /><span class="pin-card-label">Hotel mascotas</span></div>
+      <div class="pin-card reveal rd3"><img src="assets/pins/pin_mall.png" alt="Centro Comercial" loading="lazy" /><span class="pin-card-label">C. Comercial</span></div>
+      <div class="pin-card reveal rd3"><img src="assets/pins/pin_hotel.png" alt="Hotel para mascotas" loading="lazy" /><span class="pin-card-label">Hotel mascotas</span></div>
       <div class="pin-card pf-card reveal rd4"><img src="assets/pins/pin_petfriendly.png" alt="Pet Friendly" loading="lazy" /><span class="pin-card-label">🐾 Pet Friendly</span></div>
     </div>
   </div>
 </section>
 
-<!-- MAP -->
-<section class="map-section reveal" id="mapa">
-  <div class="map-content">
-    <div class="map-text">
-      <span class="section-label">El mapa</span>
-      <h2 class="section-title">6.000+<br>lugares</h2>
-      <p>El mayor directorio pet-friendly de España. Veterinarios, parques, hoteles, restaurantes, peluquerías, playas, tiendas, residencias y mucho más.</p>
-      <div class="map-checks">
-        <div class="map-check"><span>✓</span> Datos verificados de OSM y colaboradores</div>
-        <div class="map-check"><span>✓</span> Actualizado continuamente</div>
-        <div class="map-check"><span>✓</span> Fotos y reseñas de la comunidad</div>
-        <div class="map-check"><span>✓</span> Hospitales 24h en todo el país</div>
-      </div>
+<!-- OWNERS -->
+<section class="owners-section reveal" id="para-ti">
+  <div class="owners-inner">
+    <div class="owners-text">
+      <span class="section-label">Para dueños de mascotas</span>
+      <h2 class="section-title">Sal con tu perro<br>sin improvisar</h2>
+      <p class="section-sub">Busca, guarda y descubre lugares pensados para disfrutar con tu mascota.</p>
+      <ul class="owners-list">
+        <li><span class="dot"></span>Sitios cerca de ti en tiempo real</li>
+        <li><span class="dot"></span>Veterinarios y urgencias 24h</li>
+        <li><span class="dot"></span>Playas caninas y parques</li>
+        <li><span class="dot"></span>Favoritos organizados por carpetas</li>
+        <li><span class="dot"></span>Salud y recordatorios de vacunas</li>
+        <li><span class="dot"></span>Alertas moderadas de la comunidad</li>
+      </ul>
+      <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="btn-primary" target="_blank" rel="noopener">🤖 Descargar app</a>
     </div>
-    <div class="map-visual">
-      <div class="map-dots"></div>
-      <div class="map-pin-demo">
-        <div class="map-number">6K+</div>
-        <div class="map-number-label">Lugares en España</div>
-        <div class="pin-row" style="margin-top:20px;">
-          <img class="pin-img-real" src="assets/pins/pin_own_vet_800.png" alt="Veterinario" loading="lazy" />
-          <img class="pin-img-real" src="assets/pins/pin_park.png" alt="Parque" loading="lazy" />
-          <img class="pin-img-real" src="assets/pins/pin_own_hotel.png" alt="Hotel" loading="lazy" />
-        </div>
-        <div class="pin-row">
-          <img class="pin-img-real" src="assets/pins/pin_restaurant.png" alt="Restaurante" loading="lazy" />
-          <img class="pin-img-real" src="assets/pins/peluqueria.png" alt="Peluquería" loading="lazy" />
-          <img class="pin-img-real" src="assets/pins/pin_petshop.png" alt="Tienda" loading="lazy" />
+    <div class="owners-visual">
+      <div class="owners-visual-bg" aria-hidden="true"></div>
+      <div class="owners-visual-inner">
+        <div class="owners-big">6K+</div>
+        <div class="owners-small">Lugares en España</div>
+        <div class="owners-pins">
+          <img class="owners-pin" src="assets/pins/pin_own_vet_800.png" alt="Veterinario" loading="lazy" />
+          <img class="owners-pin" src="assets/pins/pin_park.png" alt="Parque" loading="lazy" />
+          <img class="owners-pin" src="assets/pins/pin_beach.png" alt="Playa" loading="lazy" />
+          <img class="owners-pin" src="assets/pins/pin_restaurant.png" alt="Restaurante" loading="lazy" />
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- NEGOCIOS -->
+<!-- BUSINESS -->
 <section class="business-section reveal" id="negocios">
   <div class="business-inner">
     <span class="section-label">Para negocios</span>
-    <h2 class="section-title">¿Tienes un negocio<br>pet-friendly?</h2>
-    <p class="business-sub">Haz que los dueños de mascotas te encuentren cuando más te necesitan.</p>
+    <h2 class="section-title">Haz que los dueños de<br>mascotas te encuentren</h2>
+    <p class="business-sub">Si tu negocio acepta perros o presta servicios para mascotas, Club EasyPet puede ayudarte a ganar visibilidad local.</p>
     <div class="business-bullets">
       <div class="business-bullet">📍 Aparece en el mapa</div>
-      <div class="business-bullet">🐕 Llega a clientes con perro</div>
+      <div class="business-bullet">🐕 Llega a clientes cerca de ti</div>
       <div class="business-bullet">⭐ Destaca como pet-friendly</div>
-      <div class="business-bullet">📈 Más visibilidad local</div>
+      <div class="business-bullet">📈 Más visitas cualificadas</div>
+      <div class="business-bullet">🤝 Comunidad especializada</div>
     </div>
-    <a href="mailto:hola@clubeasypet.com?subject=Negocio%20Club%20EasyPet" class="btn-white">Quiero aparecer en Club EasyPet →</a>
+    <a href="mailto:hola@clubeasypet.com?subject=Quiero%20aparecer%20en%20Club%20EasyPet" class="btn-white">Quiero aparecer en Club EasyPet →</a>
   </div>
 </section>
 
@@ -627,25 +553,25 @@ footer {
 <section class="pricing-section reveal" id="pricing">
   <div class="pricing-inner">
     <span class="section-label">Planes</span>
-    <h2 class="section-title">Gratis o Premium</h2>
-    <p class="section-sub" style="margin:0 auto 0;">Empieza gratis. Desbloquea todo con Premium.</p>
+    <h2 class="section-title">Empieza gratis.<br>Crece con Premium.</h2>
+    <p class="section-sub" style="margin: 0 auto 0;">Acceso básico gratuito. Desbloquea todo con Premium.</p>
     <div class="pricing-cards">
       <div class="pricing-card reveal rd1">
-        <div class="plan-name">Gratis</div>
+        <div class="plan-name">Acceso básico</div>
         <div class="plan-price">0€<sub>/mes</sub></div>
-        <div class="plan-period">Para siempre gratis</div>
+        <div class="plan-period">Empieza gratis con funciones limitadas</div>
         <ul class="plan-features">
-          <li><span class="check">✓</span> Mapa con 6.000+ lugares</li>
-          <li><span class="check">✓</span> 1 mascota</li>
-          <li><span class="check">✓</span> Historial médico básico</li>
-          <li><span class="check">✓</span> Ver alertas de comunidad</li>
-          <li><span class="check">✓</span> 5 idiomas</li>
-          <li><span class="check">✓</span> Primeros auxilios offline</li>
-          <li class="muted"><span class="cross">✕</span> Mascotas ilimitadas</li>
-          <li class="muted"><span class="cross">✕</span> Documentos en la nube</li>
-          <li class="muted"><span class="cross">✕</span> Botón mascota perdida</li>
-          <li class="muted"><span class="cross">✕</span> Carpetas de favoritos</li>
-          <li class="muted"><span class="cross">✕</span> Sin anuncios</li>
+          <li><span class="ck">✓</span> Mapa con 6.000+ lugares</li>
+          <li><span class="ck">✓</span> 1 mascota</li>
+          <li><span class="ck">✓</span> Historial médico básico</li>
+          <li><span class="ck">✓</span> Ver alertas de comunidad</li>
+          <li><span class="ck">✓</span> 5 idiomas</li>
+          <li><span class="ck">✓</span> Hasta 5 favoritos</li>
+          <li class="muted"><span class="cx">✕</span> Mascotas ilimitadas</li>
+          <li class="muted"><span class="cx">✕</span> Favoritos ilimitados</li>
+          <li class="muted"><span class="cx">✕</span> Documentos en la nube</li>
+          <li class="muted"><span class="cx">✕</span> Recordatorios</li>
+          <li class="muted"><span class="cx">✕</span> Sin anuncios</li>
         </ul>
         <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="plan-cta free" target="_blank" rel="noopener">Descargar gratis</a>
       </div>
@@ -654,19 +580,20 @@ footer {
         <div class="plan-name" style="margin-top:18px;">Premium</div>
         <div class="plan-price">2,99€<sub>/mes</sub></div>
         <div class="plan-period">o 24,99 €/año</div>
-        <div class="plan-trial">🎁 7 días gratis</div>
+        <div class="plan-trial">🎁 Prueba gratis 7 días</div>
         <ul class="plan-features">
-          <li><span class="check">✓</span> Todo lo de la versión gratis</li>
-          <li><span class="check">✓</span> <strong>Mascotas ilimitadas</strong></li>
-          <li><span class="check">✓</span> 📄 Documentos en la nube</li>
-          <li><span class="check">✓</span> 🆘 Botón mascota perdida</li>
-          <li><span class="check">✓</span> 📁 Carpetas de favoritos</li>
-          <li><span class="check">✓</span> 🔔 Recordatorios de vacunas</li>
-          <li><span class="check">✓</span> 🎂 Recordatorio cumpleaños</li>
-          <li><span class="check">✓</span> 📸 Publicar alertas con fotos</li>
-          <li><span class="check">✓</span> 🏷️ Descuentos exclusivos</li>
-          <li><span class="check">✓</span> 💬 Soporte prioritario</li>
-          <li><span class="check">✓</span> 🚫 Sin anuncios</li>
+          <li><span class="ck">✓</span> Todo lo del acceso básico</li>
+          <li><span class="ck">✓</span> <strong>Mascotas ilimitadas</strong></li>
+          <li><span class="ck">✓</span> ❤️ Favoritos ilimitados</li>
+          <li><span class="ck">✓</span> 📄 Documentos en la nube</li>
+          <li><span class="ck">✓</span> 🆘 Botón mascota perdida</li>
+          <li><span class="ck">✓</span> 📁 Carpetas de favoritos</li>
+          <li><span class="ck">✓</span> 🔔 No vuelvas a olvidar una vacuna</li>
+          <li><span class="ck">✓</span> 🎂 Recordatorio cumpleaños</li>
+          <li><span class="ck">✓</span> 📸 Publicar alertas con fotos</li>
+          <li><span class="ck">✓</span> 🏷️ Descuentos exclusivos</li>
+          <li><span class="ck">✓</span> 🚫 Sin anuncios</li>
+          <li><span class="ck">✓</span> 💬 Soporte prioritario</li>
         </ul>
         <a href="#download" class="plan-cta paid">Probar Premium gratis →</a>
         <p class="plan-cta-sub">7 días gratis · Cancela cuando quieras</p>
@@ -676,38 +603,37 @@ footer {
   </div>
 </section>
 
-<!-- COMPARE TABLE -->
+<!-- COMPARE -->
 <section class="compare-section reveal">
   <h2>Comparativa completa</h2>
   <table>
     <thead>
-      <tr><th style="text-align:left">Función</th><th>🆓 Gratis</th><th class="premium-th">👑 Premium</th></tr>
+      <tr><th style="text-align:left">Función</th><th>🆓 Básico</th><th class="pt">👑 Premium</th></tr>
     </thead>
     <tbody>
       <tr class="cat-row"><td colspan="3">🐾 Mascotas</td></tr>
-      <tr><td>Número de mascotas</td><td><span class="check-hi">1</span></td><td><span class="check-hi" style="color:var(--orange)">Ilimitadas</span></td></tr>
-      <tr><td>Perfil completo</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Historial médico</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Peso y talla</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Primeros auxilios offline</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Documentos (cartilla, chip, seguro)</td><td><span class="check-no">✕</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr class="cat-row"><td colspan="3">🔔 Notificaciones</td></tr>
-      <tr><td>Recordatorios de vacunas</td><td><span class="check-no">✕</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Recordatorio de cumpleaños</td><td><span class="check-no">✕</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Botón 🆘 mascota perdida</td><td><span class="check-no">✕</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr class="cat-row"><td colspan="3">🗺️ Mapa y lugares</td></tr>
-      <tr><td>Mapa con 6.000+ lugares</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Guardar favoritos</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Carpetas de favoritos</td><td><span class="check-no">✕</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr><td>Número de mascotas</td><td><span class="ch">1</span></td><td><span class="ch" style="color:var(--orange)">Ilimitadas</span></td></tr>
+      <tr><td>Perfil completo</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Historial médico</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Peso y talla</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Documentos en la nube</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
+      <tr class="cat-row"><td colspan="3">🔔 Recordatorios</td></tr>
+      <tr><td>Recordatorios de vacunas</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Recordatorio de cumpleaños</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Botón 🆘 mascota perdida</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
+      <tr class="cat-row"><td colspan="3">🗺️ Mapa y favoritos</td></tr>
+      <tr><td>Mapa con 6.000+ lugares</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Favoritos</td><td><span class="ch">Máx. 5</span></td><td><span class="ch" style="color:var(--orange)">Ilimitados</span></td></tr>
+      <tr><td>Carpetas de favoritos</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
       <tr class="cat-row"><td colspan="3">🚨 Comunidad</td></tr>
-      <tr><td>Ver alertas de la comunidad</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Publicar alertas con fotos</td><td><span class="check-no">✕</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Tablón de anuncios</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr><td>Ver alertas</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Publicar alertas con fotos</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Tablón de anuncios</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
       <tr class="cat-row"><td colspan="3">⭐ Extras</td></tr>
-      <tr><td>Sin anuncios</td><td><span class="check-no">✕</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Descuentos exclusivos</td><td><span class="check-no">✕</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>Soporte prioritario &lt;24h</td><td><span class="check-no">✕</span></td><td><span class="check-yes">✓</span></td></tr>
-      <tr><td>5 idiomas</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+      <tr><td>Sin anuncios</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Descuentos exclusivos</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Soporte prioritario</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>5 idiomas</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
     </tbody>
   </table>
 </section>
@@ -718,9 +644,9 @@ footer {
     <span class="section-label">Comunidad</span>
     <h2 class="section-title">Únete a la comunidad<br>pet-friendly</h2>
     <div class="community-grid">
-      <div class="community-card reveal rd1"><div class="emoji">🐕</div><p>Comparte alertas de peligros como la procesionaria, veneno o zonas de riesgo con toda la comunidad.</p><div class="author">Alertas verificadas</div></div>
-      <div class="community-card reveal rd2"><div class="emoji">🏠</div><p>Encuentra acogida temporal para mascotas, productos de segunda mano o cuidadores cerca de ti.</p><div class="author">Tablón de anuncios</div></div>
-      <div class="community-card reveal rd3"><div class="emoji">🆘</div><p>Si pierdes a tu mascota, pulsa el botón de emergencia y toda la comunidad recibe una notificación.</p><div class="author">Red de emergencias</div></div>
+      <div class="community-card reveal rd1"><div class="emoji">🐕</div><p>Comparte alertas de procesionaria, veneno o zonas de riesgo con toda la comunidad de tu zona.</p><div class="author">Alertas moderadas</div></div>
+      <div class="community-card reveal rd2"><div class="emoji">🏠</div><p>Encuentra acogida temporal, productos de segunda mano o cuidadores de mascotas cerca de ti.</p><div class="author">Tablón de anuncios</div></div>
+      <div class="community-card reveal rd3"><div class="emoji">🆘</div><p>Si pierdes a tu mascota, activa la alerta de emergencia y toda la comunidad recibe una notificación al instante.</p><div class="author">Red de emergencias</div></div>
     </div>
   </div>
 </section>
@@ -730,20 +656,23 @@ footer {
   <h2>Descarga<br><em>Club EasyPet</em></h2>
   <p>Disponible en Android. iOS próximamente.</p>
   <div class="store-btns">
-    <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="store-btn" target="_blank" rel="noopener">
-      <span style="font-size:28px">🤖</span>
-      <div><span class="store-small">Disponible en</span>Google Play</div>
+    <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="store-btn" target="_blank" rel="noopener" aria-label="Descargar en Google Play">
+      <span style="font-size:26px" aria-hidden="true">🤖</span>
+      <div><span class="ss">Disponible en</span>Google Play</div>
     </a>
-    <div class="store-btn disabled">
-      <span style="font-size:28px">🍎</span>
-      <div><span class="store-small">Próximamente en</span>App Store</div>
+    <div class="store-btn disabled" aria-label="App Store próximamente">
+      <span style="font-size:26px" aria-hidden="true">🍎</span>
+      <div><span class="ss">Próximamente en</span>App Store</div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Club EasyPet</div>
+  <div class="footer-brand">
+    <img src="assets/logo-mark.png" alt="Club EasyPet" width="26" height="26" loading="lazy" />
+    <span>Club EasyPet</span>
+  </div>
   <div class="footer-links">
     <a href="/terms.html">Términos</a>
     <a href="/privacy.html">Privacidad</a>
@@ -754,10 +683,10 @@ footer {
 </footer>
 
 <script>
-const observer = new IntersectionObserver(entries => {
+const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold:0.08, rootMargin:'0px 0px -50px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}, { threshold: 0.07, rootMargin: '0px 0px -44px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
