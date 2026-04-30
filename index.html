@@ -3,1017 +3,773 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Club EasyPet — Descubre lugares pet-friendly, organiza tus mascotas y recibe alertas útiles en una sola app."
-  />
-  <title>Club EasyPet 🐾</title>
+  <title>Club EasyPet 🐾 — La app para dueños de mascotas</title>
+  <meta name="description" content="Club EasyPet: mapa pet-friendly con 4.600+ lugares, gestión de mascotas, alertas moderadas y favoritos. Descarga próximamente en App Store y Google Play." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clubeasypet.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://clubeasypet.com/" />
+  <meta property="og:title" content="Club EasyPet 🐾 — La app para dueños de mascotas" />
+  <meta property="og:description" content="Descubre lugares pet-friendly, organiza tus mascotas, guarda favoritos y recibe alertas útiles cerca de ti." />
+  <meta property="og:image" content="https://clubeasypet.com/assets/logo-full.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Club EasyPet 🐾" />
+  <meta name="twitter:description" content="La app para dueños de mascotas. Mapa + mascotas + alertas + favoritos." />
+  <meta name="twitter:image" content="https://clubeasypet.com/assets/logo-full.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&family=Overpass:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    :root{
-      --bg:#F3ECD8;
-      --bg-2:#EFE7CF;
-      --surface:#FFF9EE;
-      --surface-2:#F8F1DE;
-      --text:#10161A;
-      --text-soft:#5F666B;
-      --line:#E7D9B8;
-      --orange:#F79A2E;
-      --orange-dark:#EB7F00;
-      --orange-soft:#FFB14C;
-      --red:#D94D5D;
-      --green:#87B84B;
-      --blue:#4B97E3;
-      --shadow:0 18px 45px rgba(0,0,0,0.10);
-      --radius-xl:32px;
-      --radius-lg:24px;
-      --radius-md:18px;
-      --radius-sm:14px;
-    }
-
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Nunito',sans-serif;
-      background:linear-gradient(180deg,var(--bg),#F7F1E2 26%,var(--bg) 100%);
-      color:var(--text);
-      overflow-x:hidden;
-    }
-
-    img{display:block;max-width:100%}
-    a{text-decoration:none;color:inherit}
-
-    .container{
-      width:min(1180px, calc(100% - 32px));
-      margin:0 auto;
-    }
-
-    .title-font{
-      font-family:'Fredoka',sans-serif;
-      letter-spacing:-0.02em;
-    }
-
-    nav{
-      position:fixed;
-      top:0; left:0; right:0;
-      z-index:1000;
-      background:rgba(243,236,216,0.90);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(231,217,184,0.9);
-    }
-
-    .nav-inner{
-      width:min(1180px, calc(100% - 32px));
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding:14px 0;
-    }
-
-    .nav-logo{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      min-width:0;
-    }
-
-    .nav-logo img{
-      width:54px;
-      height:54px;
-      object-fit:contain;
-      flex-shrink:0;
-      filter:drop-shadow(0 6px 14px rgba(247,154,46,0.18));
-    }
-
-    .nav-logo-text{
-      font-family:'Fredoka',sans-serif;
-      font-size:28px;
-      font-weight:700;
-      line-height:0.95;
-      color:var(--orange-dark);
-      white-space:nowrap;
-    }
-
-    .nav-links{
-      list-style:none;
-      display:flex;
-      align-items:center;
-      gap:26px;
-    }
-
-    .nav-links a{
-      font-size:14px;
-      font-weight:900;
-      color:#5E5B54;
-      transition:0.2s ease;
-    }
-
-    .nav-links a:hover{color:var(--orange-dark)}
+    :root {
+      --orange: #FF982B;
+      --red: #D0384C;
+      --cream: #F9F3DF;
+      --obsidian: #0B1215;
+      --gold: #FFD700;
+      --font-title: 'Rammetto One', cursive;
+      --font-body: 'Overpass', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--obsidian);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(249,243,223,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--orange);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-logo span {
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      color: var(--obsidian);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--obsidian);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--orange); }
+
+    .nav-cta {
+      background: var(--orange);
+      color: #fff !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--red) !important; color: #fff !important; }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 100px 2rem 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,152,43,0.13) 0%, transparent 70%), var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '🐾';
+      position: absolute;
+      font-size: 18rem;
+      opacity: 0.04;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      animation: fadeDown 0.6s ease both;
+    }
+
+    .hero-logo {
+      width: min(280px, 60vw);
+      margin-bottom: 1.8rem;
+      animation: fadeDown 0.7s ease 0.1s both;
+    }
+
+    .hero h1 {
+      font-family: var(--font-title);
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      max-width: 720px;
+      color: var(--obsidian);
+      animation: fadeDown 0.7s ease 0.2s both;
+    }
+
+    .hero h1 span { color: var(--orange); }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 300;
+      max-width: 580px;
+      margin: 1.2rem auto 2rem;
+      color: #444;
+      line-height: 1.7;
+      animation: fadeDown 0.7s ease 0.3s both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeDown 0.7s ease 0.4s both;
+    }
+
+    .btn-store {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 14px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 2px solid var(--obsidian);
+      background: var(--obsidian);
+      color: var(--cream);
+    }
+
+    .btn-store:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(11,18,21,0.2);
+    }
+
+    .btn-store .store-icon { font-size: 1.4rem; }
+    .btn-store .store-text { display: flex; flex-direction: column; text-align: left; }
+    .btn-store .store-soon { font-size: 0.65rem; font-weight: 300; opacity: 0.7; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    .hero-map {
+      margin-top: 3rem;
+      width: min(340px, 85vw);
+      border-radius: 28px;
+      box-shadow: 0 24px 60px rgba(11,18,21,0.18);
+      animation: fadeUp 0.9s ease 0.5s both;
+      border: 3px solid var(--orange);
+    }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 3rem 2rem;
+      background: var(--obsidian);
+    }
+
+    .stat {
+      text-align: center;
+      color: var(--cream);
+    }
+
+    .stat-num {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      color: var(--orange);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: 300;
+      opacity: 0.7;
+      margin-top: 0.2rem;
+    }
 
-    .nav-right{
-      display:flex;
-      align-items:center;
-      gap:10px;
+    /* SECTIONS */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .lang-btn,
-    .nav-cta,
-    .btn-primary,
-    .btn-secondary{
-      border:none;
-      cursor:pointer;
-      transition:0.2s ease;
-      font-weight:900;
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--orange);
+      margin-bottom: 0.8rem;
     }
 
-    .lang-btn{
-      background:#FFF8EA;
-      border:1px solid var(--line);
-      color:#5E5B54;
-      border-radius:999px;
-      padding:10px 14px;
-      font-size:12px;
+    .section-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      color: var(--obsidian);
+      line-height: 1.2;
+      max-width: 600px;
     }
 
-    .nav-cta{
-      background:linear-gradient(135deg,var(--orange),var(--orange-soft));
-      color:white;
-      border-radius:999px;
-      padding:11px 18px;
-      box-shadow:0 10px 24px rgba(247,154,46,0.22);
-      font-size:13px;
-    }
-
-    .lang-btn:hover,
-    .nav-cta:hover,
-    .btn-primary:hover,
-    .btn-secondary:hover{
-      transform:translateY(-1px);
-    }
-
-    .hero{
-      padding:132px 0 70px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.03fr 0.97fr;
-      gap:42px;
-      align-items:center;
-    }
-
-    .hero-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      background:#FFF5DF;
-      color:var(--orange-dark);
-      border:1px solid #F4D9A0;
-      border-radius:999px;
-      padding:8px 14px;
-      font-size:13px;
-      font-weight:900;
-      margin-bottom:20px;
-    }
-
-    .hero-logo{
-      width:min(430px, 88%);
-      margin-bottom:18px;
-      filter:drop-shadow(0 12px 24px rgba(247,154,46,0.12));
-    }
-
-    .hero h1{
-      font-family:'Fredoka',sans-serif;
-      font-size:clamp(42px,7vw,78px);
-      line-height:0.98;
-      letter-spacing:-0.04em;
-      margin-bottom:16px;
-    }
-
-    .hero h1 .accent{
-      color:var(--orange-dark);
-    }
-
-    .hero p{
-      font-size:clamp(17px,2vw,21px);
-      line-height:1.75;
-      color:var(--text-soft);
-      max-width:640px;
-      margin-bottom:28px;
-    }
-
-    .hero-btns{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-bottom:16px;
-    }
-
-    .btn-primary,
-    .btn-secondary{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      border-radius:18px;
-      padding:16px 24px;
-      font-size:15px;
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg,var(--orange),var(--orange-soft));
-      color:white;
-      box-shadow:0 14px 28px rgba(247,154,46,0.22);
-    }
-
-    .btn-secondary{
-      background:white;
-      color:var(--text);
-      border:1px solid var(--line);
-    }
-
-    .hero-note{
-      font-size:13px;
-      color:#817A6F;
-      font-weight:800;
-    }
-
-    .hero-visual{
-      display:flex;
-      justify-content:center;
-    }
-
-    .hero-phone{
-      width:min(100%,390px);
-      background:white;
-      border:1px solid var(--line);
-      border-radius:34px;
-      padding:16px;
-      box-shadow:var(--shadow);
-    }
-
-    .hero-phone img{
-      width:100%;
-      aspect-ratio:9/19;
-      object-fit:cover;
-      object-position:top;
-      border-radius:24px;
-    }
+    .section-title span { color: var(--red); }
 
-    .stats{
-      padding-bottom:34px;
+    .section-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.8;
+      max-width: 560px;
+      margin-top: 1rem;
     }
 
-    .stats-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
+    /* FEATURES GRID */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
     }
 
-    .stat{
-      background:white;
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:24px 18px;
-      text-align:center;
-      box-shadow:0 8px 22px rgba(0,0,0,0.04);
+    .feature-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.8rem;
+      border: 2px solid transparent;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
 
-    .stat-num{
-      font-family:'Fredoka',sans-serif;
-      color:var(--orange-dark);
-      font-size:clamp(24px,4vw,38px);
-      line-height:1;
-      margin-bottom:8px;
+    .feature-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(255,152,43,0.15);
     }
 
-    .stat-label{
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      color:#857E73;
+    .feature-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      display: block;
     }
 
-    .section{
-      padding:84px 0;
+    .feature-title {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      color: var(--obsidian);
+      margin-bottom: 0.5rem;
     }
 
-    .section-tag{
-      font-size:12px;
-      font-weight:900;
-      color:var(--orange-dark);
-      text-transform:uppercase;
-      letter-spacing:2px;
-      margin-bottom:14px;
+    .feature-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.7;
     }
 
-    .section-title{
-      font-family:'Fredoka',sans-serif;
-      font-size:clamp(32px,5vw,56px);
-      line-height:1.08;
-      letter-spacing:-0.03em;
-      margin-bottom:18px;
+    /* MAP SECTION */
+    .map-section {
+      background: var(--obsidian);
+      padding: 5rem 2rem;
     }
 
-    .section-title .accent{color:var(--orange-dark)}
-
-    .section-intro{
-      font-size:17px;
-      line-height:1.8;
-      color:var(--text-soft);
-      max-width:780px;
-      margin-bottom:40px;
-    }
-
-    .feature-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .feature-card{
-      background:white;
-      border:1px solid var(--line);
-      border-radius:26px;
-      padding:28px;
-      box-shadow:0 10px 24px rgba(0,0,0,0.04);
-      transition:0.2s ease;
-    }
-
-    .feature-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 14px 28px rgba(247,154,46,0.10);
-    }
-
-    .feature-icon{
-      font-size:38px;
-      margin-bottom:14px;
-    }
-
-    .feature-title{
-      font-size:21px;
-      font-weight:900;
-      margin-bottom:10px;
-    }
-
-    .feature-desc{
-      font-size:15px;
-      color:var(--text-soft);
-      line-height:1.75;
-    }
-
-    .map-band{
-      background:linear-gradient(180deg,#F7F0DE,#F3ECD8);
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-    }
-
-    .map-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:34px;
-      align-items:center;
-    }
-
-    .map-extra{
-      margin-top:24px;
-      display:flex;
-      justify-content:flex-start;
-    }
-
-    .map-extra img{
-      width:100%;
-      max-width:360px;
-      border-radius:24px;
-      border:1px solid var(--line);
-      box-shadow:0 14px 30px rgba(0,0,0,0.08);
-      background:white;
-      padding:10px;
-    }
-
-    .map-shot{
-      background:white;
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:16px;
-      box-shadow:var(--shadow);
-    }
-
-    .map-shot img{
-      width:100%;
-      aspect-ratio:9/19;
-      object-fit:cover;
-      object-position:top;
-      border-radius:20px;
-    }
-
-    .screens-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .screen-card{
-      background:white;
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:0 10px 22px rgba(0,0,0,0.04);
+    .map-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
     }
 
-    .screen-card img{
-      width:100%;
-      aspect-ratio:9/19;
-      object-fit:cover;
-      object-position:top;
+    @media (max-width: 768px) {
+      .map-inner { grid-template-columns: 1fr; }
     }
 
-    .screen-copy{
-      padding:18px;
-    }
+    .map-inner .section-title { color: var(--cream); }
+    .map-inner .section-desc { color: rgba(249,243,223,0.7); }
 
-    .screen-copy h3{
-      font-size:19px;
-      font-weight:900;
-      margin-bottom:8px;
+    .map-pins {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     }
 
-    .screen-copy p{
-      font-size:14px;
-      color:var(--text-soft);
-      line-height:1.65;
+    /* SCREENS */
+    .screens-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
 
-    .premium-box{
-      max-width:780px;
-      margin:0 auto;
-      background:linear-gradient(135deg,#FFF4DF,#FCE8BC);
-      border:1px solid #F1D596;
-      border-radius:32px;
-      padding:40px 24px;
-      text-align:center;
-      box-shadow:0 16px 34px rgba(247,154,46,0.10);
+    .screen-card {
+      text-align: center;
     }
 
-    .premium-logo{
-      width:92px;
-      margin:0 auto 14px;
+    .screen-card img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 24px;
+      box-shadow: 0 16px 48px rgba(11,18,21,0.14);
+      border: 2px solid rgba(255,152,43,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .premium-title{
-      font-family:'Fredoka',sans-serif;
-      font-size:clamp(28px,4vw,40px);
-      margin-bottom:12px;
-      color:var(--orange-dark);
+    .screen-card img:hover {
+      transform: translateY(-6px) rotate(-1deg);
+      box-shadow: 0 28px 60px rgba(11,18,21,0.2);
     }
 
-    .premium-desc{
-      font-size:16px;
-      line-height:1.8;
-      color:#6E6559;
-      margin-bottom:24px;
+    .screen-card h3 {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      margin: 1rem 0 0.4rem;
+      color: var(--obsidian);
     }
 
-    .premium-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-      text-align:left;
-      margin-bottom:24px;
+    .screen-card p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.6;
     }
 
-    .premium-item{
-      background:rgba(255,255,255,0.7);
-      border:1px solid #EFD8A5;
-      border-radius:16px;
-      padding:14px 16px;
-      font-size:15px;
-      font-weight:900;
-      color:#3D3A35;
+    /* PREMIUM */
+    .premium-section {
+      background: linear-gradient(135deg, var(--obsidian) 0%, #1a2830 100%);
+      padding: 5rem 2rem;
+      text-align: center;
     }
 
-    .download{
-      text-align:center;
+    .premium-inner {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .download-logo{
-      width:min(280px,76%);
-      margin:0 auto 18px;
+    .premium-logo {
+      width: 72px;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 20px rgba(255,215,0,0.4));
     }
 
-    .download h2{
-      font-family:'Fredoka',sans-serif;
-      font-size:clamp(34px,5vw,58px);
-      letter-spacing:-0.03em;
-      line-height:1.08;
-      margin-bottom:14px;
+    .premium-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--gold);
+      margin-bottom: 0.8rem;
     }
 
-    .download p{
-      font-size:18px;
-      color:var(--text-soft);
-      margin-bottom:28px;
+    .premium-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(249,243,223,0.75);
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
     }
 
-    .store-btns{
-      display:flex;
-      gap:16px;
-      justify-content:center;
-      flex-wrap:wrap;
+    .premium-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
     }
 
-    .store-btn{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      background:white;
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:16px 24px;
-      box-shadow:0 10px 22px rgba(0,0,0,0.04);
-      transition:0.2s ease;
+    .premium-feat {
+      background: rgba(255,215,0,0.12);
+      border: 1px solid rgba(255,215,0,0.25);
+      color: var(--gold);
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
     }
 
-    .store-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 14px 28px rgba(247,154,46,0.10);
+    .premium-price {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--obsidian);
+      font-family: var(--font-title);
+      font-size: 1rem;
+      padding: 0.8rem 2rem;
+      border-radius: 999px;
     }
 
-    .store-icon{
-      font-size:30px;
+    /* DOWNLOAD */
+    .download-section {
+      padding: 5rem 2rem;
+      text-align: center;
     }
 
-    .store-sub{
-      font-size:11px;
-      color:#8A8378;
-      font-weight:800;
-      text-align:left;
+    .download-section .section-title {
+      margin: 0 auto 0.8rem;
     }
 
-    .store-name{
-      font-size:18px;
-      font-weight:900;
-      text-align:left;
+    .download-section .section-desc {
+      margin: 0 auto 2.5rem;
     }
 
-    .legal-links{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
+    .download-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .legal-links a{
-      color:var(--orange-dark);
-      font-size:14px;
-      font-weight:900;
+    /* FOOTER */
+    footer {
+      background: var(--obsidian);
+      color: var(--cream);
+      padding: 3rem 2rem;
     }
 
-    footer{
-      border-top:1px solid var(--line);
-      margin-top:36px;
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
     }
 
-    .footer-grid{
-      display:grid;
-      grid-template-columns:2fr 1fr 1fr;
-      gap:24px;
-      padding:54px 0 24px;
+    @media (max-width: 640px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
     }
 
-    .footer-brand p{
-      margin-top:14px;
-      max-width:360px;
-      color:#80796E;
-      font-size:14px;
-      line-height:1.75;
-    }
+    .footer-brand img { height: 40px; margin-bottom: 0.8rem; }
+    .footer-brand p { font-size: 0.85rem; font-weight: 300; opacity: 0.6; line-height: 1.6; max-width: 280px; }
 
-    .footer-col h4{
-      font-size:12px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      color:#8A8378;
-      margin-bottom:14px;
+    .footer-col h4 {
+      font-family: var(--font-title);
+      font-size: 0.85rem;
+      color: var(--orange);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
     }
 
-    .footer-col a{
-      display:block;
-      font-size:14px;
-      font-weight:800;
-      color:#5C5750;
-      margin-bottom:10px;
+    .footer-col a {
+      display: block;
+      color: rgba(249,243,223,0.65);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s;
     }
 
-    .footer-col a:hover{color:var(--orange-dark)}
+    .footer-col a:hover { color: var(--orange); }
 
-    .footer-bottom{
-      border-top:1px solid rgba(231,217,184,0.8);
-      text-align:center;
-      padding:20px 0 32px;
-      color:#8A8378;
-      font-size:12px;
-      font-weight:800;
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(249,243,223,0.1);
+      font-size: 0.78rem;
+      color: rgba(249,243,223,0.35);
+      text-align: center;
+      line-height: 1.6;
     }
 
-    @media (max-width:1024px){
-      .hero-grid,.map-grid{
-        grid-template-columns:1fr;
-      }
-
-      .stats-grid,.feature-grid,.screens-grid{
-        grid-template-columns:1fr 1fr;
-      }
+    /* ANIMATIONS */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width:760px){
-      .nav-links{display:none}
-      .nav-inner{padding:12px 0}
-      .nav-logo img{width:62px;height:62px}
-      .nav-logo-text{font-size:30px}
-      .hero{padding:118px 0 56px}
-      .section{padding:68px 0}
-      .stats-grid,.feature-grid,.screens-grid,.premium-grid,.footer-grid{
-        grid-template-columns:1fr;
-      }
-      .hero-logo{width:min(360px,92%)}
-      .map-extra{justify-content:center}
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
-    [data-lang="en"]{display:none}
-    body.en [data-lang="es"]{display:none}
-    body.en [data-lang="en"]{display:block}
-    span[data-lang="en"]{display:none}
-    body.en span[data-lang="es"]{display:none}
-    body.en span[data-lang="en"]{display:inline}
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
-    <div class="nav-inner">
-      <a href="#top" class="nav-logo">
-        <img src="assets/logo-mark.png" alt="Club EasyPet logo" />
-        <div class="nav-logo-text">Club EasyPet</div>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="#features"><span data-lang="es">Funciones</span><span data-lang="en">Features</span></a></li>
-        <li><a href="#map"><span data-lang="es">Mapa</span><span data-lang="en">Map</span></a></li>
-        <li><a href="#screens"><span data-lang="es">Pantallas</span><span data-lang="en">Screens</span></a></li>
-        <li><a href="#premium">Premium</a></li>
-        <li><a href="#legal">Legal</a></li>
-      </ul>
-
-      <div class="nav-right">
-        <a href="#download" class="nav-cta"><span data-lang="es">Descargar</span><span data-lang="en">Download</span></a>
-        <button class="lang-btn" onclick="toggleLang()">EN / ES</button>
-      </div>
-    </div>
+    <a href="#top" class="nav-logo">
+      <img src="assets/logo-mark.png" alt="Club EasyPet logo" />
+      <span>Club EasyPet</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Funciones</a></li>
+      <li><a href="#map">Mapa</a></li>
+      <li><a href="#screens">Pantallas</a></li>
+      <li><a href="#premium">Premium</a></li>
+      <li><a href="#download" class="nav-cta">Descargar</a></li>
+    </ul>
   </nav>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="hero-badge">🐾 <span data-lang="es">La app para dueños de mascotas</span><span data-lang="en">The app for pet owners</span></div>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-badge">🐾 Próximamente en App Store y Google Play</div>
+    <img src="assets/logo-full.png" alt="Club EasyPet" class="hero-logo" />
+    <h1>Todo lo que necesitas para tus mascotas,<br><span>en una sola app</span></h1>
+    <p>Descubre lugares pet-friendly, organiza tus mascotas, guarda favoritos y recibe alertas útiles cerca de ti. Club EasyPet convierte el día a día con tus animales en algo más simple, visual y práctico.</p>
+    <div class="hero-btns">
+      <a href="#download" class="btn-store">
+        <span class="store-icon">🍎</span>
+        <span class="store-text">
+          <span class="store-soon">Próximamente en</span>
+          App Store
+        </span>
+      </a>
+      <a href="#download" class="btn-store">
+        <span class="store-icon">🤖</span>
+        <span class="store-text">
+          <span class="store-soon">Próximamente en</span>
+          Google Play
+        </span>
+      </a>
+    </div>
+    <img src="assets/screen-map.png" alt="Mapa de Club EasyPet" class="hero-map" />
+  </section>
 
-          <img class="hero-logo" src="assets/logo-full.png" alt="Club EasyPet" />
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">4.600+</span>
+      <span class="stat-label">Sitios localizados</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">9</span>
+      <span class="stat-label">Categorías principales</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">🐾</span>
+      <span class="stat-label">Gestión de mascotas</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">🚨</span>
+      <span class="stat-label">Alertas moderadas</span>
+    </div>
+  </div>
 
-          <h1 data-lang="es">Todo lo que necesitas para tus <span class="accent">mascotas</span>, en una sola app</h1>
-          <h1 data-lang="en">Everything you need for your <span class="accent">pets</span>, in one app</h1>
+  <!-- FEATURES -->
+  <section id="features">
+    <p class="section-label">🐾 Funciones</p>
+    <h2 class="section-title">Una app pensada para <span>convivir mejor</span> con tu mascota</h2>
+    <p class="section-desc">Club EasyPet no es solo un mapa. Es una herramienta completa para descubrir lugares, guardar favoritos, gestionar tus mascotas y estar al día de alertas y anuncios útiles de la comunidad.</p>
 
-          <p data-lang="es">
-            Descubre lugares pet-friendly, organiza tus mascotas, guarda favoritos y recibe alertas útiles cerca de ti. Club EasyPet convierte el día a día con tus animales en algo más simple, visual y práctico.
-          </p>
-          <p data-lang="en">
-            Discover pet-friendly places, organise your pets, save favourites and get useful alerts near you. Club EasyPet makes everyday life with your animals simpler, more visual and more practical.
-          </p>
-
-          <div class="hero-btns">
-            <a href="#download" class="btn-primary">🍎 <span data-lang="es">App Store — Próximamente</span><span data-lang="en">App Store — Coming soon</span></a>
-            <a href="#download" class="btn-secondary">🤖 <span data-lang="es">Google Play — Próximamente</span><span data-lang="en">Google Play — Coming soon</span></a>
-          </div>
-
-          <div class="hero-note">
-            <span data-lang="es">Mapa + mascotas + alertas + favoritos + tablón + premium.</span>
-            <span data-lang="en">Map + pets + alerts + favourites + board + premium.</span>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="hero-phone">
-            <img src="assets/screen-map.png" alt="Mapa de Club EasyPet" />
-          </div>
-        </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🗺️</span>
+        <div class="feature-title">Mapa pet-friendly</div>
+        <p class="feature-desc">Encuentra veterinarios, hospitales 24h, parques, playas caninas, hoteles, restaurantes, tiendas, peluquerías y centros comerciales pet-friendly.</p>
       </div>
-    </section>
-
-    <section class="stats">
-      <div class="container stats-grid">
-        <div class="stat">
-          <div class="stat-num">4.600+</div>
-          <div class="stat-label"><span data-lang="es">Sitios localizados</span><span data-lang="en">Places listed</span></div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">9</div>
-          <div class="stat-label"><span data-lang="es">Categorías principales</span><span data-lang="en">Main categories</span></div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">🐾</div>
-          <div class="stat-label"><span data-lang="es">Gestión de mascotas</span><span data-lang="en">Pet management</span></div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">🚨</div>
-          <div class="stat-label"><span data-lang="es">Alertas moderadas</span><span data-lang="en">Moderated alerts</span></div>
-        </div>
+      <div class="feature-card">
+        <span class="feature-icon">🐶</span>
+        <div class="feature-title">Mis mascotas</div>
+        <p class="feature-desc">Crea fichas con chip, raza, peso, ciudad y otros datos importantes para tener toda la información bien organizada.</p>
       </div>
-    </section>
-
-    <section class="section" id="features">
-      <div class="container">
-        <div class="section-tag">🐾 <span data-lang="es">Funciones</span><span data-lang="en">Features</span></div>
-        <h2 class="section-title">
-          <span data-lang="es">Una app pensada para convivir mejor con tu <span class="accent">mascota</span></span>
-          <span data-lang="en">An app designed to live better with your <span class="accent">pet</span></span>
-        </h2>
-        <p class="section-intro" data-lang="es">
-          Club EasyPet no es solo un mapa. Es una herramienta completa para descubrir lugares, guardar favoritos, gestionar tus mascotas y estar al día de alertas y anuncios útiles de la comunidad.
-        </p>
-        <p class="section-intro" data-lang="en">
-          Club EasyPet is more than a map. It’s a complete tool to discover places, save favourites, manage your pets and stay up to date with useful community alerts and listings.
-        </p>
-
-        <div class="feature-grid">
-          <article class="feature-card">
-            <div class="feature-icon">🗺️</div>
-            <div class="feature-title"><span data-lang="es">Mapa pet-friendly</span><span data-lang="en">Pet-friendly map</span></div>
-            <div class="feature-desc"><span data-lang="es">Encuentra veterinarios, hospitales 24h, parques, playas caninas, hoteles, restaurantes, tiendas, peluquerías y centros comerciales pet-friendly.</span><span data-lang="en">Find vets, 24h hospitals, parks, dog beaches, hotels, restaurants, shops, groomers and pet-friendly malls.</span></div>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">🐶</div>
-            <div class="feature-title"><span data-lang="es">Mis mascotas</span><span data-lang="en">My pets</span></div>
-            <div class="feature-desc"><span data-lang="es">Crea fichas con chip, raza, peso, ciudad y otros datos importantes para tener toda la información bien organizada.</span><span data-lang="en">Create profiles with chip, breed, weight, city and other important data to keep everything organised.</span></div>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">💉</div>
-            <div class="feature-title"><span data-lang="es">Vacunas y salud</span><span data-lang="en">Vaccines and health</span></div>
-            <div class="feature-desc"><span data-lang="es">Consulta próximas vacunas y mantén accesible la información útil de salud de cada mascota.</span><span data-lang="en">Track upcoming vaccines and keep each pet’s useful health information accessible.</span></div>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">❤️</div>
-            <div class="feature-title"><span data-lang="es">Favoritos y carpetas</span><span data-lang="en">Favourites and folders</span></div>
-            <div class="feature-desc"><span data-lang="es">Guarda lugares, crea carpetas y ordena tus sitios favoritos para encontrarlos rápido cuando los necesites.</span><span data-lang="en">Save places, create folders and organise your favourite spots so you can find them fast.</span></div>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">🚨</div>
-            <div class="feature-title"><span data-lang="es">Alertas moderadas</span><span data-lang="en">Moderated alerts</span></div>
-            <div class="feature-desc"><span data-lang="es">Consulta avisos sobre perros perdidos, veneno, cebo o procesionaria con moderación para dar más confianza.</span><span data-lang="en">Check alerts about lost dogs, poison, bait or pine processionary with moderation for greater trust.</span></div>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">📋</div>
-            <div class="feature-title"><span data-lang="es">Tablón de anuncios</span><span data-lang="en">Notice board</span></div>
-            <div class="feature-desc"><span data-lang="es">Encuentra o publica anuncios sobre mascotas, servicios, paseadores, adopción o necesidades de la comunidad.</span><span data-lang="en">Find or publish listings about pets, services, walkers, adoption or community needs.</span></div>
-          </article>
-        </div>
+      <div class="feature-card">
+        <span class="feature-icon">💉</span>
+        <div class="feature-title">Vacunas y salud</div>
+        <p class="feature-desc">Consulta próximas vacunas y mantén accesible la información útil de salud de cada mascota.</p>
       </div>
-    </section>
-
-    <section class="section map-band" id="map">
-      <div class="container map-grid">
-        <div>
-          <div class="section-tag">🗺️ <span data-lang="es">El mapa</span><span data-lang="en">The map</span></div>
-          <h2 class="section-title">
-            <span data-lang="es">Miles de <span class="accent">sitios pet-friendly</span> en una sola aplicación</span>
-            <span data-lang="en">Thousands of <span class="accent">pet-friendly places</span> in one app</span>
-          </h2>
-
-          <p class="section-intro" style="margin-bottom:0" data-lang="es">
-            Explora lugares útiles para tu día a día con mascotas: veterinarios, hospitales 24h, parques, playas caninas, hoteles, restaurantes, tiendas y peluquerías. Descubre sitios cerca de ti y guárdalos para volver cuando quieras.
-          </p>
-          <p class="section-intro" style="margin-bottom:0" data-lang="en">
-            Explore useful places for everyday pet life: vets, 24h hospitals, parks, dog beaches, hotels, restaurants, shops and groomers. Discover nearby places and save them for later.
-          </p>
-
-          <div class="map-extra">
-            <img src="assets/pins-grid.png" alt="Categorías de Club EasyPet" />
-          </div>
-        </div>
-
-        <div class="map-shot">
-          <img src="assets/screen-map.png" alt="Mapa con lugares pet-friendly" />
-        </div>
+      <div class="feature-card">
+        <span class="feature-icon">❤️</span>
+        <div class="feature-title">Favoritos y carpetas</div>
+        <p class="feature-desc">Guarda lugares, crea carpetas y ordena tus sitios favoritos para encontrarlos rápido cuando los necesites.</p>
       </div>
-    </section>
-
-    <section class="section" id="screens">
-      <div class="container">
-        <div class="section-tag">📱 <span data-lang="es">Pantallas reales</span><span data-lang="en">Real screens</span></div>
-        <h2 class="section-title">
-          <span data-lang="es">Así se ve <span class="accent">Club EasyPet</span> por dentro</span>
-          <span data-lang="en">This is how <span class="accent">Club EasyPet</span> looks inside</span>
-        </h2>
-        <p class="section-intro" data-lang="es">
-          Una experiencia visual, simple y clara para encontrar lugares, gestionar mascotas, revisar alertas, organizar favoritos y acceder a funciones premium.
-        </p>
-        <p class="section-intro" data-lang="en">
-          A visual, simple and clear experience to find places, manage pets, review alerts, organise favourites and access premium features.
-        </p>
-
-        <div class="screens-grid">
-          <article class="screen-card">
-            <img src="assets/screen-lobby.png" alt="Lobby de Club EasyPet" />
-            <div class="screen-copy">
-              <h3 data-lang="es">Lobby personal</h3>
-              <h3 data-lang="en">Personal lobby</h3>
-              <p data-lang="es">Accede rápidamente a tus mascotas, lugares favoritos y recomendaciones cercanas.</p>
-              <p data-lang="en">Quickly access your pets, favourite places and nearby recommendations.</p>
-            </div>
-          </article>
-
-          <article class="screen-card">
-            <img src="assets/screen-pets.png" alt="Ficha de mascota" />
-            <div class="screen-copy">
-              <h3 data-lang="es">Ficha de mascota</h3>
-              <h3 data-lang="en">Pet profile</h3>
-              <p data-lang="es">Guarda datos importantes como chip, raza, peso, ciudad y otra información útil.</p>
-              <p data-lang="en">Save important data such as chip, breed, weight, city and other useful information.</p>
-            </div>
-          </article>
-
-          <article class="screen-card">
-            <img src="assets/screen-alerts.png" alt="Alertas en Club EasyPet" />
-            <div class="screen-copy">
-              <h3 data-lang="es">Alertas útiles</h3>
-              <h3 data-lang="en">Useful alerts</h3>
-              <p data-lang="es">Consulta avisos verificados sobre perros perdidos, veneno, cebo o procesionaria.</p>
-              <p data-lang="en">Check verified alerts about lost dogs, poison, bait or pine processionary.</p>
-            </div>
-          </article>
-
-          <article class="screen-card">
-            <img src="assets/screen-favorites.png" alt="Favoritos y carpetas" />
-            <div class="screen-copy">
-              <h3 data-lang="es">Mis lugares</h3>
-              <h3 data-lang="en">My places</h3>
-              <p data-lang="es">Guarda tus favoritos y organízalos por carpetas o categorías personalizadas.</p>
-              <p data-lang="en">Save your favourites and organise them into folders or custom categories.</p>
-            </div>
-          </article>
-
-          <article class="screen-card">
-            <img src="assets/screen-board.png" alt="Tablón de anuncios" />
-            <div class="screen-copy">
-              <h3 data-lang="es">Tablón</h3>
-              <h3 data-lang="en">Board</h3>
-              <p data-lang="es">Publica o consulta anuncios relacionados con mascotas y servicios de la comunidad.</p>
-              <p data-lang="en">Publish or browse pet-related listings and community services.</p>
-            </div>
-          </article>
-
-          <article class="screen-card">
-            <img src="assets/screen-settings.png" alt="Ajustes y premium" />
-            <div class="screen-copy">
-              <h3 data-lang="es">Ajustes y premium</h3>
-              <h3 data-lang="en">Settings and premium</h3>
-              <p data-lang="es">Gestiona idioma, alertas, legales y el acceso a funciones premium dentro de la app.</p>
-              <p data-lang="en">Manage language, alerts, legal pages and premium access inside the app.</p>
-            </div>
-          </article>
-        </div>
+      <div class="feature-card">
+        <span class="feature-icon">🚨</span>
+        <div class="feature-title">Alertas moderadas</div>
+        <p class="feature-desc">Consulta avisos sobre perros perdidos, veneno, cebo o procesionaria con moderación para dar más confianza.</p>
       </div>
-    </section>
-
-    <section class="section" id="premium">
-      <div class="container">
-        <div class="premium-box">
-          <img class="premium-logo" src="assets/logo-mark.png" alt="Club EasyPet Premium" />
-          <div class="premium-title">Club EasyPet Premium</div>
-
-          <p class="premium-desc" data-lang="es">
-            Desbloquea funciones extra y saca aún más partido a la app. Pensado para quienes quieren una experiencia más completa con sus mascotas.
-          </p>
-          <p class="premium-desc" data-lang="en">
-            Unlock extra features and get even more out of the app. Designed for users who want a more complete experience with their pets.
-          </p>
-
-          <div class="premium-grid">
-            <div class="premium-item"><span data-lang="es">🐾 Mascotas ilimitadas</span><span data-lang="en">🐾 Unlimited pets</span></div>
-            <div class="premium-item"><span data-lang="es">❤️ Favoritos ilimitados</span><span data-lang="en">❤️ Unlimited favourites</span></div>
-            <div class="premium-item"><span data-lang="es">📸 Fotos en comunidad</span><span data-lang="en">📸 Community photos</span></div>
-            <div class="premium-item"><span data-lang="es">💬 Chat directo</span><span data-lang="en">💬 Direct chat</span></div>
-            <div class="premium-item"><span data-lang="es">🔔 Alertas por zona</span><span data-lang="en">🔔 Area alerts</span></div>
-            <div class="premium-item"><span data-lang="es">📊 Salud avanzada</span><span data-lang="en">📊 Advanced health</span></div>
-          </div>
-
-          <a href="#download" class="btn-primary">🐾 <span data-lang="es">Próximamente — 2,99€/mes</span><span data-lang="en">Coming soon — €2.99/month</span></a>
-        </div>
+      <div class="feature-card">
+        <span class="feature-icon">📋</span>
+        <div class="feature-title">Tablón de anuncios</div>
+        <p class="feature-desc">Encuentra o publica anuncios sobre mascotas, servicios, paseadores, adopción o necesidades de la comunidad.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section download" id="download">
-      <div class="container">
-        <img class="download-logo" src="assets/logo-full.png" alt="Club EasyPet" />
-
-        <h2 data-lang="es">Descarga Club EasyPet</h2>
-        <h2 data-lang="en">Download Club EasyPet</h2>
-
-        <p data-lang="es">Muy pronto disponible en App Store y Google Play.</p>
-        <p data-lang="en">Coming very soon to the App Store and Google Play.</p>
-
-        <div class="store-btns">
-          <a href="#" class="store-btn">
-            <div class="store-icon">🍎</div>
-            <div>
-              <div class="store-sub"><span data-lang="es">Próximamente en</span><span data-lang="en">Coming soon on</span></div>
-              <div class="store-name">App Store</div>
-            </div>
-          </a>
-
-          <a href="#" class="store-btn">
-            <div class="store-icon">🤖</div>
-            <div>
-              <div class="store-sub"><span data-lang="es">Próximamente en</span><span data-lang="en">Coming soon on</span></div>
-              <div class="store-name">Google Play</div>
-            </div>
-          </a>
-        </div>
+  <!-- MAP -->
+  <div class="map-section" id="map">
+    <div class="map-inner">
+      <div>
+        <p class="section-label" style="color:var(--orange)">🗺️ El mapa</p>
+        <h2 class="section-title">Miles de sitios pet-friendly en una sola aplicación</h2>
+        <p class="section-desc">Explora lugares útiles para tu día a día con mascotas: veterinarios, hospitales 24h, parques, playas caninas, hoteles, restaurantes, tiendas y peluquerías. Descubre sitios cerca de ti y guárdalos para volver cuando quieras.</p>
       </div>
-    </section>
-
-    <section class="section" id="legal" style="padding-top:26px;">
-      <div class="container">
-        <div class="section-tag">📋 Legal</div>
-        <div class="legal-links">
-          <a href="privacy.html">🔒 <span data-lang="es">Política de Privacidad</span><span data-lang="en">Privacy Policy</span></a>
-          <a href="terms.html">📄 <span data-lang="es">Términos y Condiciones</span><span data-lang="en">Terms & Conditions</span></a>
-          <a href="mailto:hola@clubeasypet.com">✉️ Contacto</a>
-        </div>
+      <div>
+        <img src="assets/pins-grid.png" alt="Categorías de Club EasyPet" class="map-pins" />
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
 
-  <footer>
-    <div class="container footer-grid">
+  <!-- SCREENS -->
+  <section id="screens">
+    <p class="section-label">📱 Pantallas reales</p>
+    <h2 class="section-title">Así se ve Club EasyPet <span>por dentro</span></h2>
+    <p class="section-desc">Una experiencia visual, simple y clara para encontrar lugares, gestionar mascotas, revisar alertas, organizar favoritos y acceder a funciones premium.</p>
+
+    <div class="screens-grid">
+      <div class="screen-card">
+        <img src="assets/screen-lobby.png" alt="Lobby de Club EasyPet" />
+        <h3>Lobby personal</h3>
+        <p>Accede rápidamente a tus mascotas, lugares favoritos y recomendaciones cercanas.</p>
+      </div>
+      <div class="screen-card">
+        <img src="assets/screen-pets.png" alt="Ficha de mascota" />
+        <h3>Ficha de mascota</h3>
+        <p>Guarda datos importantes como chip, raza, peso, ciudad y otra información útil.</p>
+      </div>
+      <div class="screen-card">
+        <img src="assets/screen-alerts.png" alt="Alertas en Club EasyPet" />
+        <h3>Alertas útiles</h3>
+        <p>Consulta avisos verificados sobre perros perdidos, veneno, cebo o procesionaria.</p>
+      </div>
+      <div class="screen-card">
+        <img src="assets/screen-favorites.png" alt="Favoritos y carpetas" />
+        <h3>Mis lugares</h3>
+        <p>Guarda tus favoritos y organízalos por carpetas o categorías personalizadas.</p>
+      </div>
+      <div class="screen-card">
+        <img src="assets/screen-board.png" alt="Tablón de anuncios" />
+        <h3>Tablón</h3>
+        <p>Publica o consulta anuncios relacionados con mascotas y servicios de la comunidad.</p>
+      </div>
+      <div class="screen-card">
+        <img src="assets/screen-settings.png" alt="Ajustes y premium" />
+        <h3>Ajustes y premium</h3>
+        <p>Gestiona idioma, alertas, legales y el acceso a funciones premium dentro de la app.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIUM -->
+  <div class="premium-section" id="premium">
+    <div class="premium-inner">
+      <img src="assets/logo-mark.png" alt="Club EasyPet Premium" class="premium-logo" />
+      <h2 class="premium-title">Club EasyPet Premium</h2>
+      <p class="premium-desc">Desbloquea funciones extra y saca aún más partido a la app. Pensado para quienes quieren una experiencia más completa con sus mascotas.</p>
+      <div class="premium-features">
+        <span class="premium-feat">🐾 Mascotas ilimitadas</span>
+        <span class="premium-feat">❤️ Favoritos ilimitados</span>
+        <span class="premium-feat">📸 Fotos en comunidad</span>
+        <span class="premium-feat">💬 Chat directo</span>
+        <span class="premium-feat">🔔 Alertas por zona</span>
+        <span class="premium-feat">📊 Salud avanzada</span>
+      </div>
+      <a href="#download" class="premium-price">🐾 Próximamente — desde 2,99€/mes</a>
+    </div>
+  </div>
+
+  <!-- DOWNLOAD -->
+  <section class="download-section" id="download">
+    <p class="section-label">📲 Descarga</p>
+    <h2 class="section-title" style="margin:0 auto 0.8rem;">Descarga Club EasyPet</h2>
+    <p class="section-desc">Muy pronto disponible en App Store y Google Play.</p>
+    <div class="download-btns">
+      <a href="#" class="btn-store">
+        <span class="store-icon">🍎</span>
+        <span class="store-text">
+          <span class="store-soon">Próximamente en</span>
+          App Store
+        </span>
+      </a>
+      <a href="#" class="btn-store">
+        <span class="store-icon">🤖</span>
+        <span class="store-text">
+          <span class="store-soon">Próximamente en</span>
+          Google Play
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="legal">
+    <div class="footer-inner">
       <div class="footer-brand">
-        <a href="#top" class="nav-logo">
-          <img src="assets/logo-mark.png" alt="Club EasyPet logo" />
-          <div class="nav-logo-text">Club EasyPet</div>
-        </a>
-        <p data-lang="es">
-          Club EasyPet reúne mapa pet-friendly, gestión de mascotas, alertas moderadas y favoritos en una sola app.
-        </p>
-        <p data-lang="en">
-          Club EasyPet brings together a pet-friendly map, pet management, moderated alerts and favourites in one app.
-        </p>
+        <img src="assets/logo-full.png" alt="Club EasyPet" />
+        <p>Club EasyPet reúne mapa pet-friendly, gestión de mascotas, alertas moderadas y favoritos en una sola app.</p>
       </div>
-
       <div class="footer-col">
         <h4>App</h4>
-        <a href="#features"><span data-lang="es">Funciones</span><span data-lang="en">Features</span></a>
-        <a href="#map"><span data-lang="es">Mapa</span><span data-lang="en">Map</span></a>
-        <a href="#screens"><span data-lang="es">Pantallas</span><span data-lang="en">Screens</span></a>
+        <a href="#features">Funciones</a>
+        <a href="#map">Mapa</a>
+        <a href="#screens">Pantallas</a>
         <a href="#premium">Premium</a>
       </div>
-
       <div class="footer-col">
         <h4>Legal</h4>
-        <a href="privacy.html"><span data-lang="es">Privacidad</span><span data-lang="en">Privacy</span></a>
-        <a href="terms.html"><span data-lang="es">Términos</span><span data-lang="en">Terms</span></a>
+        <a href="privacy.html">Privacidad</a>
+        <a href="terms.html">Términos</a>
         <a href="mailto:hola@clubeasypet.com">Contacto</a>
       </div>
     </div>
-
-    <div class="container footer-bottom">
-      © 2026 Club EasyPet. Producciones Espiritu del Viento SL . NIF B27534346 <span data-lang="es">Todos los derechos reservados.</span><span data-lang="en">All rights reserved.</span>
+    <div class="footer-bottom">
+      © 2026 Club EasyPet · Producciones Espíritu del Viento SL · NIF B27534346 · Todos los derechos reservados.<br />
+      <a href="privacy.html" style="color:rgba(249,243,223,0.4);text-decoration:none;">Política de Privacidad</a> ·
+      <a href="terms.html" style="color:rgba(249,243,223,0.4);text-decoration:none;">Términos y Condiciones</a>
     </div>
   </footer>
 
-  <script>
-    function toggleLang(){
-      document.body.classList.toggle('en');
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if(target){
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-  </script>
 </body>
 </html>
