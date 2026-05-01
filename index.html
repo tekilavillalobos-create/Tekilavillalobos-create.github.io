@@ -297,8 +297,8 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
 
 /* FAMILY HIGHLIGHT */
 .family-highlight {
-  padding: 92px 24px;
-  background: linear-gradient(135deg, var(--obsidian) 0%, #182225 55%, #25140a 100%);
+  padding: 88px 24px;
+  background: linear-gradient(135deg, var(--obsidian) 0%, #172225 55%, #241207 100%);
   color: var(--white);
   position: relative;
   overflow: hidden;
@@ -308,8 +308,8 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 18% 20%, rgba(255,152,43,0.22) 0%, transparent 32%),
-    radial-gradient(circle at 88% 78%, rgba(208,56,76,0.18) 0%, transparent 34%);
+    radial-gradient(circle at 15% 18%, rgba(255,152,43,0.20) 0%, transparent 32%),
+    radial-gradient(circle at 90% 78%, rgba(208,56,76,0.16) 0%, transparent 34%);
   pointer-events: none;
 }
 .family-inner {
@@ -317,7 +317,7 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.05fr .95fr;
-  gap: 46px;
+  gap: 44px;
   align-items: center;
   position: relative;
   z-index: 1;
@@ -347,7 +347,7 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   color: rgba(255,255,255,0.88);
 }
 .family-card {
-  background: rgba(255,255,255,0.96);
+  background: rgba(255,255,255,0.97);
   color: var(--obsidian);
   border-radius: 26px;
   padding: 30px;
@@ -414,12 +414,47 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   line-height: 1.45;
 }
 .family-list .ck { color: var(--green); font-weight: 900; }
-.family-note {
-  font-size: 12px;
-  opacity: .55;
-  line-height: 1.5;
-  margin-top: 12px;
+
+/* PRICING REFINED */
+.pricing-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
 }
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+}
+.pricing-card.featured-family {
+  border-color: var(--orange);
+  background: linear-gradient(180deg, #fffdf4 0%, var(--white) 100%);
+  box-shadow: 0 12px 42px rgba(255,152,43,0.20);
+  transform: translateY(-8px);
+  position: relative;
+}
+.pricing-card.featured-family:hover {
+  transform: translateY(-12px);
+}
+.family-crown {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--orange), var(--red));
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 900;
+  padding: 5px 16px;
+  border-radius: 0 0 12px 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.pricing-card.featured-family .plan-price {
+  color: var(--orange);
+}
+.pricing-card.featured-family .plan-name {
+  margin-top: 17px;
+}
+.plan-features { flex: 1; }
 .final-seal {
   padding: 52px 24px;
   background: var(--obsidian);
@@ -445,6 +480,8 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
 /* RESPONSIVE */
 @media (max-width: 1000px) {
 .family-inner { grid-template-columns: 1fr; gap: 32px; }
+.pricing-cards { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+.pricing-card.featured-family { transform: none; }
 
 .owners-inner { grid-template-columns: 1fr; gap: 32px; }
 .owners-visual { aspect-ratio: auto; padding: 26px; min-height: 180px; }
@@ -632,9 +669,9 @@ footer { flex-direction: column; text-align: center; align-items: center; }
 <section class="pricing-section reveal" id="pricing">
   <div class="pricing-inner">
     <span class="section-label">Planes</span>
-    <h2 class="section-title">Elige cómo cuidar<br>a tu mascota</h2>
-    <p class="section-sub" style="margin: 0 auto 0;">Para ti, para tu mascota o para toda la familia.</p>
-    <div class="pricing-cards" style="grid-template-columns: repeat(auto-fit, minmax(260px,1fr));">
+    <h2 class="section-title">Empieza gratis.<br>Mejora la experiencia.</h2>
+    <p class="section-sub" style="margin: 0 auto 0;">Acceso básico gratuito. Desbloquea todo con Premium.</p>
+    <div class="pricing-cards">
       <div class="pricing-card reveal rd1">
         <div class="plan-name">Acceso básico</div>
         <div class="plan-price">0€<sub>/mes</sub></div>
@@ -677,25 +714,7 @@ footer { flex-direction: column; text-align: center; align-items: center; }
         </ul>
         <a href="#download" class="plan-cta paid">Probar Premium gratis →</a>
         <p class="plan-cta-sub">7 días gratis · Cancela cuando quieras</p>
-      
-      <div class="pricing-card premium" style="border-color:#FF982B;">
-        <div class="premium-crown">🔥 PLAN FAMILIA</div>
-        <div class="plan-name" style="margin-top:17px;">Familia</div>
-        <div class="plan-price">39,99€<sub>/año</sub></div>
-        <div class="plan-period-main">Hasta 3 personas</div>
-        <div class="plan-trial">👨‍👩‍👧‍👦 Comparte con tu familia</div>
-        <ul class="plan-features">
-          <li><span class="ck">✓</span> 1 mascota compartida</li>
-          <li><span class="ck">✓</span> Hasta 3 usuarios conectados</li>
-          <li><span class="ck">✓</span> Datos sincronizados</li>
-          <li><span class="ck">✓</span> Recordatorios para todos</li>
-          <li><span class="ck">✓</span> Alertas compartidas</li>
-          <li><span class="ck">✓</span> Documentos accesibles</li>
-        </ul>
-        <a href="#download" class="plan-cta paid">Elegir plan familia →</a>
-        <p class="plan-cta-sub">Ideal para parejas y familias</p>
       </div>
-
     </div>
     <p class="pricing-note">Pago seguro vía App Store y Google Play · Sin permanencia</p>
   </div>
