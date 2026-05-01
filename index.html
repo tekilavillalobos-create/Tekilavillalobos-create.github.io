@@ -7,7 +7,13 @@
 <meta name="description" content="Encuentra lugares pet-friendly, veterinarios 24h, playas y parques para perros en España. Descarga gratis Club EasyPet.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://clubeasypet.com/">
+<!-- Favicons -->
 <link rel="icon" href="assets/club-easypet-icono-definitivo-sin-fondo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<meta name="theme-color" content="#FF982B">
+<meta name="apple-mobile-web-app-title" content="Club EasyPet">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://clubeasypet.com/">
 <meta property="og:title" content="Club EasyPet — Todo lo que necesita tu perro, en una sola app">
@@ -263,6 +269,15 @@ background: var(--cream-mid); color: var(--obsidian); opacity: .45;
 cursor: not-allowed; pointer-events: none; border-color: var(--cream-dark);
 box-shadow: none;
 }
+.store-btn.ios-wait {
+  background: var(--white);
+  color: var(--obsidian);
+  opacity: 1;
+}
+.store-btn.ios-wait:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
 
 /* FOOTER */
 footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid var(--cream-dark); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
@@ -334,7 +349,7 @@ footer { flex-direction: column; text-align: center; align-items: center; }
     <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="btn-primary" target="_blank" rel="noopener">🤖 Descargar en Google Play</a>
     <a href="#negocios" class="btn-secondary">Soy un negocio pet-friendly</a>
   </div>
-  <p class="hero-microcopy">Empieza gratis · Premium 7 días gratis · iOS próximamente</p>
+  <p class="hero-microcopy">Empieza gratis · Te recordamos vacunas y cumpleaños · Premium 7 días gratis</p>
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">6.000+</div><div class="stat-label">Lugares</div></div>
     <div class="stat"><div class="stat-num">5</div><div class="stat-label">Idiomas</div></div>
@@ -380,6 +395,7 @@ footer { flex-direction: column; text-align: center; align-items: center; }
       <div class="feature-card reveal rd1"><span class="feature-emoji">🗺️</span><div class="feature-title">Encuentra el sitio perfecto sin perder tiempo</div><div class="feature-desc">6.000+ lugares verificados: veterinarios, parques caninos, hoteles, restaurantes, peluquerías y playas.</div></div>
       <div class="feature-card reveal rd2"><span class="feature-emoji">❤️</span><div class="feature-title">Guarda tus lugares de confianza</div><div class="feature-desc">Crea carpetas de favoritos y accede sin buscar cada vez. Ilimitados con Premium.</div><span class="feature-badge">👑 Premium</span></div>
       <div class="feature-card reveal rd3"><span class="feature-emoji">💉</span><div class="feature-title">No vuelvas a olvidar una vacuna</div><div class="feature-desc">Historial médico, cartilla, peso y talla. Recordatorios automáticos para no perder ninguna fecha.</div><span class="feature-badge">👑 Premium</span></div>
+      <div class="feature-card reveal rd4"><span class="feature-emoji">🎂</span><div class="feature-title">Te recordamos su cumpleaños</div><div class="feature-desc">Recibe un aviso especial para celebrar el día de tu mascota y tener siempre presente sus fechas importantes.</div><span class="feature-badge">👑 Premium</span></div>
       <div class="feature-card reveal rd1"><span class="feature-emoji">📄</span><div class="feature-title">Ten toda su documentación contigo</div><div class="feature-desc">Cartilla sanitaria, chip, seguro y pasaporte guardados en la nube y siempre accesibles.</div><span class="feature-badge">👑 Premium</span></div>
       <div class="feature-card reveal rd2"><span class="feature-emoji">🚨</span><div class="feature-title">Evita peligros en tu zona</div><div class="feature-desc">Alertas moderadas de procesionaria, veneno y mascotas perdidas. Entérate antes que nadie.</div></div>
       <div class="feature-card reveal rd3"><span class="feature-emoji">🆘</span><div class="feature-title">Activa una alerta si tu mascota se pierde</div><div class="feature-desc">Un toque y toda la comunidad recibe una notificación de emergencia al instante.</div><span class="feature-badge">👑 Premium</span></div>
@@ -562,16 +578,16 @@ footer { flex-direction: column; text-align: center; align-items: center; }
 <section class="download-section reveal" id="download">
   <img src="assets/club-easypet-logo-definitivo-sin-fondo.svg" alt="Club EasyPet" class="download-logo" loading="lazy" />
   <h2>Empieza hoy con<br><em>Club EasyPet</em></h2>
-  <p class="dl-sub">Descubre lugares, cuida a tu perro y conecta con la comunidad.</p>
+  <p class="dl-sub">Descubre lugares, cuida a tu perro y recibe recordatorios importantes, incluso su cumpleaños.</p>
   <div class="store-btns">
     <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="store-btn" target="_blank" rel="noopener" aria-label="Descargar en Google Play">
       <span style="font-size:24px" aria-hidden="true">🤖</span>
       <div><span class="ss">Descargar en</span>Google Play</div>
     </a>
-    <div class="store-btn disabled" aria-label="iOS próximamente" role="img">
+    <a href="mailto:hola@clubeasypet.com?subject=Quiero%20que%20me%20avis%C3%A9is%20cuando%20Club%20EasyPet%20llegue%20a%20iOS" class="store-btn ios-wait" aria-label="Avisarme cuando Club EasyPet esté en iOS">
       <span style="font-size:24px" aria-hidden="true">🍎</span>
-      <div><span class="ss">iOS próximamente</span>App Store</div>
-    </div>
+      <div><span class="ss">iOS próximamente</span>Avísame</div>
+    </a>
   </div>
 </section>
 
