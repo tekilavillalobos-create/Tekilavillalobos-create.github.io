@@ -7,11 +7,12 @@
 <meta name="description" content="Encuentra lugares pet-friendly, veterinarios 24h, playas y parques para perros en España. Descarga gratis Club EasyPet.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://clubeasypet.com/">
+<link rel="icon" href="assets/club-easypet-icono-definitivo-sin-fondo.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://clubeasypet.com/">
 <meta property="og:title" content="Club EasyPet — Todo lo que necesita tu perro, en una sola app">
 <meta property="og:description" content="6.000+ lugares pet-friendly en España. Veterinarios 24h, playas para perros, hoteles y parques caninos.">
-<meta property="og:image" content="https://clubeasypet.com/assets/logo-full.png">
+<meta property="og:image" content="https://clubeasypet.com/assets/club-easypet-logo-definitivo-sin-fondo.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,16 +39,16 @@ body { font-family: 'Overpass', sans-serif; background: var(--cream); color: var
 
 /* NAV */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 11px 40px;
-  background: rgba(249,243,223,0.95);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(11,18,21,0.07);
-  box-shadow: var(--sh1);
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+display: flex; align-items: center; justify-content: space-between;
+padding: 11px 40px;
+background: rgba(249,243,223,0.95);
+backdrop-filter: blur(18px);
+border-bottom: 1px solid rgba(11,18,21,0.07);
+box-shadow: var(--sh1);
 }
 .nav-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
-.nav-logo-img { height: 46px; width: auto; display: block; }
+.nav-logo-img { width: 190px; height: auto; display: block; }
 .nav-links { display: flex; gap: 22px; align-items: center; }
 .nav-links a { color: var(--obsidian); text-decoration: none; font-size: 13px; font-weight: 700; opacity: .5; transition: opacity .2s, color .2s; }
 .nav-links a:hover { opacity: 1; color: var(--orange); }
@@ -56,13 +57,13 @@ nav {
 
 /* HERO */
 .hero {
-  min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 110px 24px 80px; position: relative; overflow: hidden;
-  background: linear-gradient(155deg, #fffcf4 0%, var(--cream) 50%, #fdefd8 100%);
+min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+text-align: center; padding: 110px 24px 80px; position: relative; overflow: hidden;
+background: linear-gradient(155deg, #fffcf4 0%, var(--cream) 50%, #fdefd8 100%);
 }
 .hero-blob1 { position: absolute; top: -180px; right: -180px; width: 580px; height: 580px; border-radius: 50%; background: radial-gradient(circle, rgba(255,152,43,0.11) 0%, transparent 70%); pointer-events: none; }
 .hero-blob2 { position: absolute; bottom: -140px; left: -140px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(208,56,76,0.07) 0%, transparent 70%); pointer-events: none; }
-.hero-logo { width: min(220px, 48vw); margin-bottom: 22px; animation: fadeUp .5s ease both; filter: drop-shadow(0 6px 24px rgba(255,152,43,0.18)); }
+.hero-logo { width: min(360px, 72vw); height: auto; margin-bottom: 22px; animation: fadeUp .5s ease both; filter: drop-shadow(0 6px 24px rgba(255,152,43,0.18)); }
 .hero-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,152,43,0.10); border: 1.5px solid rgba(255,152,43,0.24); color: var(--orange); padding: 6px 15px; border-radius: 99px; font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; animation: fadeUp .5s .06s ease both; }
 .hero h1 { font-family: 'Rammetto One', cursive; font-size: clamp(26px, 5vw, 54px); line-height: 1.18; color: var(--obsidian); max-width: 720px; margin-bottom: 16px; animation: fadeUp .5s .12s ease both; }
 .hero h1 em { color: var(--orange); font-style: normal; }
@@ -79,13 +80,13 @@ nav {
 .stat-label { font-size: 11px; opacity: .40; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-top: 3px; }
 .scroll-line { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); width: 1px; height: 46px; background: linear-gradient(to bottom, transparent, var(--orange)); animation: pulse 2s infinite; }
 
-/* TRUST BAR — fondo claro */
+/* TRUST BAR */
 .trust-bar {
-  padding: 28px 24px;
-  background: var(--white);
-  border-top: 1px solid var(--cream-mid);
-  border-bottom: 1px solid var(--cream-mid);
-  display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
+padding: 28px 24px;
+background: var(--white);
+border-top: 1px solid var(--cream-mid);
+border-bottom: 1px solid var(--cream-mid);
+display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
 }
 .trust-item { display: flex; align-items: center; gap: 9px; padding: 9px 24px; border-right: 1px solid var(--cream-mid); }
 .trust-item:last-child { border-right: none; }
@@ -237,36 +238,36 @@ tr:hover td { background: rgba(255,152,43,0.025); }
 
 /* DOWNLOAD */
 .download-section {
-  padding: 92px 24px; text-align: center;
-  background: linear-gradient(160deg, #fff8ee 0%, var(--cream) 100%);
-  position: relative; overflow: hidden;
-  border-top: 2px solid var(--cream-mid);
+padding: 92px 24px; text-align: center;
+background: linear-gradient(160deg, #fff8ee 0%, var(--cream) 100%);
+position: relative; overflow: hidden;
+border-top: 2px solid var(--cream-mid);
 }
 .download-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 52% at 50% 50%, rgba(255,152,43,0.08) 0%, transparent 70%); }
-.download-logo { width: 140px; height: auto; margin: 0 auto 20px; display: block; filter: drop-shadow(0 4px 16px rgba(255,152,43,0.15)); position: relative; }
+.download-logo { width: min(300px, 70vw); height: auto; margin: 0 auto 20px; display: block; filter: drop-shadow(0 4px 16px rgba(255,152,43,0.15)); position: relative; }
 .download-section h2 { font-family: 'Rammetto One', cursive; font-size: clamp(26px, 5vw, 56px); line-height: 1.15; margin-bottom: 12px; position: relative; color: var(--obsidian); }
 .download-section h2 em { color: var(--orange); font-style: normal; }
 .download-section .dl-sub { font-size: 15px; color: var(--obsidian); opacity: .52; margin-bottom: 36px; position: relative; }
 .store-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
 .store-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--white); border: 2px solid var(--cream-dark);
-  padding: 13px 22px; border-radius: 12px; text-decoration: none;
-  color: var(--obsidian); font-weight: 700; font-size: 14px;
-  box-shadow: var(--sh1); transition: all .2s;
+display: inline-flex; align-items: center; gap: 10px;
+background: var(--white); border: 2px solid var(--cream-dark);
+padding: 13px 22px; border-radius: 12px; text-decoration: none;
+color: var(--obsidian); font-weight: 700; font-size: 14px;
+box-shadow: var(--sh1); transition: all .2s;
 }
 .store-btn:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); box-shadow: var(--sh2); }
 .store-btn .ss { font-size: 10px; opacity: .40; display: block; font-weight: 400; }
 .store-btn.disabled {
-  background: var(--cream-mid); color: var(--obsidian); opacity: .45;
-  cursor: not-allowed; pointer-events: none; border-color: var(--cream-dark);
-  box-shadow: none;
+background: var(--cream-mid); color: var(--obsidian); opacity: .45;
+cursor: not-allowed; pointer-events: none; border-color: var(--cream-dark);
+box-shadow: none;
 }
 
 /* FOOTER */
 footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid var(--cream-dark); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
 .footer-brand { display: flex; align-items: center; }
-.footer-logo-img { height: 40px; width: auto; display: block; }
+.footer-logo-img { width: 180px; height: auto; display: block; }
 .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
 .footer-links a { color: var(--obsidian); opacity: .28; text-decoration: none; font-size: 13px; transition: opacity .2s, color .2s; }
 .footer-links a:hover { opacity: .72; color: var(--orange); }
@@ -281,37 +282,36 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
 
 /* RESPONSIVE */
 @media (max-width: 1000px) {
-  .owners-inner { grid-template-columns: 1fr; gap: 32px; }
-  .owners-visual { aspect-ratio: auto; padding: 26px; min-height: 180px; }
-  .pins-grid { grid-template-columns: repeat(3,1fr); }
-  .pin-card.pf-card { grid-column: span 3; }
-  .screens-row-1 { grid-template-columns: repeat(2,1fr); }
-  .screens-row-2 { grid-template-columns: repeat(2,1fr); max-width: 64%; }
+.owners-inner { grid-template-columns: 1fr; gap: 32px; }
+.owners-visual { aspect-ratio: auto; padding: 26px; min-height: 180px; }
+.pins-grid { grid-template-columns: repeat(3,1fr); }
+.pin-card.pf-card { grid-column: span 3; }
+.screens-row-1 { grid-template-columns: repeat(2,1fr); }
+.screens-row-2 { grid-template-columns: repeat(2,1fr); max-width: 64%; }
 }
 @media (max-width: 768px) {
-  nav { padding: 10px 16px; }
-  .nav-logo-img { height: 38px; }
-  .nav-links { display: none; }
-  .trust-bar { flex-direction: column; align-items: center; gap: 0; }
-  .trust-item { border-right: none; border-bottom: 1px solid var(--cream-mid); width: 100%; justify-content: center; }
-  .trust-item:last-child { border-bottom: none; }
-  .pricing-cards { grid-template-columns: 1fr; }
-  footer { flex-direction: column; text-align: center; align-items: center; }
-  .hero-stats { gap: 18px; }
-  .screen-frame { max-width: 148px; }
-  .pins-grid { grid-template-columns: repeat(2,1fr); }
-  .pin-card.pf-card { grid-column: span 2; }
-  .business-bullets { flex-direction: column; align-items: center; }
-  .screens-row-1, .screens-row-2 { grid-template-columns: repeat(2,1fr); max-width: 100%; }
+nav { padding: 10px 16px; }
+.nav-logo-img { width: 150px; height: auto; }
+.nav-links { display: none; }
+.trust-bar { flex-direction: column; align-items: center; gap: 0; }
+.trust-item { border-right: none; border-bottom: 1px solid var(--cream-mid); width: 100%; justify-content: center; }
+.trust-item:last-child { border-bottom: none; }
+.pricing-cards { grid-template-columns: 1fr; }
+footer { flex-direction: column; text-align: center; align-items: center; }
+.hero-stats { gap: 18px; }
+.screen-frame { max-width: 148px; }
+.pins-grid { grid-template-columns: repeat(2,1fr); }
+.pin-card.pf-card { grid-column: span 2; }
+.business-bullets { flex-direction: column; align-items: center; }
+.screens-row-1, .screens-row-2 { grid-template-columns: repeat(2,1fr); max-width: 100%; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/" class="nav-brand" aria-label="Club EasyPet inicio">
-    <img src="assets/logo-full.png" alt="Club EasyPet" class="nav-logo-img" />
+    <img src="assets/club-easypet-logo-definitivo-sin-fondo.svg" alt="Club EasyPet" class="nav-logo-img" />
   </a>
   <div class="nav-links">
     <a href="#app">App</a>
@@ -323,11 +323,10 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-blob1" aria-hidden="true"></div>
   <div class="hero-blob2" aria-hidden="true"></div>
-  <img src="assets/logo-full.png" alt="Club EasyPet" class="hero-logo" width="250" />
+  <img src="assets/club-easypet-logo-definitivo-sin-fondo.svg" alt="Club EasyPet" class="hero-logo" />
   <div class="hero-badge">🐾 Android disponible · iOS próximamente</div>
   <h1>Todo lo que necesita <em>tu perro,</em> en una sola app</h1>
   <p class="hero-sub">Encuentra lugares pet-friendly, veterinarios 24h, parques, playas y servicios cerca de ti.</p>
@@ -345,7 +344,6 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   <div class="scroll-line" aria-hidden="true"></div>
 </section>
 
-<!-- TRUST BAR — fondo blanco/crema -->
 <div class="trust-bar" role="list">
   <div class="trust-item" role="listitem"><span class="trust-icon">📍</span><span class="trust-text"><strong>6.000+</strong> lugares en España</span></div>
   <div class="trust-item" role="listitem"><span class="trust-icon">🏥</span><span class="trust-text"><strong>Veterinarios</strong> 24h</span></div>
@@ -354,7 +352,6 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   <div class="trust-item" role="listitem"><span class="trust-icon">🐕</span><span class="trust-text"><strong>Comunidad</strong> pet-friendly</span></div>
 </div>
 
-<!-- SCREENS -->
 <section class="screens-section reveal" id="app">
   <div class="screens-inner">
     <span class="section-label">La app por dentro</span>
@@ -374,7 +371,6 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   </div>
 </section>
 
-<!-- FEATURES -->
 <section class="features-section reveal" id="features">
   <div class="features-inner">
     <span class="section-label">¿Qué puedes hacer?</span>
@@ -394,7 +390,6 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   </div>
 </section>
 
-<!-- PINS -->
 <section class="pins-section reveal" id="categorias">
   <div class="pins-inner">
     <span class="section-label">Categorías del mapa</span>
@@ -415,7 +410,6 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   </div>
 </section>
 
-<!-- OWNERS -->
 <section class="owners-section reveal" id="para-ti">
   <div class="owners-inner">
     <div class="owners-text">
@@ -448,7 +442,6 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   </div>
 </section>
 
-<!-- BUSINESS -->
 <section class="business-section reveal" id="negocios">
   <div class="business-inner">
     <span class="section-label">Para negocios</span>
@@ -466,7 +459,6 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   </div>
 </section>
 
-<!-- PRICING -->
 <section class="pricing-section reveal" id="pricing">
   <div class="pricing-inner">
     <span class="section-label">Planes</span>
@@ -521,7 +513,6 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   </div>
 </section>
 
-<!-- COMPARE -->
 <section class="compare-section reveal">
   <h2>Comparativa completa</h2>
   <table>
@@ -556,7 +547,6 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   </table>
 </section>
 
-<!-- COMMUNITY -->
 <section class="community-section reveal">
   <div class="community-inner">
     <span class="section-label">Comunidad</span>
@@ -569,9 +559,8 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   </div>
 </section>
 
-<!-- DOWNLOAD -->
 <section class="download-section reveal" id="download">
-  <img src="assets/logo-full.png" alt="Club EasyPet" class="download-logo" loading="lazy" />
+  <img src="assets/club-easypet-logo-definitivo-sin-fondo.svg" alt="Club EasyPet" class="download-logo" loading="lazy" />
   <h2>Empieza hoy con<br><em>Club EasyPet</em></h2>
   <p class="dl-sub">Descubre lugares, cuida a tu perro y conecta con la comunidad.</p>
   <div class="store-btns">
@@ -586,10 +575,9 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">
-    <img src="assets/logo-full.png" alt="Club EasyPet" class="footer-logo-img" loading="lazy" />
+    <img src="assets/club-easypet-logo-definitivo-sin-fondo.svg" alt="Club EasyPet" class="footer-logo-img" loading="lazy" />
   </div>
   <div class="footer-links">
     <a href="/terms.html">Términos</a>
@@ -606,5 +594,6 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.07, rootMargin: '0px 0px -42px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
+
 </body>
 </html>
