@@ -294,16 +294,41 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
 @keyframes float2 { 0%,100%{transform:translateY(-4px)} 50%{transform:translateY(-16px)} }
 @keyframes float3 { 0%,100%{transform:translateY(-2px)} 50%{transform:translateY(-12px)} }
 
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+.owners-inner { grid-template-columns: 1fr; gap: 32px; }
+.owners-visual { aspect-ratio: auto; padding: 26px; min-height: 180px; }
+.pins-grid { grid-template-columns: repeat(3,1fr); }
+.pin-card.pf-card { grid-column: span 3; }
+.screens-row-1 { grid-template-columns: repeat(2,1fr); }
+.screens-row-2 { grid-template-columns: repeat(2,1fr); max-width: 64%; }
+}
+@media (max-width: 768px) {
+nav { padding: 10px 16px; }
+.nav-logo-img { width: 150px; height: auto; }
+.nav-links { display: none; }
+.trust-bar { flex-direction: column; align-items: center; gap: 0; }
+.trust-item { border-right: none; border-bottom: 1px solid var(--cream-mid); width: 100%; justify-content: center; }
+.trust-item:last-child { border-bottom: none; }
+.pricing-cards { grid-template-columns: 1fr; }
+footer { flex-direction: column; text-align: center; align-items: center; }
+.hero-stats { gap: 18px; }
+.screen-frame { max-width: 148px; }
+.pins-grid { grid-template-columns: repeat(2,1fr); }
+.pin-card.pf-card { grid-column: span 2; }
+.business-bullets { flex-direction: column; align-items: center; }
+.screens-row-1, .screens-row-2 { grid-template-columns: repeat(2,1fr); max-width: 100%; }
+}
 
-/* FAMILY VALUE */
-.family-value-section {
+/* === PLAN FAMILIA PRO - FIXED === */
+.family-section-pro {
   padding: 92px 24px;
   background: linear-gradient(135deg, var(--obsidian) 0%, #172226 58%, #2b1606 100%);
   color: var(--white);
   position: relative;
   overflow: hidden;
 }
-.family-value-section::before {
+.family-section-pro::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -312,7 +337,7 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
     radial-gradient(circle at 92% 75%, rgba(208,56,76,0.15) 0%, transparent 34%);
   pointer-events: none;
 }
-.family-value-inner {
+.family-pro-inner {
   max-width: 1060px;
   margin: 0 auto;
   display: grid;
@@ -322,9 +347,9 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   position: relative;
   z-index: 1;
 }
-.family-value-section .section-label { color: rgba(255,152,43,0.95); }
-.family-value-section .section-title { color: var(--white); }
-.family-value-text {
+.family-section-pro .section-label { color: rgba(255,152,43,0.95); }
+.family-section-pro .section-title { color: var(--white); }
+.family-pro-text {
   font-size: 16px;
   line-height: 1.8;
   color: rgba(255,255,255,0.72);
@@ -409,26 +434,24 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   margin-bottom: 5px;
 }
 
-/* PRICING PRO */
+/* Pricing fixed: 3 cards on desktop */
 .pricing-section {
   background: linear-gradient(180deg, var(--cream) 0%, #fff8ee 100%);
 }
-.pricing-inner {
-  max-width: 1120px;
-}
+.pricing-inner { max-width: 1120px; }
 .pricing-cards {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   align-items: stretch;
   gap: 18px;
+  margin-top: 46px;
 }
 .pricing-card {
   display: flex;
   flex-direction: column;
   min-height: 100%;
 }
-.pricing-card .plan-features {
-  flex: 1;
-}
+.pricing-card .plan-features { flex: 1; }
 .pricing-card.family-plan {
   background: linear-gradient(180deg, #fffdf4 0%, var(--white) 100%);
   border-color: var(--orange);
@@ -436,9 +459,7 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   transform: translateY(-10px);
   position: relative;
 }
-.pricing-card.family-plan:hover {
-  transform: translateY(-14px);
-}
+.pricing-card.family-plan:hover { transform: translateY(-14px); }
 .family-plan-ribbon {
   position: absolute;
   top: -1px;
@@ -454,12 +475,8 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
   text-transform: uppercase;
   white-space: nowrap;
 }
-.pricing-card.family-plan .plan-name {
-  margin-top: 17px;
-}
-.pricing-card.family-plan .plan-price {
-  color: var(--orange);
-}
+.pricing-card.family-plan .plan-name { margin-top: 17px; }
+.pricing-card.family-plan .plan-price { color: var(--orange); }
 .plan-save {
   display: inline-block;
   background: rgba(58,158,79,0.12);
@@ -497,39 +514,17 @@ footer { padding: 34px 40px; background: var(--cream); border-top: 1.5px solid v
 }
 .final-seal strong { color: var(--orange); }
 
-/* RESPONSIVE */
 @media (max-width: 1000px) {
-.family-value-inner { grid-template-columns: 1fr; gap: 32px; }
-.pricing-cards { grid-template-columns: 1fr; max-width: 540px; margin-left: auto; margin-right: auto; }
-.pricing-card.family-plan { transform: none; }
-
-.owners-inner { grid-template-columns: 1fr; gap: 32px; }
-.owners-visual { aspect-ratio: auto; padding: 26px; min-height: 180px; }
-.pins-grid { grid-template-columns: repeat(3,1fr); }
-.pin-card.pf-card { grid-column: span 3; }
-.screens-row-1 { grid-template-columns: repeat(2,1fr); }
-.screens-row-2 { grid-template-columns: repeat(2,1fr); max-width: 64%; }
+  .family-pro-inner { grid-template-columns: 1fr; gap: 32px; }
+  .pricing-cards { grid-template-columns: 1fr !important; max-width: 540px; margin-left: auto; margin-right: auto; }
+  .pricing-card.family-plan { transform: none; }
 }
 @media (max-width: 768px) {
-.family-mini-grid { grid-template-columns: 1fr; }
-.family-users-row { grid-template-columns: 1fr; }
-.family-device-card { padding: 26px 20px; }
-
-nav { padding: 10px 16px; }
-.nav-logo-img { width: 150px; height: auto; }
-.nav-links { display: none; }
-.trust-bar { flex-direction: column; align-items: center; gap: 0; }
-.trust-item { border-right: none; border-bottom: 1px solid var(--cream-mid); width: 100%; justify-content: center; }
-.trust-item:last-child { border-bottom: none; }
-.pricing-cards { grid-template-columns: 1fr; }
-footer { flex-direction: column; text-align: center; align-items: center; }
-.hero-stats { gap: 18px; }
-.screen-frame { max-width: 148px; }
-.pins-grid { grid-template-columns: repeat(2,1fr); }
-.pin-card.pf-card { grid-column: span 2; }
-.business-bullets { flex-direction: column; align-items: center; }
-.screens-row-1, .screens-row-2 { grid-template-columns: repeat(2,1fr); max-width: 100%; }
+  .family-mini-grid { grid-template-columns: 1fr; }
+  .family-users-row { grid-template-columns: 1fr; }
+  .family-device-card { padding: 26px 20px; }
 }
+
 </style>
 </head>
 <body>
@@ -686,11 +681,50 @@ footer { flex-direction: column; text-align: center; align-items: center; }
   </div>
 </section>
 
+
+<section class="family-section-pro reveal" id="familia">
+  <div class="family-pro-inner">
+    <div>
+      <span class="section-label">Plan Familia</span>
+      <h2 class="section-title">La mascota es de todos.<br>La app también.</h2>
+      <p class="family-pro-text">
+        Club EasyPet no es solo una app para guardar los datos de tu perro.
+        Es una forma de que pareja, familia o cuidadores estén conectados con la misma información:
+        vacunas, documentos, cumpleaños, alertas y lugares importantes.
+      </p>
+      <a href="#pricing" class="btn-primary">Ver plan familia →</a>
+
+      <div class="family-mini-grid">
+        <div class="family-mini"><strong>💉 Salud sincronizada</strong><span>Si uno actualiza una vacuna, todos la ven.</span></div>
+        <div class="family-mini"><strong>🎂 Fechas importantes</strong><span>Recordatorios para no olvidar su cumpleaños.</span></div>
+        <div class="family-mini"><strong>📄 Documentos compartidos</strong><span>Cartilla, chip y seguro siempre a mano.</span></div>
+        <div class="family-mini"><strong>🆘 Alertas para todos</strong><span>La familia entera puede actuar rápido.</span></div>
+      </div>
+    </div>
+
+    <div class="family-device-card">
+      <div class="family-device-tag">Plan estrella</div>
+      <div class="plan-name">Familia Club EasyPet</div>
+      <div class="family-device-title">3 móviles.<br>1 mascota compartida.</div>
+      <p class="family-device-sub">Ideal para parejas, padres e hijos o cuidadores de confianza.</p>
+      <div class="family-users-row">
+        <div class="family-user-card"><span>👩</span>Persona 1</div>
+        <div class="family-user-card"><span>👨</span>Persona 2</div>
+        <div class="family-user-card"><span>🧒</span>Persona 3</div>
+      </div>
+      <a href="#pricing" class="plan-cta paid">Ver precio familiar</a>
+    </div>
+  </div>
+</section>
+
+
+
 <section class="pricing-section reveal" id="pricing">
   <div class="pricing-inner">
     <span class="section-label">Planes</span>
-    <h2 class="section-title">Empieza gratis.<br>Mejora la experiencia.</h2>
-    <p class="section-sub" style="margin: 0 auto 0;">Acceso básico gratuito. Desbloquea todo con Premium.</p>
+    <h2 class="section-title">Elige cómo cuidar<br>a tu mascota</h2>
+    <p class="section-sub" style="margin: 0 auto 0;">Gratis para empezar. Premium para exprimirlo. Familia para cuidar juntos.</p>
+
     <div class="pricing-cards">
       <div class="pricing-card reveal rd1">
         <div class="plan-name">Acceso básico</div>
@@ -703,20 +737,19 @@ footer { flex-direction: column; text-align: center; align-items: center; }
           <li><span class="ck">✓</span> Ver alertas de comunidad</li>
           <li><span class="ck">✓</span> 5 idiomas</li>
           <li><span class="ck">✓</span> Hasta 5 favoritos</li>
-          <li class="muted"><span class="cx">✕</span> Mascotas ilimitadas</li>
-          <li class="muted"><span class="cx">✕</span> Favoritos ilimitados</li>
           <li class="muted"><span class="cx">✕</span> Documentos en la nube</li>
-          <li class="muted"><span class="cx">✕</span> Recordatorios</li>
+          <li class="muted"><span class="cx">✕</span> Recordatorios avanzados</li>
           <li class="muted"><span class="cx">✕</span> Sin anuncios</li>
         </ul>
         <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="plan-cta free" target="_blank" rel="noopener">Descargar gratis</a>
       </div>
+
       <div class="pricing-card premium reveal rd2">
         <div class="premium-crown">👑 PREMIUM</div>
         <div class="plan-name" style="margin-top:17px;">Premium</div>
         <div class="plan-price">2,99€<sub>/mes</sub></div>
         <div class="plan-period-main">o 24,99 €/año</div>
-        <div class="plan-annual-note">✓ Ahorra con el plan anual</div>
+        <div class="plan-save">✓ Ahorra con el plan anual</div>
         <div class="plan-trial">🎁 7 días gratis</div>
         <ul class="plan-features">
           <li><span class="ck">✓</span> Todo lo del acceso básico</li>
@@ -724,21 +757,39 @@ footer { flex-direction: column; text-align: center; align-items: center; }
           <li><span class="ck">✓</span> ❤️ Favoritos ilimitados</li>
           <li><span class="ck">✓</span> 📄 Documentos en la nube</li>
           <li><span class="ck">✓</span> 🆘 Botón mascota perdida</li>
-          <li><span class="ck">✓</span> 📁 Carpetas de favoritos</li>
           <li><span class="ck">✓</span> 🔔 Recordatorios de vacunas</li>
           <li><span class="ck">✓</span> 🎂 Recordatorio cumpleaños</li>
-          <li><span class="ck">✓</span> 📸 Publicar alertas con fotos</li>
-          <li><span class="ck">✓</span> 🏷️ Descuentos exclusivos</li>
           <li><span class="ck">✓</span> 🚫 Sin anuncios</li>
-          <li><span class="ck">✓</span> 💬 Soporte prioritario</li>
         </ul>
         <a href="#download" class="plan-cta paid">Probar Premium gratis →</a>
         <p class="plan-cta-sub">7 días gratis · Cancela cuando quieras</p>
       </div>
+
+      <div class="pricing-card family-plan reveal rd3">
+        <div class="family-plan-ribbon">🔥 PLAN ESTRELLA</div>
+        <div class="plan-name">Familia</div>
+        <div class="plan-price">39,99€<sub>/año</sub></div>
+        <div class="plan-period-main">Hasta 3 personas</div>
+        <div class="price-note">Menos de 1,12€ al mes por persona</div>
+        <div class="plan-trial">👨‍👩‍👧 Una mascota compartida</div>
+        <ul class="plan-features">
+          <li><span class="ck">✓</span> Todo lo de Premium</li>
+          <li><span class="ck">✓</span> Hasta 3 móviles conectados</li>
+          <li><span class="ck">✓</span> La misma mascota para todos</li>
+          <li><span class="ck">✓</span> Vacunas y documentos compartidos</li>
+          <li><span class="ck">✓</span> Recordatorios para toda la familia</li>
+          <li><span class="ck">✓</span> Ideal para parejas, padres e hijos</li>
+          <li><span class="ck">✓</span> Una sola suscripción familiar</li>
+        </ul>
+        <a href="#download" class="plan-cta paid">Elegir plan familia →</a>
+        <p class="plan-cta-sub">Pensado para cuidar juntos</p>
+      </div>
     </div>
+
     <p class="pricing-note">Pago seguro vía App Store y Google Play · Sin permanencia</p>
   </div>
 </section>
+
 
 <section class="compare-section reveal">
   <h2>Comparativa completa</h2>
