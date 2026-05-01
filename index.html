@@ -7,12 +7,14 @@
 <meta name="description" content="Encuentra lugares pet-friendly, veterinarios 24h, playas y parques para perros en España. Descarga gratis Club EasyPet.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://clubeasypet.com/">
-<!-- Favicons: PNG para máxima compatibilidad con Safari -->
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
-<link rel="shortcut icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
+<!-- Favicons PRO: Safari + Chrome + Opera + iPhone -->
+<link rel="icon" href="assets/favicon-pro.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-pro.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-pro.png">
 <meta name="theme-color" content="#FF982B">
 <meta name="apple-mobile-web-app-title" content="Club EasyPet">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://clubeasypet.com/">
 <meta property="og:title" content="Club EasyPet — Todo lo que necesita tu perro, en una sola app">
@@ -525,6 +527,79 @@ footer { flex-direction: column; text-align: center; align-items: center; }
   .family-device-card { padding: 26px 20px; }
 }
 
+
+/* Comparativa responsive */
+.compare-section { overflow-x: auto; }
+.compare-section table { min-width: 760px; }
+@media (max-width: 768px) {
+  .compare-section { padding-left: 12px; padding-right: 12px; }
+  .compare-section h2 { font-size: 26px; }
+}
+
+
+/* Hero emotional line */
+.hero-emotional {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--obsidian);
+  opacity: .72;
+  margin: -18px auto 30px;
+  max-width: 520px;
+  animation: fadeUp .5s .20s ease both;
+}
+.hero-emotional strong {
+  color: var(--orange);
+  opacity: 1;
+}
+
+/* Testimonials */
+.testimonials-section {
+  padding: 86px 24px;
+  background: linear-gradient(180deg, #fff8ee 0%, var(--cream) 100%);
+  text-align: center;
+}
+.testimonials-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 34px;
+}
+.testimonial-card {
+  background: var(--white);
+  border: 1.5px solid var(--cream-mid);
+  border-radius: 18px;
+  padding: 24px;
+  text-align: left;
+  box-shadow: var(--sh1);
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sh2);
+  border-color: rgba(255,152,43,0.35);
+}
+.testimonial-card p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--obsidian);
+  opacity: .66;
+  margin-bottom: 14px;
+}
+.testimonial-card span {
+  font-size: 10.5px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--orange);
+}
+@media (max-width: 900px) {
+  .testimonials-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+}
+
 </style>
 </head>
 <body>
@@ -548,9 +623,9 @@ footer { flex-direction: column; text-align: center; align-items: center; }
   <div class="hero-blob1" aria-hidden="true"></div>
   <div class="hero-blob2" aria-hidden="true"></div>
   <img src="assets/club-easypet-logo-definitivo-sin-fondo.svg" alt="Club EasyPet" class="hero-logo" />
-  <div class="hero-badge">🐾 Android disponible · iOS próximamente</div>
+  <div class="hero-badge">🐾 +6.000 lugares pet-friendly en España · Android disponible</div>
   <h1>Todo lo que necesita <em>tu perro,</em> en una sola app</h1>
-  <p class="hero-sub">Encuentra lugares pet-friendly, veterinarios 24h y comparte vacunas, documentos y recordatorios con tu familia.</p>
+  <p class="hero-sub">Encuentra lugares pet-friendly, veterinarios 24h y comparte vacunas, documentos y recordatorios con tu familia.</p><p class="hero-emotional"><strong>Nunca más perder información de tu mascota.</strong><br>Nunca más depender de una sola persona.</p>
   <div class="hero-ctas">
     <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="btn-primary" target="_blank" rel="noopener">🤖 Descargar en Google Play</a>
     <a href="#negocios" class="btn-secondary">Soy un negocio pet-friendly</a>
@@ -705,8 +780,8 @@ footer { flex-direction: column; text-align: center; align-items: center; }
     <div class="family-device-card">
       <div class="family-device-tag">Plan estrella</div>
       <div class="plan-name">Familia Club EasyPet</div>
-      <div class="family-device-title">3 móviles.<br>1 mascota compartida.</div>
-      <p class="family-device-sub">Ideal para parejas, padres e hijos o cuidadores de confianza.</p>
+      <div class="family-device-title">3 móviles.<br>Mascotas ilimitadas compartidas.</div>
+      <p class="family-device-sub">Ideal para parejas, padres e hijos o cuidadores de confianza. Todos con la misma información, sin depender de un solo móvil.</p>
       <div class="family-users-row">
         <div class="family-user-card"><span>👩</span>Persona 1</div>
         <div class="family-user-card"><span>👨</span>Persona 2</div>
@@ -761,23 +836,25 @@ footer { flex-direction: column; text-align: center; align-items: center; }
           <li><span class="ck">✓</span> 🎂 Recordatorio cumpleaños</li>
           <li><span class="ck">✓</span> 🚫 Sin anuncios</li>
         </ul>
-        <a href="#download" class="plan-cta paid">Probar Premium gratis →</a>
+        <a href="#download" class="plan-cta paid">Probar gratis 7 días →</a>
         <p class="plan-cta-sub">7 días gratis · Cancela cuando quieras</p>
       </div>
 
       <div class="pricing-card family-plan reveal rd3">
         <div class="family-plan-ribbon">🔥 PLAN ESTRELLA</div>
         <div class="plan-name">Familia</div>
-        <div class="plan-price">39,99€<sub>/año</sub></div>
+        <div class="plan-price">34,99€<sub>/año</sub></div>
         <div class="plan-period-main">Hasta 3 personas</div>
-        <div class="price-note">Menos de 1,12€ al mes por persona</div>
-        <div class="plan-trial">👨‍👩‍👧 Una mascota compartida</div>
+        <div class="price-note">Menos de 1€ al mes por persona</div>
+        <div class="plan-trial">👨‍👩‍👧 Mascotas ilimitadas compartidas</div>
         <ul class="plan-features">
           <li><span class="ck">✓</span> Todo lo de Premium</li>
           <li><span class="ck">✓</span> Hasta 3 móviles conectados</li>
-          <li><span class="ck">✓</span> La misma mascota para todos</li>
+          <li><span class="ck">✓</span> Cada persona puede consultar y actualizar</li>
+          <li><span class="ck">✓</span> Todas vuestras mascotas para todos</li>
           <li><span class="ck">✓</span> Vacunas y documentos compartidos</li>
           <li><span class="ck">✓</span> Recordatorios para toda la familia</li>
+          <li><span class="ck">✓</span> Si uno no puede, otro lo tiene todo</li>
           <li><span class="ck">✓</span> Ideal para parejas, padres e hijos</li>
           <li><span class="ck">✓</span> Una sola suscripción familiar</li>
         </ul>
@@ -795,32 +872,44 @@ footer { flex-direction: column; text-align: center; align-items: center; }
   <h2>Comparativa completa</h2>
   <table>
     <thead>
-      <tr><th style="text-align:left">Función</th><th>🆓 Básico</th><th class="pt">👑 Premium</th></tr>
+      <tr>
+        <th style="text-align:left">Función</th>
+        <th>🆓 Básico</th>
+        <th class="pt">👑 Premium</th>
+        <th class="pt">🔥 Familia</th>
+      </tr>
     </thead>
     <tbody>
-      <tr class="cat-row"><td colspan="3">🐾 Mascotas</td></tr>
-      <tr><td>Número de mascotas</td><td><span class="ch">1</span></td><td><span class="ch" style="color:var(--orange)">Ilimitadas</span></td></tr>
-      <tr><td>Perfil completo</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
-      <tr><td>Historial médico</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
-      <tr><td>Peso y talla</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
-      <tr><td>Documentos en la nube</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
-      <tr class="cat-row"><td colspan="3">🔔 Recordatorios</td></tr>
-      <tr><td>Recordatorios de vacunas</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
-      <tr><td>Recordatorio cumpleaños</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
-      <tr><td>Botón 🆘 mascota perdida</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
-      <tr class="cat-row"><td colspan="3">🗺️ Mapa y favoritos</td></tr>
-      <tr><td>Mapa con 6.000+ lugares</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
-      <tr><td>Favoritos</td><td><span class="ch">Máx. 5</span></td><td><span class="ch" style="color:var(--orange)">Ilimitados</span></td></tr>
-      <tr><td>Carpetas de favoritos</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
-      <tr class="cat-row"><td colspan="3">🚨 Comunidad</td></tr>
-      <tr><td>Ver alertas</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
-      <tr><td>Publicar alertas con fotos</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
-      <tr><td>Tablón de anuncios</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
-      <tr class="cat-row"><td colspan="3">⭐ Extras</td></tr>
-      <tr><td>Sin anuncios</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
-      <tr><td>Descuentos exclusivos</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
-      <tr><td>Soporte prioritario</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
-      <tr><td>5 idiomas</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr class="cat-row"><td colspan="4">🐾 Mascotas</td></tr>
+      <tr><td>Número de mascotas</td><td><span class="ch">1</span></td><td><span class="ch" style="color:var(--orange)">Ilimitadas</span></td><td><span class="ch" style="color:var(--orange)">Ilimitadas</span></td></tr>
+      <tr><td>Usuarios conectados</td><td><span class="ch">1</span></td><td><span class="ch">1</span></td><td><span class="ch" style="color:var(--orange)">Hasta 3</span></td></tr>
+      <tr><td>Perfil completo</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Historial médico</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Peso y talla</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Documentos en la nube</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Datos compartidos entre móviles</td><td><span class="cn">✕</span></td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
+
+      <tr class="cat-row"><td colspan="4">🔔 Recordatorios</td></tr>
+      <tr><td>Recordatorios de vacunas</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Recordatorio cumpleaños</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Recordatorios para toda la familia</td><td><span class="cn">✕</span></td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Botón 🆘 mascota perdida</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+
+      <tr class="cat-row"><td colspan="4">🗺️ Mapa y favoritos</td></tr>
+      <tr><td>Mapa con 6.000+ lugares</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Favoritos</td><td><span class="ch">Máx. 5</span></td><td><span class="ch" style="color:var(--orange)">Ilimitados</span></td><td><span class="ch" style="color:var(--orange)">Ilimitados</span></td></tr>
+      <tr><td>Carpetas de favoritos</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+
+      <tr class="cat-row"><td colspan="4">🚨 Comunidad</td></tr>
+      <tr><td>Ver alertas</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Publicar alertas con fotos</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Tablón de anuncios</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+
+      <tr class="cat-row"><td colspan="4">⭐ Extras</td></tr>
+      <tr><td>Sin anuncios</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Descuentos exclusivos</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>Soporte prioritario</td><td><span class="cn">✕</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+      <tr><td>5 idiomas</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
     </tbody>
   </table>
 </section>
