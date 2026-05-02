@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SY4TMCSF3V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SY4TMCSF3V');
-</script>
-<meta charset="UTF-8"><meta name="robots" content="index, follow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Club EasyPet — Todo lo que necesita tu perro, en una sola app</title>
+<meta name="description" content="Encuentra lugares pet-friendly, veterinarios 24h, playas y parques para perros en España. Descarga gratis Club EasyPet.">
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://clubeasypet.com/">
 <!-- Favicons PRO: Safari + Chrome + Opera + iPhone -->
 <link rel="icon" href="assets/favicon-pro.ico" sizes="any">
@@ -603,6 +598,356 @@ footer { flex-direction: column; text-align: center; align-items: center; }
 }
 @media (max-width: 900px) {
   .testimonials-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+}
+
+
+/* === MOBILE OPTIMIZATION FINAL === */
+@media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  nav {
+    padding: 9px 12px;
+    min-height: 58px;
+  }
+
+  .nav-logo-img {
+    width: 132px;
+    max-width: 44vw;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 92px 16px 56px;
+    justify-content: flex-start;
+  }
+
+  .hero-logo {
+    width: min(300px, 78vw);
+    margin-bottom: 18px;
+  }
+
+  .hero-badge {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    padding: 6px 12px;
+    margin-bottom: 16px;
+    max-width: 94vw;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(29px, 8.2vw, 38px);
+    line-height: 1.16;
+    max-width: 94vw;
+    margin-bottom: 14px;
+  }
+
+  .hero-sub {
+    font-size: 15.5px;
+    line-height: 1.58;
+    max-width: 92vw;
+    margin-bottom: 22px;
+    opacity: .66;
+  }
+
+  .hero-emotional {
+    font-size: 14.5px;
+    line-height: 1.55;
+    margin: -8px auto 26px;
+    max-width: 90vw;
+  }
+
+  .hero-ctas {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-ctas a,
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 330px;
+    justify-content: center;
+    text-align: center;
+    padding: 14px 18px;
+  }
+
+  .hero-microcopy {
+    font-size: 12px;
+    max-width: 85vw;
+    line-height: 1.45;
+  }
+
+  .hero-stats {
+    margin-top: 34px;
+    gap: 14px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: 330px;
+  }
+
+  .stat {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(226,213,168,0.7);
+    border-radius: 14px;
+    padding: 12px 8px;
+  }
+
+  .stat-num {
+    font-size: 28px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+  }
+
+  .scroll-line {
+    display: none;
+  }
+
+  .trust-bar {
+    padding: 18px 16px;
+  }
+
+  .trust-item {
+    padding: 12px 8px;
+  }
+
+  .section-title {
+    font-size: clamp(27px, 7.5vw, 34px);
+  }
+
+  .section-sub {
+    font-size: 14.5px;
+    line-height: 1.62;
+  }
+
+  .screens-section,
+  .features-section,
+  .pins-section,
+  .owners-section,
+  .business-section,
+  .family-section-pro,
+  .pricing-section,
+  .community-section,
+  .download-section,
+  .testimonials-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .screens-section,
+  .features-section,
+  .owners-section,
+  .business-section,
+  .family-section-pro,
+  .pricing-section,
+  .community-section,
+  .download-section,
+  .testimonials-section {
+    padding-top: 68px;
+    padding-bottom: 68px;
+  }
+
+  .screens-row-1,
+  .screens-row-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .screen-frame {
+    max-width: 150px;
+  }
+
+  .screen-frame img {
+    border-radius: 18px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .feature-card {
+    padding: 22px 20px;
+    border-radius: 16px;
+  }
+
+  .pins-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .pin-card {
+    padding: 17px 8px;
+  }
+
+  .owners-inner {
+    gap: 28px;
+  }
+
+  .owners-list {
+    gap: 12px;
+  }
+
+  .owners-list li {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .owners-visual {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .owners-big {
+    font-size: 50px;
+  }
+
+  .business-bullet {
+    width: 100%;
+    max-width: 330px;
+    justify-content: center;
+  }
+
+  .family-section-pro {
+    text-align: left;
+  }
+
+  .family-pro-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .family-mini {
+    padding: 15px;
+  }
+
+  .family-device-card {
+    border-radius: 22px;
+  }
+
+  .family-device-title {
+    font-size: 25px;
+  }
+
+  .pricing-cards {
+    grid-template-columns: 1fr !important;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 18px;
+  }
+
+  .pricing-card {
+    padding: 30px 22px;
+    border-radius: 18px;
+  }
+
+  .plan-price {
+    font-size: 40px;
+  }
+
+  .pricing-card.family-plan {
+    transform: none;
+  }
+
+  .pricing-card.family-plan:hover {
+    transform: translateY(-4px);
+  }
+
+  .compare-section {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 70px;
+  }
+
+  .compare-section h2 {
+    font-size: 27px;
+  }
+
+  .compare-section table {
+    min-width: 760px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonial-card {
+    padding: 22px;
+  }
+
+  .download-logo {
+    width: min(280px, 76vw);
+  }
+
+  .download-section h2 {
+    font-size: clamp(29px, 8vw, 38px);
+  }
+
+  .store-btns {
+    width: 100%;
+  }
+
+  .store-btn {
+    width: 100%;
+    max-width: 330px;
+    justify-content: center;
+  }
+
+  .final-seal {
+    padding: 46px 18px;
+  }
+
+  .final-seal img {
+    width: min(230px, 72vw);
+  }
+
+  footer {
+    padding: 28px 18px;
+  }
+
+  .footer-logo-img {
+    width: 165px;
+  }
+
+  .footer-links {
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero-logo {
+    width: min(280px, 82vw);
+  }
+
+  .nav-logo-img {
+    width: 124px;
+  }
+
+  .screen-frame {
+    max-width: 138px;
+  }
+
+  .stat-num {
+    font-size: 25px;
+  }
 }
 
 </style>
