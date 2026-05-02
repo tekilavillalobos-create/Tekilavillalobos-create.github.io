@@ -950,6 +950,132 @@ footer { flex-direction: column; text-align: center; align-items: center; }
   }
 }
 
+
+/* === PREMIUM CONVERSION BOOST === */
+.premium-boost-section {
+  padding: 92px 24px;
+  background: linear-gradient(135deg, #fff8ee 0%, var(--cream) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.premium-boost-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 42px;
+  align-items: center;
+}
+.premium-boost-copy .section-sub { margin-bottom: 26px; }
+.premium-boost-list {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.premium-boost-list div {
+  background: var(--white);
+  border: 1.5px solid var(--cream-mid);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--sh1);
+}
+.premium-boost-list strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.premium-boost-list span {
+  font-size: 13px;
+  opacity: .55;
+  line-height: 1.55;
+}
+.premium-boost-card {
+  background: var(--obsidian);
+  color: var(--cream);
+  border: 3px solid var(--orange);
+  border-radius: 28px;
+  padding: 34px 28px;
+  text-align: center;
+  box-shadow: 0 18px 56px rgba(255,152,43,0.22);
+}
+.premium-boost-badge {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.premium-price-mini {
+  font-family: 'Rammetto One', cursive;
+  color: var(--orange);
+  font-size: 46px;
+  line-height: 1;
+}
+.premium-price-mini span {
+  font-family: 'Overpass', sans-serif;
+  font-size: 15px;
+  color: rgba(249,243,223,0.45);
+}
+.premium-boost-card p {
+  margin: 10px 0 8px;
+  font-weight: 800;
+}
+.premium-boost-card small { opacity: .48; }
+.business-pro-section {
+  padding: 82px 24px;
+  background: var(--white);
+  border-top: 1.5px solid var(--cream-mid);
+  border-bottom: 1.5px solid var(--cream-mid);
+}
+.business-pro-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+.business-pro-inner .section-sub { margin: 0 auto 34px; }
+.business-pro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.business-pro-grid div {
+  background: var(--cream);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 18px;
+  padding: 22px;
+  text-align: left;
+}
+.business-pro-grid strong {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 15px;
+}
+.business-pro-grid span {
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: .55;
+}
+@media (max-width: 900px) {
+  .premium-boost-inner { grid-template-columns: 1fr; }
+  .business-pro-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .premium-boost-section,
+  .business-pro-section {
+    padding: 68px 16px;
+  }
+  .premium-boost-card {
+    border-radius: 22px;
+    padding: 30px 22px;
+  }
+  .premium-price-mini { font-size: 40px; }
+}
+
 </style>
 </head>
 <body>
@@ -975,7 +1101,7 @@ footer { flex-direction: column; text-align: center; align-items: center; }
   <img src="assets/club-easypet-logo-definitivo-sin-fondo.svg" alt="Club EasyPet" class="hero-logo" />
   <div class="hero-badge">🐾 +6.000 lugares pet-friendly en España · Android disponible</div>
   <h1>Todo lo que necesita <em>tu perro,</em> en una sola app</h1>
-  <p class="hero-sub">Encuentra lugares pet-friendly, veterinarios 24h y comparte vacunas, documentos y recordatorios con tu familia.</p><p class="hero-emotional"><strong>Nunca más perder información de tu mascota.</strong><br>Nunca más depender de una sola persona.</p>
+  <p class="hero-sub">Encuentra, guarda y comparte todo sobre tu perro.</p><p class="hero-emotional"><strong>Toda la información de tu perro siempre accesible.</strong><br>Vacunas, documentos y recordatorios en un solo lugar.</p>
   <div class="hero-ctas">
     <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="btn-primary" target="_blank" rel="noopener">🤖 Descargar en Google Play</a>
     <a href="#negocios" class="btn-secondary">Soy un negocio pet-friendly</a>
@@ -1023,14 +1149,14 @@ footer { flex-direction: column; text-align: center; align-items: center; }
     <h2 class="section-title">Sal con tu perro sin improvisar</h2>
     <p class="section-sub">Todo lo que necesitas para disfrutar con tu mascota cada día.</p>
     <div class="features-grid">
-      <div class="feature-card reveal rd1"><span class="feature-emoji">🗺️</span><div class="feature-title">Encuentra el sitio perfecto sin perder tiempo</div><div class="feature-desc">6.000+ lugares verificados: veterinarios, parques caninos, hoteles, restaurantes, peluquerías y playas.</div></div>
+      <div class="feature-card reveal rd1"><span class="feature-emoji">🗺️</span><div class="feature-title">Todos los sitios pet-friendly en un solo mapa</div><div class="feature-desc">Más de 6.000 lugares verificados: veterinarios, parques, playas, hoteles, restaurantes, peluquerías y mucho más.</div></div>
       <div class="feature-card reveal rd2"><span class="feature-emoji">❤️</span><div class="feature-title">Guarda tus lugares de confianza</div><div class="feature-desc">Crea carpetas de favoritos y accede sin buscar cada vez. Ilimitados con Premium.</div><span class="feature-badge">👑 Premium</span></div>
       <div class="feature-card reveal rd3"><span class="feature-emoji">💉</span><div class="feature-title">No vuelvas a olvidar una vacuna</div><div class="feature-desc">Historial médico, cartilla, peso y talla. Recordatorios automáticos para no perder ninguna fecha.</div><span class="feature-badge">👑 Premium</span></div>
       <div class="feature-card reveal rd4"><span class="feature-emoji">🎂</span><div class="feature-title">Te recordamos su cumpleaños</div><div class="feature-desc">Recibe un aviso especial para celebrar el día de tu mascota y tener siempre presente sus fechas importantes.</div><span class="feature-badge">👑 Premium</span></div>
       <div class="feature-card reveal rd1"><span class="feature-emoji">📄</span><div class="feature-title">Ten toda su documentación contigo</div><div class="feature-desc">Cartilla sanitaria, chip, seguro y pasaporte guardados en la nube y siempre accesibles.</div><span class="feature-badge">👑 Premium</span></div>
       <div class="feature-card reveal rd2"><span class="feature-emoji">🚨</span><div class="feature-title">Evita peligros en tu zona</div><div class="feature-desc">Alertas moderadas de procesionaria, veneno y mascotas perdidas. Entérate antes que nadie.</div></div>
       <div class="feature-card reveal rd3"><span class="feature-emoji">🆘</span><div class="feature-title">Activa una alerta si tu mascota se pierde</div><div class="feature-desc">Un toque y toda la comunidad recibe una notificación de emergencia al instante.</div><span class="feature-badge">👑 Premium</span></div>
-      <div class="feature-card reveal rd1"><span class="feature-emoji">🐾</span><div class="feature-title">Toda la info de tu perro en un clic</div><div class="feature-desc">Raza, chip, cumpleaños, foto y bio. Todo organizado y siempre a mano.</div></div>
+      <div class="feature-card reveal rd1"><span class="feature-emoji">🐾</span><div class="feature-title">Toda la información de tu perro siempre accesible</div><div class="feature-desc">Vacunas, documentos, chip, cumpleaños, foto y datos importantes organizados en un solo lugar.</div></div>
       <div class="feature-card reveal rd2"><span class="feature-emoji">🌍</span><div class="feature-title">Habla tu idioma</div><div class="feature-desc">Español, English, Français, Deutsch e Italiano. Para dueños de todo el mundo.</div></div>
       <div class="feature-card reveal rd3"><span class="feature-emoji">📋</span><div class="feature-title">Conecta con tu comunidad</div><div class="feature-desc">Adopciones, servicios, pérdidas y más en el tablón pet-friendly de tu zona.</div></div>
     </div>
@@ -1089,6 +1215,21 @@ footer { flex-direction: column; text-align: center; align-items: center; }
   </div>
 </section>
 
+
+<section class="business-pro-section reveal">
+  <div class="business-pro-inner">
+    <span class="section-label">Para negocios pet-friendly</span>
+    <h2 class="section-title">Aparece donde los dueños<br>buscan sitios para ir con su perro.</h2>
+    <p class="section-sub">Club EasyPet ayuda a veterinarios, hoteles, restaurantes, peluquerías y comercios pet-friendly a ganar visibilidad local ante una comunidad especializada.</p>
+    <div class="business-pro-grid">
+      <div><strong>📍 Visibilidad local</strong><span>Tu negocio en el mapa cuando el usuario está buscando.</span></div>
+      <div><strong>🐾 Público cualificado</strong><span>Personas con perro y necesidad real.</span></div>
+      <div><strong>⭐ Diferenciación</strong><span>Destaca como negocio pet-friendly.</span></div>
+    </div>
+  </div>
+</section>
+
+
 <section class="business-section reveal" id="negocios">
   <div class="business-inner">
     <span class="section-label">Para negocios</span>
@@ -1111,7 +1252,7 @@ footer { flex-direction: column; text-align: center; align-items: center; }
   <div class="family-pro-inner">
     <div>
       <span class="section-label">Plan Familia</span>
-      <h2 class="section-title">La mascota es de todos.<br>La app también.</h2>
+      <h2 class="section-title">Encuentra, guarda y comparte<br>todo sobre tu perro.</h2>
       <p class="family-pro-text">
         Club EasyPet no es solo una app para guardar los datos de tu perro.
         Es una forma de que pareja, familia o cuidadores estén conectados con la misma información:
@@ -1142,6 +1283,30 @@ footer { flex-direction: column; text-align: center; align-items: center; }
   </div>
 </section>
 
+
+
+
+<section class="premium-boost-section reveal" id="premium-benefits">
+  <div class="premium-boost-inner">
+    <div class="premium-boost-copy">
+      <span class="section-label">Premium</span>
+      <h2 class="section-title">Menos olvidos.<br>Más tranquilidad.</h2>
+      <p class="section-sub">Premium está pensado para que no dependas de la memoria: vacunas, documentos, favoritos, alertas y recordatorios importantes siempre bajo control.</p>
+      <div class="premium-boost-list">
+        <div><strong>🔔 Recordatorios inteligentes</strong><span>Vacunas, cumpleaños y fechas importantes.</span></div>
+        <div><strong>📄 Documentos en la nube</strong><span>Cartilla, chip, seguro y pasaporte siempre contigo.</span></div>
+        <div><strong>❤️ Favoritos ilimitados</strong><span>Guarda veterinarios, playas, hoteles y sitios de confianza.</span></div>
+      </div>
+      <a href="#pricing" class="btn-primary">Ver planes Premium →</a>
+    </div>
+    <div class="premium-boost-card">
+      <div class="premium-boost-badge">👑 Premium</div>
+      <div class="premium-price-mini">2,99€<span>/mes</span></div>
+      <p>o 24,99 €/año</p>
+      <small>7 días gratis · Cancela cuando quieras</small>
+    </div>
+  </div>
+</section>
 
 
 <section class="pricing-section reveal" id="pricing">
