@@ -4,258 +4,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Términos y Condiciones — Club EasyPet</title>
-  <meta name="description" content="Términos y Condiciones de uso de Club EasyPet. Información sobre el uso de la app, suscripciones Premium y responsabilidades." />
+  <meta name="description" content="Términos y Condiciones de uso de Club EasyPet." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://clubeasypet.com/terms.html" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&family=Overpass:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
   <style>
-    :root {
-      --orange: #FF982B;
-      --red: #D0384C;
-      --cream: #F9F3DF;
-      --obsidian: #0B1215;
-      --gold: #FFD700;
-      --font-title: 'Rammetto One', cursive;
-      --font-body: 'Overpass', sans-serif;
-    }
-
+    :root { --orange: #FF982B; --red: #D0384C; --cream: #F9F3DF; --obsidian: #0B1215; --gold: #FFD700; --font-title: 'Rammetto One', cursive; --font-body: 'Overpass', sans-serif; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--obsidian);
-    }
-
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(249,243,223,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 2px solid var(--orange);
-      padding: 0 2rem;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-    }
-
+    body { font-family: var(--font-body); background: var(--cream); color: var(--obsidian); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(249,243,223,0.92); backdrop-filter: blur(12px); border-bottom: 2px solid var(--orange); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
     .nav-logo img { height: 36px; }
-    .nav-logo span {
-      font-family: var(--font-title);
-      font-size: 1.15rem;
-      color: var(--obsidian);
-    }
-
-    .nav-back {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--orange);
-      text-decoration: none;
-    }
-
+    .nav-logo span { font-family: var(--font-title); font-size: 1.15rem; color: var(--obsidian); }
+    .nav-back { font-size: 0.85rem; font-weight: 600; color: var(--orange); text-decoration: none; }
     .nav-back:hover { color: var(--red); }
-
-    .page-hero {
-      padding: 100px 2rem 3rem;
-      background: var(--obsidian);
-      text-align: center;
-    }
-
-    .page-hero-badge {
-      display: inline-block;
-      background: rgba(255,152,43,0.2);
-      color: var(--orange);
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 0.35rem 1rem;
-      border-radius: 999px;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-    }
-
-    .page-hero h1 {
-      font-family: var(--font-title);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: var(--cream);
-    }
-
-    .page-hero p {
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: rgba(249,243,223,0.5);
-      margin-top: 0.8rem;
-    }
-
-    .content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 4rem 2rem 5rem;
-    }
-
-    .company-card {
-      background: #fff;
-      border: 2px solid var(--orange);
-      border-radius: 16px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 3rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .company-field label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--orange);
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-
-    .company-field span {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--obsidian);
-    }
-
-    .company-field a {
-      color: var(--orange);
-      text-decoration: none;
-    }
-
-    h2 {
-      font-family: var(--font-title);
-      font-size: 1.25rem;
-      color: var(--obsidian);
-      margin: 2.5rem 0 0.8rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid rgba(255,152,43,0.2);
-    }
-
-    h2::before {
-      content: attr(data-num);
-      display: inline-block;
-      background: var(--orange);
-      color: #fff;
-      font-family: var(--font-title);
-      font-size: 0.75rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 6px;
-      margin-right: 0.6rem;
-      vertical-align: middle;
-    }
-
-    p {
-      font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: #444;
-      margin-bottom: 0.8rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-      margin-bottom: 0.8rem;
-    }
-
-    ul li {
-      font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: #444;
-      margin-bottom: 0.3rem;
-    }
-
+    .page-hero { padding: 100px 2rem 3rem; background: var(--obsidian); text-align: center; }
+    .page-hero-badge { display: inline-block; background: rgba(255,152,43,0.2); color: var(--orange); font-size: 0.78rem; font-weight: 700; padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.07em; }
+    .page-hero h1 { font-family: var(--font-title); font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--cream); }
+    .page-hero p { font-size: 0.9rem; font-weight: 300; color: rgba(249,243,223,0.5); margin-top: 0.8rem; }
+    .content { max-width: 800px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+    .company-card { background: #fff; border: 2px solid var(--orange); border-radius: 16px; padding: 1.5rem 2rem; margin-bottom: 3rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .company-field label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); display: block; margin-bottom: 0.2rem; }
+    .company-field span { font-size: 0.9rem; font-weight: 600; color: var(--obsidian); }
+    .company-field a { color: var(--orange); text-decoration: none; }
+    h2 { font-family: var(--font-title); font-size: 1.25rem; color: var(--obsidian); margin: 2.5rem 0 0.8rem; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(255,152,43,0.2); }
+    h2::before { content: attr(data-num); display: inline-block; background: var(--orange); color: #fff; font-family: var(--font-title); font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 6px; margin-right: 0.6rem; vertical-align: middle; }
+    p { font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: #444; margin-bottom: 0.8rem; }
+    ul { padding-left: 1.2rem; margin-bottom: 0.8rem; }
+    ul li { font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: #444; margin-bottom: 0.3rem; }
     ul li::marker { color: var(--orange); }
-
-    .highlight-box {
-      background: rgba(255,152,43,0.08);
-      border-left: 4px solid var(--orange);
-      border-radius: 0 12px 12px 0;
-      padding: 1rem 1.2rem;
-      margin: 1.5rem 0;
-    }
-
+    .highlight-box { background: rgba(255,152,43,0.08); border-left: 4px solid var(--orange); border-radius: 0 12px 12px 0; padding: 1rem 1.2rem; margin: 1.5rem 0; }
     .highlight-box p { margin: 0; color: #333; font-weight: 400; }
-
-    .price-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .price-table th {
-      background: var(--obsidian);
-      color: var(--cream);
-      font-family: var(--font-title);
-      font-size: 0.82rem;
-      padding: 0.8rem 1rem;
-      text-align: left;
-    }
-
-    .price-table td {
-      background: #fff;
-      padding: 0.8rem 1rem;
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: #444;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
-
-    .price-table tr:last-child td { border-bottom: none; }
-
-    .price-table td strong { color: var(--orange); font-weight: 700; }
-
-    footer {
-      background: var(--obsidian);
-      color: var(--cream);
-      padding: 2.5rem 2rem;
-      text-align: center;
-    }
-
+    footer { background: var(--obsidian); color: var(--cream); padding: 2.5rem 2rem; text-align: center; }
     footer img { height: 36px; margin-bottom: 1rem; opacity: 0.8; }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-
-    .footer-links a {
-      color: rgba(249,243,223,0.55);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .footer-links a { color: rgba(249,243,223,0.55); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--orange); }
-
-    footer p {
-      font-size: 0.75rem;
-      color: rgba(249,243,223,0.3);
-      font-weight: 300;
-      margin: 0;
-    }
+    footer p { font-size: 0.75rem; color: rgba(249,243,223,0.3); font-weight: 300; margin: 0; }
   </style>
 </head>
 <body>
@@ -271,28 +59,16 @@
   <div class="page-hero">
     <div class="page-hero-badge">📄 Legal</div>
     <h1>Términos y Condiciones</h1>
-    <p>Última actualización: abril 2026</p>
+    <p>Última actualización: mayo 2026</p>
   </div>
 
   <div class="content">
 
     <div class="company-card">
-      <div class="company-field">
-        <label>Empresa</label>
-        <span>Producciones Espíritu del Viento SL</span>
-      </div>
-      <div class="company-field">
-        <label>NIF</label>
-        <span>B27534346</span>
-      </div>
-      <div class="company-field">
-        <label>Domicilio</label>
-        <span>28012 Madrid</span>
-      </div>
-      <div class="company-field">
-        <label>Email</label>
-        <span><a href="mailto:hola@clubeasypet.com">hola@clubeasypet.com</a></span>
-      </div>
+      <div class="company-field"><label>Empresa</label><span>Producciones Espíritu del Viento SL</span></div>
+      <div class="company-field"><label>NIF</label><span>B27534346</span></div>
+      <div class="company-field"><label>Domicilio</label><span>28012 Madrid</span></div>
+      <div class="company-field"><label>Email</label><span><a href="mailto:hola@clubeasypet.com">hola@clubeasypet.com</a></span></div>
     </div>
 
     <h2 data-num="1">Uso de la app</h2>
@@ -313,44 +89,7 @@
     <h2 data-num="4">Moderación</h2>
     <p>Todo el contenido público (alertas, anuncios del tablón, fotos de lugares) es revisado por el equipo administrador de Club EasyPet antes de publicarse. Nos reservamos el derecho de rechazar o eliminar contenido que no cumpla con estas condiciones.</p>
 
-    <h2 data-num="5">Servicios Premium</h2>
-    <p>Club EasyPet ofrece una suscripción Premium con funciones adicionales:</p>
-
-    <table class="price-table">
-      <thead>
-        <tr>
-          <th>Plan</th>
-          <th>Precio</th>
-          <th>Prueba gratuita</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Mensual</strong></td>
-          <td>2,99€/mes</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td><strong>Anual</strong></td>
-          <td>24,99€/año</td>
-          <td>7 días gratis</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>Las suscripciones se gestionan a través de App Store (Apple) y Google Play (Google). Los precios pueden variar según la región y están sujetos a los impuestos aplicables.</p>
-
-    <h2 data-num="6">Cancelaciones y reembolsos</h2>
-    <p>Las suscripciones deben cancelarse directamente desde la plataforma correspondiente:</p>
-    <ul>
-      <li><strong>iOS:</strong> Ajustes → Apple ID → Suscripciones</li>
-      <li><strong>Android:</strong> Google Play → Suscripciones</li>
-    </ul>
-    <div class="highlight-box">
-      <p>La cancelación es efectiva al final del período de facturación en curso. No se realizan reembolsos por períodos no utilizados, salvo en los casos previstos por la política de Apple o Google.</p>
-    </div>
-
-    <h2 data-num="7">Responsabilidad</h2>
+    <h2 data-num="5">Responsabilidad</h2>
     <p>Club EasyPet no garantiza:</p>
     <ul>
       <li>La disponibilidad continua e ininterrumpida del servicio</li>
@@ -359,10 +98,10 @@
     </ul>
     <p>La información de salud incluida en la app (vacunas, historial médico) es orientativa y no sustituye el consejo de un veterinario.</p>
 
-    <h2 data-num="8">Eliminación de cuenta</h2>
+    <h2 data-num="6">Eliminación de cuenta</h2>
     <p>El usuario puede eliminar su cuenta desde la pantalla de Ajustes dentro de la aplicación. También puede solicitarlo enviando un correo a <a href="mailto:hola@clubeasypet.com" style="color:var(--orange)">hola@clubeasypet.com</a>. La eliminación conlleva la pérdida permanente de todos los datos asociados a la cuenta.</p>
 
-    <h2 data-num="9">Uso indebido</h2>
+    <h2 data-num="7">Uso indebido</h2>
     <p>No está permitido usar Club EasyPet para:</p>
     <ul>
       <li>Actividades ilegales o contrarias a la ley española</li>
@@ -372,10 +111,10 @@
     </ul>
     <p>El incumplimiento puede conllevar la suspensión o eliminación de la cuenta sin previo aviso.</p>
 
-    <h2 data-num="10">Propiedad intelectual</h2>
+    <h2 data-num="8">Propiedad intelectual</h2>
     <p>Todos los elementos de Club EasyPet (marca, logo, diseño, código, textos) son propiedad de Producciones Espíritu del Viento SL y están protegidos por la legislación de propiedad intelectual vigente.</p>
 
-    <h2 data-num="11">Legislación aplicable</h2>
+    <h2 data-num="9">Legislación aplicable</h2>
     <p>Estos términos se rigen por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de Madrid, salvo que la normativa de consumo aplicable establezca otra cosa.</p>
 
   </div>
@@ -393,3 +132,4 @@
 
 </body>
 </html>
+
