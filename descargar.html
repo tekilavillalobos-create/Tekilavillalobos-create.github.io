@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club EasyPet — Descarga la app</title>
+  <meta name="description" content="Descarga Club EasyPet gratis. El mapa pet-friendly de España.">
+  <link rel="canonical" href="https://clubeasypet.com/descargar">
+  <meta property="og:title" content="Club EasyPet — Descarga gratis">
+  <meta property="og:description" content="6.000+ lugares pet-friendly en España. Tu perro se lo merece.">
+  <meta property="og:image" content="https://clubeasypet.com/assets/club-easypet-logo-definitivo-sin-fondo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&family=Overpass:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --orange: #FF982B; --cream: #F9F3DF; --obsidian: #0B1215;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Overpass', sans-serif;
+      background: var(--obsidian);
+      color: var(--cream);
+      overflow: hidden;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Fondo animado */
+    .bg-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: pulse 6s ease-in-out infinite;
+    }
+    .bg-blob-1 {
+      width: 500px; height: 500px;
+      top: -200px; right: -150px;
+      background: radial-gradient(circle, rgba(255,152,43,0.15) 0%, transparent 70%);
+    }
+    .bg-blob-2 {
+      width: 400px; height: 400px;
+      bottom: -150px; left: -100px;
+      background: radial-gradient(circle, rgba(208,56,76,0.10) 0%, transparent 70%);
+      animation-delay: 3s;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .logo {
+      width: min(280px, 70vw);
+      height: auto;
+      margin: 0 auto 32px;
+      display: block;
+      filter: drop-shadow(0 4px 24px rgba(255,152,43,0.25));
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .headline {
+      font-family: 'Rammetto One', cursive;
+      font-size: clamp(22px, 6vw, 32px);
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 12px;
+      animation: fadeUp 0.5s 0.1s ease both;
+    }
+
+    .headline em {
+      color: var(--orange);
+      font-style: normal;
+    }
+
+    .subline {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(249,243,223,0.55);
+      margin-bottom: 40px;
+      line-height: 1.6;
+      animation: fadeUp 0.5s 0.2s ease both;
+    }
+
+    .store-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      animation: fadeUp 0.5s 0.3s ease both;
+    }
+
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: var(--cream);
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .store-btn:hover, .store-btn:active {
+      background: rgba(255,152,43,0.15);
+      border-color: var(--orange);
+      transform: translateY(-2px);
+    }
+
+    .store-btn .icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .store-btn .text { text-align: left; }
+    .store-btn .text small {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      opacity: 0.5;
+      margin-bottom: 2px;
+    }
+
+    .store-btn.highlight {
+      background: var(--orange);
+      border-color: var(--orange);
+      box-shadow: 0 8px 28px rgba(255,152,43,0.35);
+    }
+
+    .store-btn.highlight:hover {
+      background: #ff8c10;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(255,152,43,0.45);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(249,243,223,0.2);
+      font-size: 12px;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .footer-note {
+      margin-top: 32px;
+      font-size: 12px;
+      color: rgba(249,243,223,0.2);
+      animation: fadeUp 0.5s 0.4s ease both;
+    }
+
+    /* Pantalla de redireccion automatica */
+    .auto-redirect {
+      display: none;
+      animation: fadeUp 0.4s ease both;
+    }
+    .auto-redirect .spinner {
+      width: 48px; height: 48px;
+      border: 3px solid rgba(255,152,43,0.2);
+      border-top-color: var(--orange);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .auto-redirect p {
+      font-size: 15px;
+      color: rgba(249,243,223,0.6);
+    }
+    .auto-redirect strong { color: var(--orange); }
+  </style>
+</head>
+<body>
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+
+  <div class="content">
+    <img src="assets/club-easypet-logo-definitivo-sin-fondo.svg" alt="Club EasyPet" class="logo" />
+
+    <!-- Vista manual (desktop o no detectado) -->
+    <div id="manual">
+      <h1 class="headline">Tu perro ya lo sabe.<br><em>Tú aún no.</em></h1>
+      <p class="subline">6.000+ lugares pet-friendly en España.<br>Descarga gratis y empieza a explorar.</p>
+
+      <div class="store-btns">
+        <a href="https://apps.apple.com/app/id6768970132" class="store-btn highlight" id="btn-ios">
+          <span class="icon">🍎</span>
+          <div class="text">
+            <small>Descargar en</small>
+            App Store
+          </div>
+        </a>
+
+        <div class="divider">o</div>
+
+        <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app" class="store-btn" id="btn-android">
+          <span class="icon">🤖</span>
+          <div class="text">
+            <small>Descargar en</small>
+            Google Play
+          </div>
+        </a>
+      </div>
+
+      <p class="footer-note">Gratis · Sin tarjeta · Sin trampa</p>
+    </div>
+
+    <!-- Vista auto-redirect -->
+    <div id="auto" class="auto-redirect">
+      <div class="spinner"></div>
+      <p>Llevándote a <strong id="store-name">la tienda</strong>...</p>
+    </div>
+  </div>
+
+  <script>
+    const ua = navigator.userAgent || '';
+    const isIOS     = /iPhone|iPad|iPod/i.test(ua);
+    const isAndroid = /Android/i.test(ua);
+
+    const IOS_URL     = 'https://apps.apple.com/app/id6768970132';
+    const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.clubeasypet.app';
+
+    if (isIOS) {
+      document.getElementById('manual').style.display = 'none';
+      document.getElementById('auto').style.display = 'block';
+      document.getElementById('store-name').textContent = 'App Store';
+      setTimeout(() => { window.location.href = IOS_URL; }, 800);
+    } else if (isAndroid) {
+      document.getElementById('manual').style.display = 'none';
+      document.getElementById('auto').style.display = 'block';
+      document.getElementById('store-name').textContent = 'Google Play';
+      setTimeout(() => { window.location.href = ANDROID_URL; }, 800);
+    } else {
+      // Desktop — mostrar ambos botones, highlight el de iOS por defecto
+      document.getElementById('btn-ios').classList.add('highlight');
+    }
+  </script>
+</body>
+</html>
