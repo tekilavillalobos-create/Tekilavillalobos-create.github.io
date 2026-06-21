@@ -3,131 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Club EasyPet — La app para dueños de mascotas. Encuentra veterinarios, parques, playas caninas y mucho más cerca de ti.">
-<title>Club EasyPet 🐾</title>
+<meta name="description" content="Club EasyPet — Más de 8.000 lugares pet-friendly en España. Mapa, alertas AEMET, racha de paseos, vacunas, cumpleaños y comunidad.">
+<title>Club EasyPet 🐾 — La app para dueños de mascotas</title>
+<link rel="icon" href="img/icon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rammetto+One&family=Overpass:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rammetto+One&family=Overpass:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--orange:#FF982B;--red:#D0384C;--cream:#F9F3DF;--obsidian:#0B1215;--gold:#FFD700}
+:root{
+  --orange:#FF982B;--red:#D0384C;--cream:#F9F3DF;--cream-dark:#EDE6C8;
+  --obsidian:#0B1215;--white:#FFFFFF;--text:#1C1A14;--muted:#7A6F5A;
+  --gold:#FFD700;
+  --shadow:0 2px 16px rgba(28,26,20,0.08);
+  --shadow-lg:0 8px 40px rgba(28,26,20,0.14);
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Overpass',sans-serif;background:var(--obsidian);color:var(--cream);overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:rgba(11,18,21,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(249,243,223,0.08)}
-.nav-logo{font-family:'Rammetto One',cursive;font-size:22px;color:var(--cream);text-decoration:none}
+html{scroll-behavior:smooth}
+body{font-family:'Overpass',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 40px;background:rgba(249,243,223,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(28,26,20,0.08);transition:box-shadow 0.3s}
+nav.scrolled{box-shadow:var(--shadow)}
+.nav-logo{font-family:'Rammetto One',cursive;font-size:21px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo img{width:32px;height:32px;border-radius:8px}
 .nav-logo span{color:var(--orange)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{color:var(--cream);text-decoration:none;font-size:14px;font-weight:700;opacity:0.7;transition:opacity 0.2s}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--text);text-decoration:none;font-size:14px;font-weight:700;opacity:0.6;transition:opacity 0.2s}
 .nav-links a:hover{opacity:1;color:var(--orange)}
-.nav-cta{background:var(--orange);color:var(--obsidian);padding:10px 24px;border-radius:99px;font-weight:900;font-size:14px;text-decoration:none;transition:transform 0.2s}
-.nav-cta:hover{transform:scale(1.05)}
-.lang-btn{background:rgba(249,243,223,0.08);border:1px solid rgba(249,243,223,0.15);color:var(--cream);padding:6px 14px;border-radius:99px;font-size:12px;font-weight:700;cursor:pointer;margin-left:16px;transition:background 0.2s}
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,152,43,0.15) 0%,transparent 70%)}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,152,43,0.12);border:1px solid rgba(255,152,43,0.3);border-radius:99px;padding:8px 18px;margin-bottom:32px;font-size:13px;font-weight:700;color:var(--orange);animation:fadeUp 0.6s ease both}
-.hero h1{font-family:'Rammetto One',cursive;font-size:clamp(48px,8vw,96px);line-height:1.05;margin-bottom:24px;animation:fadeUp 0.6s ease 0.1s both}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-cta{background:var(--orange);color:var(--white);padding:9px 22px;border-radius:99px;font-weight:900;font-size:14px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 2px 12px rgba(255,152,43,0.3)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(255,152,43,0.4)}
+.lang-btn{background:transparent;border:1.5px solid rgba(28,26,20,0.2);color:var(--text);padding:7px 14px;border-radius:99px;font-size:12px;font-weight:700;cursor:pointer;transition:background 0.2s;font-family:'Overpass',sans-serif}
+.lang-btn:hover{background:var(--cream-dark)}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:120px 60px 80px;max-width:1200px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,152,43,0.14);border:1px solid rgba(255,152,43,0.35);border-radius:99px;padding:7px 16px;margin-bottom:24px;font-size:13px;font-weight:700;color:var(--orange)}
+.hero h1{font-family:'Rammetto One',cursive;font-size:clamp(40px,5.5vw,68px);line-height:1.08;margin-bottom:20px;color:var(--text)}
 .hero h1 span{color:var(--orange)}
-.hero p{font-size:clamp(16px,2.5vw,20px);opacity:0.7;max-width:560px;line-height:1.7;margin-bottom:48px;animation:fadeUp 0.6s ease 0.2s both}
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;animation:fadeUp 0.6s ease 0.3s both}
-.btn-primary{display:flex;align-items:center;gap:10px;background:var(--orange);color:var(--obsidian);padding:16px 32px;border-radius:16px;font-weight:900;font-size:16px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 8px 32px rgba(255,152,43,0.3)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,152,43,0.4)}
-.btn-secondary{display:flex;align-items:center;gap:10px;background:rgba(249,243,223,0.08);color:var(--cream);padding:16px 32px;border-radius:16px;font-weight:900;font-size:16px;text-decoration:none;border:1px solid rgba(249,243,223,0.15);transition:transform 0.2s,background 0.2s}
-.btn-secondary:hover{transform:translateY(-2px);background:rgba(249,243,223,0.12)}
-.hero-mockup{margin-top:80px;position:relative;animation:fadeUp 0.8s ease 0.4s both}
-.mockup-placeholder{width:280px;height:560px;background:rgba(249,243,223,0.06);border-radius:40px;border:1px solid rgba(249,243,223,0.1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
-.mockup-placeholder span{font-size:80px}
-.mockup-placeholder p{font-size:13px;opacity:0.4;font-weight:700}
-.stats{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;padding:60px 40px;border-top:1px solid rgba(249,243,223,0.08);border-bottom:1px solid rgba(249,243,223,0.08)}
+.hero-sub{font-size:clamp(16px,2vw,19px);color:var(--muted);line-height:1.75;margin-bottom:36px;max-width:480px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
+.btn-store{display:flex;align-items:center;gap:12px;padding:14px 24px;border-radius:16px;text-decoration:none;font-weight:900;font-size:15px;transition:transform 0.2s,box-shadow 0.2s}
+.btn-store-ios{background:var(--obsidian);color:var(--white);box-shadow:0 4px 20px rgba(11,18,21,0.2)}
+.btn-store-ios:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(11,18,21,0.3)}
+.btn-store-android{background:var(--white);color:var(--text);border:2px solid var(--cream-dark);box-shadow:var(--shadow)}
+.btn-store-android:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--orange)}
+.btn-store-icon{font-size:26px;line-height:1}
+.btn-store-text{display:flex;flex-direction:column;text-align:left}
+.btn-store-sub{font-size:11px;font-weight:400;opacity:0.6;margin-bottom:2px}
+.btn-store-name{font-size:16px;font-weight:900;line-height:1}
+.hero-trust{display:flex;align-items:center;gap:20px;font-size:13px;color:var(--muted);font-weight:600;flex-wrap:wrap}
+.hero-phone-wrap{display:flex;justify-content:center;align-items:center;position:relative}
+.phone-frame{width:280px;border-radius:44px;overflow:hidden;box-shadow:0 24px 80px rgba(28,26,20,0.18),0 0 0 10px rgba(28,26,20,0.06);background:#fff}
+.phone-frame img{width:100%;display:block}
+.phone-glow{position:absolute;inset:-60px;background:radial-gradient(ellipse at center,rgba(255,152,43,0.18) 0%,transparent 65%);pointer-events:none;z-index:-1}
+.stats{background:var(--obsidian);padding:44px 40px;display:flex;justify-content:center;gap:60px;flex-wrap:wrap}
 .stat{text-align:center}
-.stat-num{font-family:'Rammetto One',cursive;font-size:42px;color:var(--orange)}
-.stat-label{font-size:13px;opacity:0.5;margin-top:4px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
-.section{padding:100px 40px;max-width:1100px;margin:0 auto}
-.section-tag{font-size:12px;font-weight:900;color:var(--orange);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
-.section-title{font-family:'Rammetto One',cursive;font-size:clamp(32px,5vw,52px);margin-bottom:60px}
+.stat-num{font-family:'Rammetto One',cursive;font-size:38px;color:var(--orange);line-height:1}
+.stat-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(249,243,223,0.5);margin-top:6px}
+.section{padding:96px 40px;max-width:1100px;margin:0 auto}
+.section-tag{font-size:12px;font-weight:900;color:var(--orange);text-transform:uppercase;letter-spacing:2px;margin-bottom:14px}
+.section-title{font-family:'Rammetto One',cursive;font-size:clamp(28px,4vw,46px);margin-bottom:56px;color:var(--text);line-height:1.12}
 .section-title span{color:var(--orange)}
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-.feature-card{background:rgba(249,243,223,0.04);border:1px solid rgba(249,243,223,0.08);border-radius:24px;padding:32px;transition:transform 0.2s,border-color 0.2s}
-.feature-card:hover{transform:translateY(-4px);border-color:rgba(255,152,43,0.3)}
-.feature-icon{font-size:40px;margin-bottom:20px}
-.feature-title{font-size:20px;font-weight:900;margin-bottom:10px}
-.feature-desc{font-size:14px;opacity:0.6;line-height:1.7}
-.map-section{padding:100px 40px;background:rgba(255,152,43,0.04);border-top:1px solid rgba(255,152,43,0.1);border-bottom:1px solid rgba(255,152,43,0.1)}
-.map-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.map-text p{font-size:16px;opacity:0.7;line-height:1.8;margin-bottom:32px}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.feature-card{background:var(--white);border:1.5px solid var(--cream-dark);border-radius:24px;padding:28px;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s}
+.feature-card:hover{transform:translateY(-3px);border-color:rgba(255,152,43,0.4);box-shadow:var(--shadow-lg)}
+.feature-icon{font-size:38px;margin-bottom:16px}
+.feature-title{font-size:17px;font-weight:900;margin-bottom:8px;color:var(--text)}
+.feature-desc{font-size:14px;color:var(--muted);line-height:1.7}
+.feature-card.soon{opacity:0.55;border-style:dashed}
+.feature-soon-badge{display:inline-block;background:rgba(255,152,43,0.12);color:var(--orange);font-size:11px;font-weight:900;padding:3px 10px;border-radius:99px;margin-top:10px;text-transform:uppercase;letter-spacing:0.5px}
+.screenshots-section{background:var(--obsidian);padding:96px 0;overflow:hidden}
+.screenshots-inner{max-width:1100px;margin:0 auto;padding:0 40px}
+.screenshots-inner .section-title{color:var(--cream)}
+.screens-scroll{display:flex;gap:24px;overflow-x:auto;padding:8px 40px 32px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.screens-scroll::-webkit-scrollbar{display:none}
+.screen-item{flex:none}
+.screen-item img{width:200px;border-radius:32px;box-shadow:0 12px 48px rgba(0,0,0,0.4);border:6px solid rgba(255,255,255,0.06);display:block}
+.screen-label{text-align:center;font-size:12px;font-weight:700;color:rgba(249,243,223,0.4);margin-top:12px;text-transform:uppercase;letter-spacing:1px}
+.map-section{background:var(--cream);border-top:1px solid var(--cream-dark);border-bottom:1px solid var(--cream-dark)}
+.map-inner{max-width:1100px;margin:0 auto;padding:96px 40px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.map-text p{font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:28px}
 .map-pills{display:flex;flex-wrap:wrap;gap:10px}
-.pill{display:flex;align-items:center;gap:8px;background:rgba(249,243,223,0.06);border:1px solid rgba(249,243,223,0.12);border-radius:99px;padding:8px 16px;font-size:13px;font-weight:700}
-.map-img{background:rgba(249,243,223,0.04);border-radius:32px;padding:20px;border:1px solid rgba(249,243,223,0.08);display:flex;align-items:center;justify-content:center;min-height:300px;font-size:80px}
-.community-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.community-card{background:rgba(249,243,223,0.04);border:1px solid rgba(249,243,223,0.08);border-radius:20px;padding:24px}
-.community-avatar{width:44px;height:44px;border-radius:22px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
-.community-user{font-size:13px;font-weight:900;margin-bottom:4px}
-.community-time{font-size:11px;opacity:0.4;margin-bottom:12px}
-.community-text{font-size:14px;opacity:0.7;line-height:1.6}
-.premium-section{padding:100px 40px;text-align:center}
-.premium-card{max-width:600px;margin:0 auto;background:linear-gradient(135deg,rgba(255,215,0,0.1),rgba(255,152,43,0.1));border:1px solid rgba(255,215,0,0.3);border-radius:32px;padding:60px 40px}
-.premium-badge{font-size:60px;margin-bottom:24px}
-.premium-title{font-family:'Rammetto One',cursive;font-size:36px;margin-bottom:16px;color:var(--gold)}
-.premium-desc{font-size:16px;opacity:0.7;margin-bottom:32px;line-height:1.7}
-.premium-features{display:flex;flex-direction:column;gap:12px;text-align:left;margin-bottom:40px}
-.premium-feature{display:flex;align-items:center;gap:12px;font-size:15px}
-.premium-feature::before{content:'✓';color:var(--gold);font-weight:900}
-.btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--obsidian);padding:16px 40px;border-radius:16px;font-weight:900;font-size:16px;text-decoration:none;box-shadow:0 8px 32px rgba(255,215,0,0.3);transition:transform 0.2s}
+.pill{display:flex;align-items:center;gap:7px;background:var(--white);border:1.5px solid var(--cream-dark);border-radius:99px;padding:8px 16px;font-size:13px;font-weight:700;color:var(--text);transition:border-color 0.2s}
+.pill:hover{border-color:var(--orange)}
+.map-visual{background:var(--cream-dark);border-radius:28px;padding:24px;border:1.5px solid rgba(28,26,20,0.06);display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
+.map-pin-row{display:flex;align-items:center;gap:14px;background:var(--white);border-radius:16px;padding:14px 18px;box-shadow:0 2px 8px rgba(28,26,20,0.05)}
+.map-pin-emoji{font-size:22px;width:36px;text-align:center}
+.map-pin-name{font-size:14px;font-weight:900;color:var(--text)}
+.map-pin-sub{font-size:12px;color:var(--muted);margin-top:1px}
+.map-pin-badge{margin-left:auto;font-size:12px;font-weight:700;color:var(--orange)}
+.community-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.community-card{background:var(--white);border:1.5px solid var(--cream-dark);border-radius:20px;padding:22px}
+.community-avatar{width:42px;height:42px;border-radius:21px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.community-user{font-size:13px;font-weight:900;color:var(--text);margin-bottom:3px}
+.community-time{font-size:11px;color:var(--muted);margin-bottom:10px}
+.community-text{font-size:14px;color:var(--text);line-height:1.6;opacity:0.8}
+.premium-section{padding:96px 40px;text-align:center}
+.premium-card{max-width:580px;margin:0 auto;background:linear-gradient(135deg,rgba(255,215,0,0.1),rgba(255,152,43,0.12));border:1.5px solid rgba(255,215,0,0.4);border-radius:32px;padding:56px 40px}
+.premium-badge{font-size:56px;margin-bottom:20px}
+.premium-title{font-family:'Rammetto One',cursive;font-size:32px;margin-bottom:14px;color:var(--obsidian)}
+.premium-desc{font-size:16px;color:var(--muted);margin-bottom:28px;line-height:1.7}
+.premium-features{display:flex;flex-direction:column;gap:11px;text-align:left;margin-bottom:36px}
+.premium-feature{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--text)}
+.premium-feature::before{content:'✓';color:var(--gold);font-weight:900;font-size:16px}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--obsidian);padding:15px 36px;border-radius:16px;font-weight:900;font-size:16px;text-decoration:none;box-shadow:0 6px 28px rgba(255,215,0,0.35);transition:transform 0.2s}
 .btn-gold:hover{transform:translateY(-2px)}
-.download-section{padding:120px 40px;text-align:center;background:radial-gradient(ellipse at center,rgba(255,152,43,0.12) 0%,transparent 70%)}
-.download-title{font-family:'Rammetto One',cursive;font-size:clamp(36px,6vw,64px);margin-bottom:20px}
-.download-sub{font-size:18px;opacity:0.6;margin-bottom:48px}
+.download-section{background:var(--obsidian);padding:120px 40px;text-align:center;position:relative;overflow:hidden}
+.download-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,152,43,0.15) 0%,transparent 65%);pointer-events:none}
+.download-title{font-family:'Rammetto One',cursive;font-size:clamp(32px,5vw,58px);margin-bottom:18px;color:var(--cream)}
+.download-title span{color:var(--orange)}
+.download-sub{font-size:17px;color:rgba(249,243,223,0.55);margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
 .store-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.store-btn{display:flex;align-items:center;gap:14px;background:rgba(249,243,223,0.08);border:1px solid rgba(249,243,223,0.15);border-radius:16px;padding:16px 28px;text-decoration:none;color:var(--cream);transition:transform 0.2s,background 0.2s}
-.store-btn:hover{transform:translateY(-2px);background:rgba(249,243,223,0.12)}
-.store-btn-icon{font-size:32px}
-.store-btn-sub{font-size:11px;opacity:0.5}
-.store-btn-name{font-size:18px;font-weight:900}
-footer{padding:60px 40px 40px;border-top:1px solid rgba(249,243,223,0.08);display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto}
-.footer-brand p{font-size:14px;opacity:0.5;line-height:1.7;max-width:280px;margin-top:12px}
-.footer-col h4{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1px;opacity:0.4;margin-bottom:16px}
-.footer-col a{display:block;font-size:14px;opacity:0.6;text-decoration:none;margin-bottom:10px;transition:opacity 0.2s}
-.footer-col a:hover{opacity:1;color:var(--orange)}
-.footer-bottom{text-align:center;padding:24px 40px;border-top:1px solid rgba(249,243,223,0.06);font-size:12px;opacity:0.3}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:768px){nav{padding:14px 20px}.nav-links{display:none}.section{padding:60px 20px}.map-inner{grid-template-columns:1fr}footer{grid-template-columns:1fr}.stats{gap:32px}}
+.legal-section{padding:48px 40px;max-width:1100px;margin:0 auto}
+footer{background:var(--obsidian);padding:60px 40px 40px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto}
+.footer-brand p{font-size:14px;color:rgba(249,243,223,0.4);line-height:1.7;max-width:260px;margin-top:12px}
+.footer-logo{font-family:'Rammetto One',cursive;font-size:20px;color:var(--cream);text-decoration:none}
+.footer-logo span{color:var(--orange)}
+.footer-col h4{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:rgba(249,243,223,0.3);margin-bottom:14px}
+.footer-col a{display:block;font-size:14px;color:rgba(249,243,223,0.55);text-decoration:none;margin-bottom:9px;transition:color 0.2s}
+.footer-col a:hover{color:var(--orange)}
+.footer-bottom{background:var(--obsidian);text-align:center;padding:20px 40px 32px;font-size:12px;color:rgba(249,243,223,0.25);border-top:1px solid rgba(249,243,223,0.06)}
 [data-lang="en"]{display:none}
 body.en [data-lang="es"]{display:none}
 body.en [data-lang="en"]{display:block}
 span[data-lang="en"]{display:none}
 body.en span[data-lang="es"]{display:none}
 body.en span[data-lang="en"]{display:inline}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-left{animation:fadeUp 0.6s ease both}
+.hero-phone-wrap{animation:fadeUp 0.7s ease 0.15s both}
+@media(max-width:900px){
+  nav{padding:12px 20px}
+  .nav-links{display:none}
+  .highlight-grid{grid-template-columns:1fr!important;gap:40px!important}
+  .highlight-grid>div:last-child{order:-1}
+  .hero{grid-template-columns:1fr;padding:100px 24px 60px;text-align:center;gap:48px}
+  .hero-badge{margin:0 auto 20px}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-btns{justify-content:center}
+  .hero-trust{justify-content:center}
+  .phone-frame{width:220px}
+  .stats{gap:28px;padding:36px 24px}
+  .section{padding:64px 24px}
+  .map-inner{grid-template-columns:1fr;padding:64px 24px}
+  .section-title{margin-bottom:36px}
+  footer{grid-template-columns:1fr;padding:40px 24px 32px}
+  .premium-section{padding:64px 24px}
+  .download-section{padding:80px 24px}
+  .legal-section{padding:32px 24px}
+  .screens-scroll{padding:8px 24px 28px}
+  .screen-item img{width:160px}
+  .screenshots-inner{padding:0 24px}
+}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="#" class="nav-logo">Club Easy<span>Pet</span> 🐾</a>
+<nav id="nav">
+  <a href="#" class="nav-logo"><img src="img/icon.png" alt="Club EasyPet">Club Easy<span>Pet</span></a>
   <ul class="nav-links">
     <li><a href="#features"><span data-lang="es">Funciones</span><span data-lang="en">Features</span></a></li>
     <li><a href="#mapa"><span data-lang="es">Mapa</span><span data-lang="en">Map</span></a></li>
-    <li><a href="#comunidad"><span data-lang="es">Comunidad</span><span data-lang="en">Community</span></a></li>
-    <li><a href="#premium">Premium</a></li>
-    <li><a href="#legal">Legal</a></li>
+    <li><a href="#capturas"><span data-lang="es">App</span><span data-lang="en">App</span></a></li>
+    <li><a href="#premium"><span data-lang="es">Fundadores</span><span data-lang="en">Founders</span></a></li>
   </ul>
-  <div style="display:flex;align-items:center">
-    <a href="#download" class="nav-cta"><span data-lang="es">Descargar</span><span data-lang="en">Download</span></a>
+  <div class="nav-actions">
+    <a href="https://apps.apple.com/us/app/club-easypet/id6768970132" class="nav-cta" target="_blank" rel="noopener"><span data-lang="es">Descargar</span><span data-lang="en">Download</span></a>
     <button class="lang-btn" onclick="toggleLang()">EN / ES</button>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-badge">🐾 <span data-lang="es">La app para dueños de mascotas</span><span data-lang="en">The app for pet owners</span></div>
-  <h1 data-lang="es">Todo lo que<br>necesita tu <span>mascota</span></h1>
-  <h1 data-lang="en">Everything your<br><span>pet</span> needs</h1>
-  <p data-lang="es">Encuentra veterinarios, parques caninos, playas pet-friendly, peluquerías y mucho más cerca de ti. La comunidad perruna más grande de España.</p>
-  <p data-lang="en">Find vets, dog parks, pet-friendly beaches, groomers and much more near you. Spain's largest pet community.</p>
-  <div class="hero-btns">
-    <a href="#download" class="btn-primary">🍎 <span data-lang="es">App Store — Próximamente</span><span data-lang="en">App Store — Coming Soon</span></a>
-    <a href="#download" class="btn-secondary">🤖 Google Play — <span data-lang="es">Próximamente</span><span data-lang="en">Coming Soon</span></a>
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-badge">🐾 <span data-lang="es">La app para dueños de mascotas</span><span data-lang="en">The app for pet owners</span></div>
+    <h1 data-lang="es">Todo lo que<br>necesita tu <span>mascota</span></h1>
+    <h1 data-lang="en">Everything your<br><span>pet</span> needs</h1>
+    <p class="hero-sub" data-lang="es">Más de 8.000 lugares pet-friendly, alertas de clima, racha de paseos, vacunas y una comunidad que ama a los animales tanto como tú.</p>
+    <p class="hero-sub" data-lang="en">Over 8,000 pet-friendly places, weather alerts, walk streaks, vaccines and a community that loves animals as much as you do.</p>
+    <div class="hero-btns">
+      <a href="https://apps.apple.com/us/app/club-easypet/id6768970132" class="btn-store btn-store-ios" target="_blank" rel="noopener">
+        <div class="btn-store-icon">🍎</div>
+        <div class="btn-store-text">
+          <div class="btn-store-sub"><span data-lang="es">Descargar en</span><span data-lang="en">Download on the</span></div>
+          <div class="btn-store-name">App Store</div>
+        </div>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app&pcampaignid=web_share" class="btn-store btn-store-android" target="_blank" rel="noopener">
+        <div class="btn-store-icon">🤖</div>
+        <div class="btn-store-text">
+          <div class="btn-store-sub"><span data-lang="es">Disponible en</span><span data-lang="en">Get it on</span></div>
+          <div class="btn-store-name">Google Play</div>
+        </div>
+      </a>
+    </div>
+    <div class="hero-trust">
+      <span>🆓 <span data-lang="es">Gratis</span><span data-lang="en">Free</span></span>
+      <span>🇪🇸 <span data-lang="es">Toda España</span><span data-lang="en">All Spain</span></span>
+      <span>🐾 8.000+ <span data-lang="es">lugares</span><span data-lang="en">places</span></span>
+    </div>
   </div>
-  <div class="hero-mockup">
-    <div class="mockup-placeholder">
-      <span>🗺️</span>
-      <p data-lang="es">Captura de pantalla próximamente</p>
-      <p data-lang="en">Screenshot coming soon</p>
+  <div class="hero-phone-wrap">
+    <div class="phone-glow"></div>
+    <div class="phone-frame">
+      <img src="img/lobby.jpg" alt="Club EasyPet — Avisos AEMET, racha de paseos y recordatorios" loading="eager">
     </div>
   </div>
 </section>
@@ -136,36 +210,200 @@ body.en span[data-lang="en"]{display:inline}
   <div class="stat"><div class="stat-num">8.000+</div><div class="stat-label"><span data-lang="es">Lugares verificados</span><span data-lang="en">Verified places</span></div></div>
   <div class="stat"><div class="stat-num">🇪🇸</div><div class="stat-label"><span data-lang="es">Toda España</span><span data-lang="en">All Spain</span></div></div>
   <div class="stat"><div class="stat-num">10+</div><div class="stat-label"><span data-lang="es">Categorías</span><span data-lang="en">Categories</span></div></div>
-  <div class="stat"><div class="stat-num">🆓</div><div class="stat-label"><span data-lang="es">Gratis</span><span data-lang="en">Free</span></div></div>
+  <div class="stat"><div class="stat-num">🆓</div><div class="stat-label"><span data-lang="es">Siempre gratis</span><span data-lang="en">Always free</span></div></div>
 </div>
 
 <section class="section" id="features">
   <div class="section-tag">🐾 <span data-lang="es">Funciones</span><span data-lang="en">Features</span></div>
   <h2 class="section-title"><span data-lang="es">Todo lo que <span>necesitas</span></span><span data-lang="en">Everything you <span>need</span></span></h2>
   <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon">🗺️</div><div class="feature-title"><span data-lang="es">Mapa interactivo</span><span data-lang="en">Interactive map</span></div><div class="feature-desc"><span data-lang="es">Encuentra servicios pet-friendly cerca de ti en tiempo real. Filtra por categoría y guarda tus favoritos.</span><span data-lang="en">Find pet-friendly services near you in real time. Filter by category and save your favourites.</span></div></div>
-    <div class="feature-card"><div class="feature-icon">🏥</div><div class="feature-title"><span data-lang="es">Veterinarios 24h</span><span data-lang="en">24h Vets</span></div><div class="feature-desc"><span data-lang="es">Localiza hospitales veterinarios de urgencias abiertos las 24 horas cerca de donde estés.</span><span data-lang="en">Find emergency vet hospitals open 24 hours near your location.</span></div></div>
-    <div class="feature-card"><div class="feature-icon">🐾</div><div class="feature-title"><span data-lang="es">Perfil de mascota</span><span data-lang="en">Pet profile</span></div><div class="feature-desc"><span data-lang="es">Gestiona la salud de tu mascota, vacunas, peso e historial médico todo en un lugar.</span><span data-lang="en">Manage your pet's health, vaccines, weight and medical history all in one place.</span></div></div>
-    <div class="feature-card"><div class="feature-icon">🏖️</div><div class="feature-title"><span data-lang="es">Playas caninas</span><span data-lang="en">Dog beaches</span></div><div class="feature-desc"><span data-lang="es">Más de 150 playas donde tu perro puede bañarse libremente por toda la costa española.</span><span data-lang="en">Over 150 beaches where your dog can swim freely along the Spanish coast.</span></div></div>
-    <div class="feature-card"><div class="feature-icon">📋</div><div class="feature-title"><span data-lang="es">Tablón de anuncios</span><span data-lang="en">Notice board</span></div><div class="feature-desc"><span data-lang="es">Adopciones, paseadores, servicios y más. Conecta con otros dueños de mascotas.</span><span data-lang="en">Adoptions, dog walkers, services and more. Connect with other pet owners.</span></div></div>
-    <div class="feature-card"><div class="feature-icon">🚨</div><div class="feature-title"><span data-lang="es">Alertas de zona</span><span data-lang="en">Area alerts</span></div><div class="feature-desc"><span data-lang="es">Alertas de procesionaria, zonas peligrosas y avisos de la comunidad en tiempo real.</span><span data-lang="en">Pine processionary alerts, danger zones and community warnings in real time.</span></div></div>
-    <div class="feature-card"><div class="feature-icon">🌡️</div><div class="feature-title"><span data-lang="es">Alertas de clima AEMET</span><span data-lang="en">AEMET weather alerts</span></div><div class="feature-desc"><span data-lang="es">Te avisamos cuando el calor extremo, el asfalto peligroso o la lluvia pueden afectar al paseo. Datos oficiales de AEMET.</span><span data-lang="en">We alert you when extreme heat, dangerous pavement or rain could affect your walk. Official AEMET data.</span></div></div>
-    <div class="feature-card"><div class="feature-icon">🔥</div><div class="feature-title"><span data-lang="es">Racha de paseos</span><span data-lang="en">Walk streak</span></div><div class="feature-desc"><span data-lang="es">Registra qué mascotas han salido hoy y mantén tu racha diaria. Selecciona cada mascota por separado.</span><span data-lang="en">Log which pets went out today and keep your daily streak. Select each pet individually.</span></div></div>
-    <div class="feature-card"><div class="feature-icon">💉</div><div class="feature-title"><span data-lang="es">Vacunas y tratamientos</span><span data-lang="en">Vaccines & treatments</span></div><div class="feature-desc"><span data-lang="es">Recibe recordatorios para vacunas, desparasitaciones y cuidados importantes antes de que venzan.</span><span data-lang="en">Get reminders for vaccines, deworming and important care before they're due.</span></div></div>
-    <div class="feature-card"><div class="feature-icon">🎂</div><div class="feature-title"><span data-lang="es">Cumpleaños y fechas</span><span data-lang="en">Birthdays & dates</span></div><div class="feature-desc"><span data-lang="es">No olvides el cumpleaños de tu mascota. Celebración con confeti incluida.</span><span data-lang="en">Never miss your pet's birthday. Confetti celebration included.</span></div></div>
-    <div class="feature-card"><div class="feature-icon">🔔</div><div class="feature-title"><span data-lang="es">Notificaciones inteligentes</span><span data-lang="en">Smart notifications</span></div><div class="feature-desc"><span data-lang="es">Club EasyPet te avisa cuando algo importante ocurre: alertas de zona, recordatorios de vacunas, cumpleaños.</span><span data-lang="en">Club EasyPet alerts you when something important happens: area alerts, vaccine reminders, birthdays.</span></div></div>
-    <div class="feature-card" style="border-color:rgba(255,152,43,0.2)"><div class="feature-icon">📍</div><div class="feature-title"><span data-lang="es">Destacados cerca de ti</span><span data-lang="en">Highlights near you</span></div><div class="feature-desc"><span data-lang="es">Los 5 mejores lugares pet-friendly más cercanos a tu posición, ordenados por distancia y valoración.</span><span data-lang="en">The 5 best pet-friendly places closest to your position, sorted by distance and rating.</span></div></div>
-    <div class="feature-card" style="border-color:rgba(255,152,43,0.1);opacity:0.6"><div class="feature-icon">🛤️</div><div class="feature-title"><span data-lang="es">Rutas de paseo GPS</span><span data-lang="en">GPS walk routes</span> <span style="font-size:11px;color:var(--orange);font-weight:900">(<span data-lang="es">Próximamente</span><span data-lang="en">Coming soon</span>)</span></div><div class="feature-desc"><span data-lang="es">Graba y comparte rutas de paseo con tu mascota. Distancia, duración y mapa incluidos.</span><span data-lang="en">Record and share walk routes with your pet. Distance, duration and map included.</span></div></div>
+    <div class="feature-card">
+      <div class="feature-icon">🗺️</div>
+      <div class="feature-title"><span data-lang="es">Mapa pet-friendly</span><span data-lang="en">Pet-friendly map</span></div>
+      <div class="feature-desc"><span data-lang="es">Más de 8.000 lugares verificados: veterinarios, parques, playas, hoteles, restaurantes y mucho más cerca de ti.</span><span data-lang="en">Over 8,000 verified places: vets, parks, beaches, hotels, restaurants and much more near you.</span></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌡️</div>
+      <div class="feature-title"><span data-lang="es">Alertas de clima AEMET</span><span data-lang="en">AEMET weather alerts</span></div>
+      <div class="feature-desc"><span data-lang="es">Te avisamos cuando el calor extremo, el asfalto peligroso o la lluvia pueden afectar al paseo. Datos oficiales de AEMET.</span><span data-lang="en">We alert you when extreme heat, dangerous pavement or rain could affect your walk. Official AEMET data.</span></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔥</div>
+      <div class="feature-title"><span data-lang="es">Racha de paseos</span><span data-lang="en">Walk streak</span></div>
+      <div class="feature-desc"><span data-lang="es">Registra qué mascotas han salido hoy y mantén tu racha diaria. Selecciona cada mascota por separado.</span><span data-lang="en">Log which pets went out today and keep your daily streak. Select each pet individually.</span></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💉</div>
+      <div class="feature-title"><span data-lang="es">Vacunas y recordatorios</span><span data-lang="en">Vaccines &amp; reminders</span></div>
+      <div class="feature-desc"><span data-lang="es">Recibe recordatorios automáticos para vacunas, desparasitaciones y tratamientos importantes antes de que venzan.</span><span data-lang="en">Get automatic reminders for vaccines, deworming and important treatments before they're due.</span></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎂</div>
+      <div class="feature-title"><span data-lang="es">Cumpleaños y fechas</span><span data-lang="en">Birthdays &amp; dates</span></div>
+      <div class="feature-desc"><span data-lang="es">No olvides el cumpleaños de tu mascota. Club EasyPet lo celebra contigo con confeti incluido.</span><span data-lang="en">Never miss your pet's birthday. Club EasyPet celebrates it with you — confetti included.</span></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔔</div>
+      <div class="feature-title"><span data-lang="es">Notificaciones inteligentes</span><span data-lang="en">Smart notifications</span></div>
+      <div class="feature-desc"><span data-lang="es">Alertas de zona, recordatorios de vacunas, cumpleaños. Siempre informado, sin ruido.</span><span data-lang="en">Area alerts, vaccine reminders, birthdays. Always informed, without noise.</span></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏥</div>
+      <div class="feature-title"><span data-lang="es">Veterinarios 24h</span><span data-lang="en">24h Vets</span></div>
+      <div class="feature-desc"><span data-lang="es">Localiza hospitales veterinarios de urgencias abiertos las 24 horas cerca de donde estés.</span><span data-lang="en">Find emergency vet hospitals open 24 hours near your location at any time.</span></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚨</div>
+      <div class="feature-title"><span data-lang="es">Alertas de comunidad</span><span data-lang="en">Community alerts</span></div>
+      <div class="feature-desc"><span data-lang="es">Alertas de procesionaria, veneno, perros perdidos y zonas peligrosas en tiempo real.</span><span data-lang="en">Pine processionary, poison, lost dogs and danger zone alerts in real time.</span></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📍</div>
+      <div class="feature-title"><span data-lang="es">Destacados cerca de ti</span><span data-lang="en">Highlights near you</span></div>
+      <div class="feature-desc"><span data-lang="es">Los 5 mejores lugares pet-friendly más cercanos a tu posición, ordenados por distancia y valoración.</span><span data-lang="en">The 5 best pet-friendly places closest to you, sorted by distance and rating.</span></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🐾</div>
+      <div class="feature-title"><span data-lang="es">Perfil de mascota</span><span data-lang="en">Pet profile</span></div>
+      <div class="feature-desc"><span data-lang="es">Gestiona la salud de tu mascota, vacunas, peso, chip e historial médico todo en un lugar.</span><span data-lang="en">Manage your pet's health, vaccines, weight, chip and medical history all in one place.</span></div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📋</div>
+      <div class="feature-title"><span data-lang="es">Tablón de anuncios</span><span data-lang="en">Notice board</span></div>
+      <div class="feature-desc"><span data-lang="es">Adopciones, paseadores, servicios y más. Conecta con otros dueños de mascotas de tu zona.</span><span data-lang="en">Adoptions, dog walkers, services and more. Connect with other pet owners in your area.</span></div>
+    </div>
+    <div class="feature-card soon">
+      <div class="feature-icon">🛤️</div>
+      <div class="feature-title"><span data-lang="es">Rutas de paseo GPS</span><span data-lang="en">GPS walk routes</span></div>
+      <div class="feature-desc"><span data-lang="es">Graba y comparte rutas de paseo con tu mascota. Distancia, duración y mapa incluidos.</span><span data-lang="en">Record and share walk routes with your pet. Distance, duration and map included.</span></div>
+      <div class="feature-soon-badge"><span data-lang="es">Próximamente</span><span data-lang="en">Coming soon</span></div>
+    </div>
   </div>
 </section>
+
+<!-- ── CATEGORÍAS CON PINS REALES ──────────────────────────────────────────── -->
+<section style="background:var(--white);padding:80px 40px;border-top:1px solid var(--cream-dark);border-bottom:1px solid var(--cream-dark)">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-tag">📍 <span data-lang="es">Categorías</span><span data-lang="en">Categories</span></div>
+    <h2 class="section-title"><span data-lang="es">14 categorías en el <span>mapa</span></span><span data-lang="en">14 categories on the <span>map</span></span></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:16px">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_own_vet_800.png" alt="Veterinario" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Veterinarios</span><span data-lang="en">Vets</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_hospital.png" alt="Hospital 24h" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Hospital 24h</span><span data-lang="en">24h Hospital</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_park.png" alt="Parque" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Parques</span><span data-lang="en">Parks</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_pipican.png" alt="Pipicán" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Pipicanes</span><span data-lang="en">Dog areas</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/fuente.png" alt="Fuente" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Fuentes</span><span data-lang="en">Fountains</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_beach.png" alt="Playa" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Playas</span><span data-lang="en">Beaches</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_hotel.png" alt="Hotel" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Hoteles</span><span data-lang="en">Hotels</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_pethotel.png" alt="Hotel mascotas" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Hoteles mascota</span><span data-lang="en">Pet hotels</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_cafe.png" alt="Cafetería" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Cafeterías</span><span data-lang="en">Cafés</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_restaurant.png" alt="Restaurante" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Restaurantes</span><span data-lang="en">Restaurants</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_petshop.png" alt="Tienda" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Tiendas</span><span data-lang="en">Shops</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_grooming.png" alt="Peluquería" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Peluquerías</span><span data-lang="en">Groomers</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_mall.png" alt="Centro comercial" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">C. Comerciales</span><span data-lang="en">Malls</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:var(--cream);border-radius:16px;border:1.5px solid var(--cream-dark)">
+        <img src="img/pins/pin_petfriendly.png" alt="Pet-friendly" style="width:48px;height:48px;object-fit:contain">
+        <span style="font-size:12px;font-weight:900;text-align:center;color:var(--text)"><span data-lang="es">Pet-friendly</span><span data-lang="en">Pet-friendly</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AEMET + RACHA DESTACADOS ─────────────────────────────────────────────── -->
+<section style="background:var(--cream);padding:80px 40px">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center" class="highlight-grid">
+    <div>
+      <div class="section-tag">🌡️ <span data-lang="es">Seguridad en el paseo</span><span data-lang="en">Walk safety</span></div>
+      <h2 class="section-title" style="margin-bottom:20px"><span data-lang="es">Clima real, <span>paseos seguros</span></span><span data-lang="en">Real weather, <span>safe walks</span></span></h2>
+      <p style="font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:20px" data-lang="es">Evita pasear cuando el calor o el asfalto puedan ser peligrosos. Club EasyPet te muestra avisos basados en datos oficiales de AEMET para ayudarte a proteger las patas de tu mascota.</p>
+      <p style="font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:20px" data-lang="en">Avoid walking when heat or pavement can be dangerous. Club EasyPet shows you alerts based on official AEMET data to help protect your pet's paws.</p>
+      <p style="font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:20px" data-lang="es">Registra qué mascotas han salido hoy y mantén su <strong style="color:var(--text)">racha diaria</strong>. Ideal para hogares con varios perros, gatos o mascotas.</p>
+      <p style="font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:20px" data-lang="en">Log which pets went out today and keep their <strong style="color:var(--text)">daily streak</strong>. Perfect for homes with multiple dogs, cats or pets.</p>
+      <p style="font-size:16px;color:var(--muted);line-height:1.8" data-lang="es">No olvides vacunas, cumpleaños, desparasitaciones ni fechas importantes. Club EasyPet te avisa cuando toca.</p>
+      <p style="font-size:16px;color:var(--muted);line-height:1.8" data-lang="en">Never miss vaccines, birthdays, deworming or important dates. Club EasyPet alerts you when it's time.</p>
+    </div>
+    <div style="display:flex;justify-content:center">
+      <div class="phone-frame" style="width:240px">
+        <img src="img/lobby.jpg" alt="Avisos AEMET, racha de paseos y recordatorios en Club EasyPet" loading="lazy" style="width:100%;display:block">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="screenshots-section" id="capturas">
+  <div class="screenshots-inner">
+    <div class="section-tag">📱 <span data-lang="es">La app</span><span data-lang="en">The app</span></div>
+    <h2 class="section-title"><span data-lang="es">Así se ve <span>Club EasyPet</span></span><span data-lang="en">This is <span>Club EasyPet</span></span></h2>
+  </div>
+  <div class="screens-scroll">
+    <div class="screen-item">
+      <img src="img/lobby.jpg" alt="Inicio — AEMET, racha de paseos y avisos" loading="lazy">
+      <div class="screen-label"><span data-lang="es">Inicio · Avisos</span><span data-lang="en">Home · Alerts</span></div>
+    </div>
+    <div class="screen-item">
+      <img src="img/mapa.jpg" alt="Mapa con más de 8.000 lugares pet-friendly" loading="lazy">
+      <div class="screen-label"><span data-lang="es">Mapa · 8.000+ lugares</span><span data-lang="en">Map · 8,000+ places</span></div>
+    </div>
+    <div class="screen-item">
+      <img src="img/easy1.png" alt="Inicio — Destacados cerca" loading="lazy">
+      <div class="screen-label"><span data-lang="es">Destacados cerca</span><span data-lang="en">Nearby highlights</span></div>
+    </div>
+    <div class="screen-item">
+      <img src="img/easy2.png" alt="Perfil de mascota" loading="lazy">
+      <div class="screen-label"><span data-lang="es">Perfil mascota</span><span data-lang="en">Pet profile</span></div>
+    </div>
+    <div class="screen-item">
+      <img src="img/easy3.png" alt="Mi mascota" loading="lazy">
+      <div class="screen-label"><span data-lang="es">Mi mascota</span><span data-lang="en">My pet</span></div>
+    </div>
+  </div>
+</div>
 
 <section class="map-section" id="mapa">
   <div class="map-inner">
     <div class="map-text">
       <div class="section-tag">🗺️ <span data-lang="es">El mapa</span><span data-lang="en">The map</span></div>
-      <h2 class="section-title" style="margin-bottom:24px"><span data-lang="es">Más de <span>8.000</span> lugares verificados</span><span data-lang="en">Over <span>8,000</span> verified places</span></h2>
-      <p data-lang="es">Nuestro equipo verifica cada lugar manualmente. Además integramos Google Places para mostrarte miles de servicios actualizados en tiempo real.</p>
-      <p data-lang="en">Our team manually verifies every location. We also integrate Google Places to show thousands of updated services in real time.</p>
+      <h2 class="section-title" style="margin-bottom:20px"><span data-lang="es">Más de <span>8.000</span> lugares verificados</span><span data-lang="en">Over <span>8,000</span> verified places</span></h2>
+      <p data-lang="es">Nuestro equipo verifica cada lugar. Integramos datos de fuentes oficiales para ofrecerte la información más completa de toda España.</p>
+      <p data-lang="en">Our team verifies every location. We integrate data from official sources to give you the most complete information across Spain.</p>
       <div class="map-pills">
         <div class="pill">🌿 <span data-lang="es">Parques</span><span data-lang="en">Parks</span></div>
         <div class="pill">🩺 <span data-lang="es">Veterinarios</span><span data-lang="en">Vets</span></div>
@@ -173,14 +411,17 @@ body.en span[data-lang="en"]{display:inline}
         <div class="pill">✂️ <span data-lang="es">Peluquerías</span><span data-lang="en">Groomers</span></div>
         <div class="pill">🏨 Hotels</div>
         <div class="pill">🍖 <span data-lang="es">Restaurantes</span><span data-lang="en">Restaurants</span></div>
-        <div class="pill">🛒 <span data-lang="es">Tiendas</span><span data-lang="en">Shops</span></div>
-        <div class="pill">🏪 <span data-lang="es">C. Comerciales</span><span data-lang="en">Malls</span></div>
+        <div class="pill">☕ <span data-lang="es">Cafeterías</span><span data-lang="en">Cafés</span></div>
         <div class="pill">💧 <span data-lang="es">Fuentes</span><span data-lang="en">Water fountains</span></div>
         <div class="pill">🐕 <span data-lang="es">Pipicanes</span><span data-lang="en">Dog areas</span></div>
-        <div class="pill">☕ <span data-lang="es">Cafeterías</span><span data-lang="en">Cafés</span></div>
+        <div class="pill">🛒 <span data-lang="es">Tiendas</span><span data-lang="en">Shops</span></div>
       </div>
     </div>
-    <div class="map-img">🗺️</div>
+    <div style="display:flex;justify-content:center">
+      <div class="phone-frame" style="width:260px;border-radius:28px">
+        <img src="img/mapa.jpg" alt="Mapa pet-friendly Club EasyPet con todos los pins reales" loading="lazy" style="width:100%;display:block;border-radius:22px">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -188,53 +429,98 @@ body.en span[data-lang="en"]{display:inline}
   <div class="section-tag">🐶 <span data-lang="es">Comunidad</span><span data-lang="en">Community</span></div>
   <h2 class="section-title"><span data-lang="es">La comunidad <span>perruna</span></span><span data-lang="en">The <span>pet</span> community</span></h2>
   <div class="community-grid">
-    <div class="community-card"><div class="community-avatar">🐕</div><div class="community-user">oscar_perros</div><div class="community-time"><span data-lang="es">Hace 2 horas</span><span data-lang="en">2 hours ago</span></div><div class="community-text"><span data-lang="es">¡Max acaba de descubrir el Parque del Retiro y no quiere salir! 🐾</span><span data-lang="en">Max just discovered El Retiro Park and doesn't want to leave! 🐾</span></div></div>
-    <div class="community-card"><div class="community-avatar">🐱</div><div class="community-user">luna_cat</div><div class="community-time"><span data-lang="es">Hace 5 horas</span><span data-lang="en">5 hours ago</span></div><div class="community-text"><span data-lang="es">Alerta procesionaria en el Monte del Pardo. ¡Mucho cuidado con los paseos! 🚨</span><span data-lang="en">Pine processionary alert in Monte del Pardo. Be very careful on walks! 🚨</span></div></div>
-    <div class="community-card"><div class="community-avatar">🦮</div><div class="community-user">perros_bcn</div><div class="community-time"><span data-lang="es">Ayer</span><span data-lang="en">Yesterday</span></div><div class="community-text"><span data-lang="es">Busco paseador en Barcelona zona Gràcia para Toby, golden de 3 años. 🐕</span><span data-lang="en">Looking for dog walker in Barcelona Gràcia area for Toby, 3-year-old golden. 🐕</span></div></div>
+    <div class="community-card">
+      <div class="community-avatar">🐕</div>
+      <div class="community-user">oscar_perros</div>
+      <div class="community-time"><span data-lang="es">Hace 2 horas</span><span data-lang="en">2 hours ago</span></div>
+      <div class="community-text"><span data-lang="es">¡Max acaba de descubrir el Parque del Retiro y no quiere salir! 🐾</span><span data-lang="en">Max just discovered El Retiro Park and doesn't want to leave! 🐾</span></div>
+    </div>
+    <div class="community-card">
+      <div class="community-avatar">🐱</div>
+      <div class="community-user">luna_cat</div>
+      <div class="community-time"><span data-lang="es">Hace 5 horas</span><span data-lang="en">5 hours ago</span></div>
+      <div class="community-text"><span data-lang="es">🚨 Alerta procesionaria en Monte del Pardo. ¡Mucho cuidado con los paseos!</span><span data-lang="en">🚨 Pine processionary alert in Monte del Pardo. Be very careful on walks!</span></div>
+    </div>
+    <div class="community-card">
+      <div class="community-avatar">🦮</div>
+      <div class="community-user">perros_bcn</div>
+      <div class="community-time"><span data-lang="es">Ayer</span><span data-lang="en">Yesterday</span></div>
+      <div class="community-text"><span data-lang="es">Busco paseador en Barcelona zona Gràcia para Toby, golden de 3 años. 🐕</span><span data-lang="en">Looking for a dog walker in Barcelona Gràcia area for Toby, 3-year-old golden. 🐕</span></div>
+    </div>
   </div>
 </section>
 
 <section class="premium-section" id="premium">
-  <div class="premium-card">
-    <div class="premium-badge">🐾</div>
-    <div class="premium-title">Club EasyPet Premium</div>
-    <p class="premium-desc" data-lang="es">Próximamente. Desbloquea todas las funciones y apoya el desarrollo de la app.</p>
-    <p class="premium-desc" data-lang="en">Coming soon. Unlock all features and support the app's development.</p>
+  <div class="premium-card" style="background:linear-gradient(135deg,rgba(255,152,43,0.1),rgba(255,243,223,0.18));border-color:rgba(255,152,43,0.5);max-width:640px">
+    <div class="premium-badge">🎁</div>
+    <div class="premium-title" data-lang="es">Usuarios Fundadores</div>
+    <div class="premium-title" data-lang="en">Founding Members</div>
+    <p class="premium-desc" data-lang="es">Los primeros <strong style="color:var(--orange)">100 usuarios</strong> recibirán Club EasyPet Premium <strong style="color:var(--orange)">gratis durante 1 año</strong>.</p>
+    <p class="premium-desc" data-lang="en">The first <strong style="color:var(--orange)">100 users</strong> will receive Club EasyPet Premium <strong style="color:var(--orange)">free for 1 year</strong>.</p>
     <div class="premium-features">
-      <div class="premium-feature"><span data-lang="es">Mascotas ilimitadas</span><span data-lang="en">Unlimited pets</span></div>
-      <div class="premium-feature"><span data-lang="es">Favoritos ilimitados</span><span data-lang="en">Unlimited favourites</span></div>
-      <div class="premium-feature"><span data-lang="es">Fotos en comunidad</span><span data-lang="en">Photos in community</span></div>
-      <div class="premium-feature"><span data-lang="es">Chat directo con usuarios</span><span data-lang="en">Direct chat with users</span></div>
-      <div class="premium-feature"><span data-lang="es">Alertas por zona personalizadas</span><span data-lang="en">Personalised area alerts</span></div>
-      <div class="premium-feature"><span data-lang="es">Badge 🐾 dorado en la comunidad</span><span data-lang="en">Golden 🐾 badge in community</span></div>
+      <div class="premium-feature"><span data-lang="es">Gestión avanzada de mascotas</span><span data-lang="en">Advanced pet management</span></div>
+      <div class="premium-feature"><span data-lang="es">Recordatorios y avisos inteligentes</span><span data-lang="en">Smart reminders and alerts</span></div>
+      <div class="premium-feature"><span data-lang="es">Funciones exclusivas de salud y bienestar</span><span data-lang="en">Exclusive health and wellness features</span></div>
+      <div class="premium-feature"><span data-lang="es">Acceso anticipado a nuevas funcionalidades</span><span data-lang="en">Early access to new features</span></div>
+      <div class="premium-feature"><span data-lang="es">Ventajas reservadas para miembros fundadores</span><span data-lang="en">Perks reserved for founding members</span></div>
     </div>
-    <a href="#download" class="btn-gold">🐾 <span data-lang="es">Próximamente — 2,99€/mes</span><span data-lang="en">Coming soon — €2.99/month</span></a>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6" data-lang="es">Forma parte de los primeros usuarios de Club EasyPet y ayúdanos a construir la comunidad pet-friendly más completa de España.</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6" data-lang="en">Join the first users of Club EasyPet and help us build Spain's most complete pet-friendly community.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="https://apps.apple.com/us/app/club-easypet/id6768970132" class="btn-store btn-store-ios" target="_blank" rel="noopener" style="padding:14px 24px">
+        <div class="btn-store-icon">🍎</div>
+        <div class="btn-store-text">
+          <div class="btn-store-sub"><span data-lang="es">Descargar en</span><span data-lang="en">Download on the</span></div>
+          <div class="btn-store-name">App Store</div>
+        </div>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app&pcampaignid=web_share" class="btn-store btn-store-android" target="_blank" rel="noopener" style="padding:14px 24px">
+        <div class="btn-store-icon">🤖</div>
+        <div class="btn-store-text">
+          <div class="btn-store-sub"><span data-lang="es">Disponible en</span><span data-lang="en">Get it on</span></div>
+          <div class="btn-store-name">Google Play</div>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
 <section class="download-section" id="download">
-  <h2 class="download-title" data-lang="es">Descarga Club EasyPet</h2>
-  <h2 class="download-title" data-lang="en">Download Club EasyPet</h2>
-  <p class="download-sub" data-lang="es">Disponible próximamente en App Store y Google Play</p>
-  <p class="download-sub" data-lang="en">Coming soon on App Store and Google Play</p>
+  <h2 class="download-title" data-lang="es">Descarga <span>Club EasyPet</span></h2>
+  <h2 class="download-title" data-lang="en">Download <span>Club EasyPet</span></h2>
+  <p class="download-sub" data-lang="es">Disponible ahora en App Store y Google Play. Gratis para siempre.</p>
+  <p class="download-sub" data-lang="en">Available now on App Store and Google Play. Free forever.</p>
   <div class="store-btns">
-    <a href="#" class="store-btn"><div class="store-btn-icon">🍎</div><div class="store-btn-text"><div class="store-btn-sub"><span data-lang="es">Próximamente en</span><span data-lang="en">Coming soon on</span></div><div class="store-btn-name">App Store</div></div></a>
-    <a href="#" class="store-btn"><div class="store-btn-icon">🤖</div><div class="store-btn-text"><div class="store-btn-sub"><span data-lang="es">Próximamente en</span><span data-lang="en">Coming soon on</span></div><div class="store-btn-name">Google Play</div></div></a>
+    <a href="https://apps.apple.com/us/app/club-easypet/id6768970132" class="btn-store btn-store-ios" target="_blank" rel="noopener" style="padding:16px 28px">
+      <div class="btn-store-icon">🍎</div>
+      <div class="btn-store-text">
+        <div class="btn-store-sub"><span data-lang="es">Descargar en</span><span data-lang="en">Download on the</span></div>
+        <div class="btn-store-name">App Store</div>
+      </div>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.clubeasypet.app&pcampaignid=web_share" class="btn-store" target="_blank" rel="noopener" style="padding:16px 28px;background:rgba(249,243,223,0.08);color:#F9F3DF;border:2px solid rgba(249,243,223,0.18);border-radius:16px">
+      <div class="btn-store-icon">🤖</div>
+      <div class="btn-store-text">
+        <div class="btn-store-sub" style="color:rgba(249,243,223,0.5)"><span data-lang="es">Disponible en</span><span data-lang="en">Get it on</span></div>
+        <div class="btn-store-name">Google Play</div>
+      </div>
+    </a>
   </div>
 </section>
 
-<section class="section" id="legal" style="padding-top:60px;padding-bottom:60px">
+<section class="legal-section" id="legal">
   <div class="section-tag">📋 Legal</div>
-  <div style="display:flex;gap:16px;flex-wrap:wrap">
-    <a href="privacy.html" style="color:var(--orange);font-weight:700;font-size:14px">🔒 <span data-lang="es">Política de Privacidad</span><span data-lang="en">Privacy Policy</span></a>
-    <a href="terms.html" style="color:var(--orange);font-weight:700;font-size:14px">📋 <span data-lang="es">Términos y Condiciones</span><span data-lang="en">Terms & Conditions</span></a>
-    <a href="mailto:tekilavillalobos@gmail.com" style="color:var(--orange);font-weight:700;font-size:14px">✉️ hola@clubeasypet.com</a>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:8px">
+    <a href="privacy.html" style="color:var(--orange);font-weight:700;font-size:14px;text-decoration:none">🔒 <span data-lang="es">Política de Privacidad</span><span data-lang="en">Privacy Policy</span></a>
+    <a href="terms.html" style="color:var(--orange);font-weight:700;font-size:14px;text-decoration:none">📋 <span data-lang="es">Términos y Condiciones</span><span data-lang="en">Terms &amp; Conditions</span></a>
+    <a href="legal.html" style="color:var(--orange);font-weight:700;font-size:14px;text-decoration:none">⚖️ <span data-lang="es">Aviso Legal</span><span data-lang="en">Legal Notice</span></a>
+    <a href="mailto:tekilavillalobos@gmail.com" style="color:var(--orange);font-weight:700;font-size:14px;text-decoration:none">✉️ hola@clubeasypet.com</a>
   </div>
 </section>
 
 <footer>
   <div class="footer-brand">
-    <a href="#" class="nav-logo">Club Easy<span>Pet</span> 🐾</a>
+    <a href="#" class="footer-logo">Club Easy<span>Pet</span> 🐾</a>
     <p data-lang="es">La app para dueños de mascotas. Encuentra todo lo que necesitas cerca de ti.</p>
     <p data-lang="en">The app for pet owners. Find everything you need near you.</p>
   </div>
@@ -242,13 +528,15 @@ body.en span[data-lang="en"]{display:inline}
     <h4>App</h4>
     <a href="#features"><span data-lang="es">Funciones</span><span data-lang="en">Features</span></a>
     <a href="#mapa"><span data-lang="es">Mapa</span><span data-lang="en">Map</span></a>
+    <a href="#capturas"><span data-lang="es">Capturas</span><span data-lang="en">Screenshots</span></a>
     <a href="#premium">Premium</a>
     <a href="#download"><span data-lang="es">Descargar</span><span data-lang="en">Download</span></a>
   </div>
   <div class="footer-col">
     <h4>Legal</h4>
     <a href="privacy.html"><span data-lang="es">Privacidad</span><span data-lang="en">Privacy</span></a>
-    <a href="terms.html"><span data-lang="es">Términos</span><span data-lang="en">Terms</span></div>
+    <a href="terms.html"><span data-lang="es">Términos</span><span data-lang="en">Terms</span></a>
+    <a href="legal.html"><span data-lang="es">Aviso Legal</span><span data-lang="en">Legal Notice</span></a>
     <a href="mailto:tekilavillalobos@gmail.com">Contacto</a>
   </div>
 </footer>
@@ -256,7 +544,15 @@ body.en span[data-lang="en"]{display:inline}
 
 <script>
 function toggleLang(){document.body.classList.toggle('en')}
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const el=document.querySelector(a.getAttribute('href'));if(el)el.scrollIntoView({behavior:'smooth'})})})
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20)
+})
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(a.getAttribute('href'))
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+  })
+})
 </script>
 </body>
 </html>
