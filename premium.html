@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium — Club EasyPet</title>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Overpass', sans-serif; background: #0B1215; color: #F9F3DF; }
+
+  .hero { text-align: center; padding: 80px 24px 60px; background: linear-gradient(180deg, rgba(255,152,43,0.08) 0%, transparent 100%); }
+  .hero-badge { display: inline-block; background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); color: #FFD700; padding: 8px 20px; border-radius: 99px; font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+  .hero h1 span { color: #FF982B; }
+  .hero p { font-size: 18px; opacity: 0.6; max-width: 500px; margin: 0 auto 40px; line-height: 1.6; }
+  .price-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .price-card { background: rgba(249,243,223,0.05); border: 1px solid rgba(249,243,223,0.1); border-radius: 20px; padding: 24px 32px; text-align: center; min-width: 180px; }
+  .price-card.featured { border-color: #FF982B; background: rgba(255,152,43,0.08); }
+  .price-card .amount { font-size: 40px; font-weight: 900; color: #FF982B; }
+  .price-card .period { font-size: 14px; opacity: 0.5; margin-top: 4px; }
+  .price-card .save { background: #4CAF50; color: #fff; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: 99px; margin-top: 8px; display: inline-block; }
+  .cta-btn { display: inline-block; background: #FF982B; color: #0B1215; font-weight: 900; font-size: 16px; padding: 18px 40px; border-radius: 14px; text-decoration: none; margin-top: 24px; box-shadow: 0 8px 32px rgba(255,152,43,0.3); }
+  .free-note { font-size: 12px; opacity: 0.3; margin-top: 12px; }
+
+  .compare { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+  .compare h2 { font-size: 32px; font-weight: 900; text-align: center; margin-bottom: 40px; }
+  .compare-table { width: 100%; border-collapse: collapse; }
+  .compare-table th { padding: 16px; text-align: center; font-size: 15px; }
+  .compare-table th.feature-col { text-align: left; }
+  .compare-table th.premium-col { color: #FFD700; }
+  .compare-table td { padding: 14px 16px; border-bottom: 1px solid rgba(249,243,223,0.06); font-size: 14px; }
+  .compare-table td.feature-col { opacity: 0.8; }
+  .compare-table td.center { text-align: center; }
+  .compare-table tr:hover td { background: rgba(249,243,223,0.02); }
+  .check { color: #4CAF50; font-size: 18px; font-weight: 900; }
+  .cross { color: rgba(249,243,223,0.2); font-size: 18px; }
+  .highlight { color: #FF982B; font-weight: 700; }
+  .category { font-size: 11px; font-weight: 900; letter-spacing: 2px; opacity: 0.3; text-transform: uppercase; padding: 20px 16px 8px; }
+
+  .faq { max-width: 700px; margin: 0 auto; padding: 0 24px 80px; }
+  .faq h2 { font-size: 28px; font-weight: 900; text-align: center; margin-bottom: 32px; }
+  .faq-item { background: rgba(249,243,223,0.04); border-radius: 14px; padding: 20px 24px; margin-bottom: 12px; }
+  .faq-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #FF982B; }
+  .faq-item p { font-size: 14px; opacity: 0.6; line-height: 1.6; }
+
+  @media (max-width: 600px) {
+    .compare-table th, .compare-table td { padding: 10px 8px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">✨ Club EasyPet Premium</div>
+  <h1>La experiencia completa<br><span>para ti y tu mascota</span></h1>
+  <p>Desbloquea todas las funciones y cuida a tu compañero como merece.</p>
+
+  <div class="price-row">
+    <div class="price-card">
+      <div class="amount">2,99€</div>
+      <div class="period">al mes</div>
+    </div>
+    <div class="price-card featured">
+      <div class="amount">24,99€</div>
+      <div class="period">al año</div>
+      <div class="save">7 días gratis</div>
+    </div>
+  </div>
+
+  <a href="https://clubeasypet.com" class="cta-btn">🐾 Empezar prueba gratuita — 7 días</a>
+  <p class="free-note">Sin tarjeta de crédito. Cancela cuando quieras.</p>
+</div>
+
+<!-- COMPARATIVA -->
+<div class="compare">
+  <h2>¿Qué incluye cada plan?</h2>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th class="feature-col">Función</th>
+        <th>🆓 Gratis</th>
+        <th class="premium-col">👑 Premium</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="feature-col category" colspan="3">🐾 MASCOTAS</td></tr>
+      <tr>
+        <td class="feature-col">Número de mascotas</td>
+        <td class="center highlight">1</td>
+        <td class="center highlight">Ilimitadas</td>
+      </tr>
+      <tr>
+        <td class="feature-col">Perfil completo</td>
+        <td class="center"><span class="check">✓</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">Historial médico</td>
+        <td class="center"><span class="check">✓</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">Peso y Talla</td>
+        <td class="center"><span class="check">✓</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">📄 Documentos (cartilla, chip, seguro)</td>
+        <td class="center"><span class="cross">✕</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+
+      <tr><td class="feature-col category" colspan="3">🔔 NOTIFICACIONES</td></tr>
+      <tr>
+        <td class="feature-col">💉 Recordatorios de vacunas</td>
+        <td class="center"><span class="cross">✕</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">🎂 Recordatorio de cumpleaños</td>
+        <td class="center"><span class="cross">✕</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">🆘 Alerta mascota perdida</td>
+        <td class="center"><span class="cross">✕</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+
+      <tr><td class="feature-col category" colspan="3">🗺️ MAPA Y LUGARES</td></tr>
+      <tr>
+        <td class="feature-col">Mapa con 4.200+ lugares</td>
+        <td class="center"><span class="check">✓</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">Guardar favoritos</td>
+        <td class="center"><span class="check">✓</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">📁 Carpetas de favoritos</td>
+        <td class="center"><span class="cross">✕</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+
+      <tr><td class="feature-col category" colspan="3">🚨 COMUNIDAD</td></tr>
+      <tr>
+        <td class="feature-col">Ver alertas de la comunidad</td>
+        <td class="center"><span class="check">✓</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">📸 Publicar con fotos</td>
+        <td class="center"><span class="cross">✕</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">Ver tablón de anuncios</td>
+        <td class="center"><span class="check">✓</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+
+      <tr><td class="feature-col category" colspan="3">⭐ EXTRAS PREMIUM</td></tr>
+      <tr>
+        <td class="feature-col">🏷️ Promociones y descuentos exclusivos</td>
+        <td class="center"><span class="cross">✕</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">🚫 Sin anuncios</td>
+        <td class="center"><span class="cross">✕</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">💬 Soporte prioritario (respuesta &lt;24h)</td>
+        <td class="center"><span class="cross">✕</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td class="feature-col">🌍 5 idiomas (ES/EN/FR/DE/IT)</td>
+        <td class="center"><span class="check">✓</span></td>
+        <td class="center"><span class="check">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- FAQ -->
+<div class="faq">
+  <h2>Preguntas frecuentes</h2>
+  <div class="faq-item">
+    <h3>¿Cómo funciona la prueba gratuita?</h3>
+    <p>Tienes 7 días para probar Premium sin coste. Si no cancelas antes, se activa la suscripción mensual automáticamente.</p>
+  </div>
+  <div class="faq-item">
+    <h3>¿Puedo cancelar en cualquier momento?</h3>
+    <p>Sí. Cancela desde App Store o Google Play sin permanencia ni penalización.</p>
+  </div>
+  <div class="faq-item">
+    <h3>¿Cómo se procesan los pagos?</h3>
+    <p>A través de Apple App Store o Google Play. No almacenamos datos de pago.</p>
+  </div>
+  <div class="faq-item">
+    <h3>¿Qué pasa con mis datos si cancelo?</h3>
+    <p>Tus mascotas y datos se conservan. Solo pierdes el acceso a las funciones Premium.</p>
+  </div>
+  <div class="faq-item">
+    <h3>¿Hay descuento para el plan anual?</h3>
+    <p>Sí. Con el plan anual pagas 24,99€ en vez de 35,88€ — ahorras el equivalente a 2 meses, además de 7 días gratis al suscribirte.</p>
+  </div>
+</div>
+
+</body>
+</html>
